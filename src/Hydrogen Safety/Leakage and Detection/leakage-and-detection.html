@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leakage and Detection</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+                { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+                { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+                { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+                { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety',
+              content: [
+                { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+                { text: 'Leakage and Detection', url: '#' },
+                { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+                { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+                { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+                { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+                { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+                { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Through Electrolysis',
+              content: [
+                { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+                { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+                { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+                { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+                { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+                { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+                { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+                { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+                { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+                { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+                { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+                { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+                { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+                { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+                { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+                { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+                { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+                { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+                { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+                { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+                { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+                { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+                { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+                { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+                { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+                { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+                { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+                { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+                { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+                { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+                { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+                { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+                { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                  :class="activeAccordion === index ? 'block' : 'hidden'">
+                  <div class="overflow-hidden flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+ 
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Leakage and Detection
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <div>
+          <img src="../../assets/Leakage and Detection.jpg" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]"  /></div>
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Hydrogen is a colorless, odorless, and tasteless gas, making it particularly challenging to detect in the
+              event of a leak. Unlike many other gases, hydrogen does not have a distinctive smell or color, which means
+              that people working with or around hydrogen may not be able to detect its presence without specialized
+              equipment. This characteristic is particularly problematic in both industrial and transport settings where
+              hydrogen is used as an energy source, especially given the significant safety risks associated with its
+              flammability and explosiveness. Even small leaks of hydrogen gas can lead to dangerous conditions, as
+              hydrogen has a wide flammability range and can form explosive mixtures with air. This makes it crucial to
+              have effective leak detection systems in place to prevent accidents and ensure safe handling,
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                storage, and transport of hydrogen.
+
+                <br></br>
+                One of the main challenges with hydrogen leaks is that hydrogen molecules are significantly smaller and
+                lighter than those of many other gases. As a result, hydrogen can easily escape through tiny openings,
+                cracks, or imperfections in storage tanks, pipelines, valves, and other parts of hydrogen
+                infrastructure. The small molecular size of hydrogen means that it can seep through seals and gaskets
+                that might otherwise prevent the escape of larger molecules. This can pose a major risk in storage and
+                transportation systems where even minute leaks can lead to the buildup of dangerous concentrations of
+                hydrogen gas. The potential for leakage increases if the storage and transport systems are not properly
+                maintained or if the materials used in the infrastructure are not designed to handle hydrogen’s unique
+                characteristics. These small leaks can accumulate over time, creating hazardous conditions that may lead
+                to fires or explosions if ignited.
+                <br></br>
+
+                To mitigate these risks, the implementation of advanced leak detection technologies is essential. The
+                primary goal of these technologies is to detect the presence of hydrogen gas at very low concentrations
+                before it reaches a dangerous level. A range of different sensor types can be used to detect hydrogen
+                leaks, with each offering specific benefits depending on the environment and application. One of the
+                most commonly used types of sensors for detecting hydrogen is the electrochemical sensor. These sensors
+                work by reacting with the hydrogen in the air, producing a measurable electrical current. The magnitude
+                of the current is directly related to the concentration of hydrogen, allowing the sensor to quantify the
+                amount of gas present. Electrochemical sensors are highly sensitive, making them effective in detecting
+                even trace amounts of hydrogen in the air. They can be used in a wide range of applications, from
+                monitoring the safety of hydrogen storage tanks to ensuring that hydrogen refueling stations are free
+                from leaks.
+                <br></br>
+
+                Another type of sensor commonly used for hydrogen detection is the catalytic sensor. These sensors
+                detect hydrogen through a chemical reaction in which hydrogen gas interacts with a catalyst on the
+                sensor surface. This reaction produces heat, which can be measured and used to estimate the
+                concentration of hydrogen in the air. Catalytic sensors are also sensitive to small amounts of hydrogen
+                and are particularly useful in environments where rapid changes in hydrogen concentrations can occur,
+                such as during hydrogen fueling operations or in areas with high hydrogen throughput. While they are
+                often used in industrial applications, catalytic sensors require careful calibration and maintenance to
+                ensure their accuracy over time.
+                <br></br>
+                In addition to electrochemical and catalytic sensors, other technologies, such as metal oxide
+                semiconductor sensors, are also used for detecting hydrogen leaks. Metal oxide sensors are based on the
+                principle that hydrogen gas reacts with a metal oxide surface, causing a change in the electrical
+                resistance of the sensor. This change can be measured and used to determine the presence and
+                concentration of hydrogen. These sensors are often used in portable devices for detecting hydrogen in
+                confined spaces or for use in industrial applications where the detection of leaks is crucial. While
+                metal oxide sensors are effective, they can be more susceptible to interference from other gases, so
+                they must be carefully calibrated and placed strategically in areas where hydrogen is used.
+                <br></br>
+
+                Regardless of the sensor type, it is essential to place these detection systems in strategic locations
+                to ensure the early detection of hydrogen leaks. One of the most critical areas for monitoring is
+                hydrogen storage facilities. Hydrogen gas is often stored under high pressure in cylinders or large
+                tanks, and the integrity of these storage systems must be closely monitored to prevent leaks. Leaks from
+                storage tanks can lead to dangerous accumulations of hydrogen, especially in enclosed or poorly
+                ventilated areas. By placing hydrogen sensors near storage tanks, facilities can detect leaks early and
+                take immediate action to prevent the spread of gas, such as activating ventilation systems or triggering
+                alarms to evacuate personnel.
+                <br></br>
+
+
+                Another critical location for hydrogen leak detection is at refueling stations, where hydrogen is
+                dispensed into vehicles or other storage systems. Refueling stations often involve high-pressure systems
+                and can experience rapid fluctuations in gas flow, increasing the risk of leaks. Sensors in these areas
+                can detect leaks during the refueling process and prevent the gas from accumulating to dangerous levels.
+                Additionally, sensors placed near refueling stations can detect hydrogen leaks in the surrounding
+                environment, ensuring that any gas escaping from the fueling infrastructure is promptly identified and
+                addressed.
+                <br></br>
+
+
+
+                In addition to sensor placement, it is equally important to maintain regular inspection and maintenance
+                of hydrogen systems. Hydrogen infrastructure, including storage tanks, pipelines, valves, and
+                connectors, must be inspected regularly to identify potential sources of leaks before they occur. Over
+                time, seals and gaskets can degrade, and corrosion can weaken metal components, leading to the formation
+                of small cracks or holes. Regular inspections can identify these issues early, allowing for repairs or
+                replacements to be made before leaks develop. Inspections should also include checking for any signs of
+                wear or damage to the hydrogen sensors themselves, as well as ensuring that they are properly calibrated
+                to detect hydrogen at the appropriate concentrations.
+                <br></br>
+
+                Regular maintenance and testing are crucial not only for ensuring the safety of hydrogen systems but
+                also for maintaining the reliability of the detection systems. Sensors require routine calibration to
+                ensure that they remain accurate over time. Without proper calibration, sensors may fail to detect leaks
+                or provide false readings, which could lead to unsafe conditions. In some cases, sensors may need to be
+                replaced after a certain period of use or if they show signs of degradation. As such, maintenance
+                procedures should include the testing of all components of the hydrogen system, from the storage tanks
+                and pipelines to the sensors and alarm systems. This ongoing commitment to maintenance and safety helps
+                to prevent leaks, ensuring the continued safe operation of hydrogen infrastructure.
+                <br></br>
+
+                In addition to maintaining physical systems, it is also vital to have contingency plans and emergency
+                procedures in place to address potential hydrogen leaks and ensure the safety of personnel and nearby
+                communities. This includes training workers on how to respond to hydrogen leaks, evacuating personnel
+                when necessary, and having access to emergency shutdown systems that can isolate a leak and prevent
+                further hydrogen release. Emergency response teams should be well-versed in the specific hazards posed
+                by hydrogen and be equipped with the proper protective gear to handle any incidents safely. These plans
+                should be regularly reviewed, updated, and practiced through drills to ensure that all personnel are
+                prepared to act quickly and effectively in the event of a hydrogen leak.
+                <br></br>
+                In conclusion, hydrogen's colorless, odorless, and flammable nature makes the detection of leaks a
+                significant safety challenge. However, with the use of advanced leak detection technologies, proper
+                sensor placement, and regular maintenance, the risks associated with hydrogen leaks can be effectively
+                managed. Ensuring that hydrogen systems are monitored for leaks at strategic locations, including
+                storage areas and refueling stations, is key to preventing accidents and ensuring the safety of workers
+                and the surrounding environment. By integrating these technologies into comprehensive safety protocols,
+                the hydrogen industry can minimize the risks of leaks and ensure the safe, reliable use of hydrogen as
+                an energy source. As hydrogen use continues to grow in industrial and transport applications,
+                implementing these safety measures will be essential to realizing its potential as a clean, sustainable
+                energy solution.
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

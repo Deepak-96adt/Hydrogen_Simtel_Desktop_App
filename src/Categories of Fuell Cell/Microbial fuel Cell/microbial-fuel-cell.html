@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microbial Fuel Cell</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+                { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+                { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+                { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+                { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety',
+              content: [
+                { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+                { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+                { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+                { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+                { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+                { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+                { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+                { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Through Electrolysis',
+              content: [
+                { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+                { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+                { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+                { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+                { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+                { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+                { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+                { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+                { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+                { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+                { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+                { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+                { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+                { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+                { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+                { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+                { text: 'Microbial Fuel Cell', url: '#' },
+                { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+                { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+                { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+                { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+                { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+                { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+                { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+                { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+                { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+                { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+                { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+                { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+                { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+                { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+                { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+                { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                  :class="activeAccordion === index ? 'block' : 'hidden'">
+                  <div class="overflow-hidden flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Microbial Fuel Cell
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <img src="../../assets/Microbial_fuelcell.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Microbial Fuel Cells (MFCs) represent an exciting and innovative area of research within the field of
+              bio-electrochemical systems. This technology harnesses the natural metabolic processes of microorganisms
+              to directly convert organic matter into electrical energy. The working principle of MFCs is based on the
+              fact that certain microorganisms, through their natural biological processes, are capable of metabolizing
+              organic materials, such as wastewater or biomass, to release electrons and protons as byproducts. These
+              microorganisms, primarily bacteria, break down complex organic compounds into simpler molecules as part of
+              their metabolic activity, a process that naturally generates electrons and protons. The electrons flow
+              through an external circuit to the cathode, where they combine
+              <br>
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                with oxygen and protons to form water, while the protons pass through a membrane to
+                complete the circuit.
+                <br></br>
+                The overall chemical reaction in a Microbial Fuel Cell is:
+                <br>
+                <span style="font-weight: bold; ">
+                  Organic matter (CH<sub>2</sub>O) + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O + electricity
+
+                </span>
+                </br>
+                At the anode:
+                <br>
+                <span style="font-weight: bold; ">
+                  Organic matter (CH<sub>2</sub>O) + H<sub>2</sub>O → CO<sub>2</sub> + 4H<sup>+</sup> + 4e<sup>-</sup>
+
+                </span>
+                </br>
+                At the cathode:
+                <br>
+                <span style="font-weight: bold; ">
+                  O<sub>2</sub> + 4H<sup>+</sup> + 4e<sup>-</sup> → 2H<sub>2</sub>O
+
+                </span>
+                </br>
+                <br>
+                MFCs are typically designed with two compartments: the anode chamber, where microorganisms break down
+                organic matter and produce electrons, and the cathode chamber, where oxygen is reduced and the
+                electricity is generated. A proton exchange membrane (PEM) or an anion exchange membrane is placed
+                between the anode and cathode to allow protons to move between the two chambers. This membrane serves as
+                an essential part of the MFC as it facilitates the movement of protons and prevents mixing of the anode
+                and cathode solutions, ensuring the reaction takes place efficiently. The external circuit between the
+                anode and cathode is where the generated electricity is harvested for practical use.
+                <br></br>
+                The key advantage of MFCs lies in their ability to operate at ambient temperatures, making them
+                particularly suitable for a wide range of applications. MFCs can be deployed in environments that are
+                not typically conducive to traditional energy production, such as wastewater treatment plants, remote
+                off-grid locations, or waste management facilities. This ambient temperature operation reduces the need
+                for additional heating or cooling systems, making MFCs an energy-efficient and low-cost technology. For
+                example, wastewater treatment facilities, which produce large amounts of organic waste, can use MFCs to
+                treat this waste while simultaneously generating electricity. This dual-purpose functionality not only
+                helps reduce the environmental impact of wastewater treatment but also provides a renewable energy
+                source.
+                <br></br>
+                One of the most promising aspects of MFCs is their potential to treat wastewater while producing
+                electricity, creating a circular economy approach. Wastewater contains organic contaminants that require
+                treatment before being released back into the environment. Typically, this treatment requires
+                significant energy input. MFCs address this problem by using the organic content in wastewater as fuel,
+                generating electricity in the process. As wastewater treatment plants are large energy consumers, MFCs
+                could help offset some of the energy costs associated with their operation, improving the overall
+                sustainability of water treatment processes. The potential for MFCs to generate renewable electricity
+                while simultaneously treating waste is particularly beneficial for regions with limited access to
+                reliable electricity, as it allows for decentralized power generation while addressing local
+                environmental concerns.
+                <br></br>
+                MFCs also hold promise in the field of biosensing. The ability of MFCs to generate electricity in
+                response to specific organic compounds or pollutants makes them suitable for environmental monitoring
+                and detection. For example, MFCs could be used to detect the presence of toxic substances or pathogens
+                in water, providing real-time data that could help improve public health outcomes. The application of
+                MFCs as biosensors could extend beyond water quality monitoring to areas like air pollution detection,
+                food safety, and even biodefense. As the world faces increasing environmental and health challenges, the
+                role of MFCs in providing low-cost, efficient, and sustainable monitoring solutions could be crucial.
+                <br></br>
+                Another area where MFCs show significant potential is in the development of waste-to-energy systems. As
+                organic waste continues to pile up globally, finding efficient ways to convert it into valuable energy
+                is becoming increasingly important. MFCs offer a sustainable solution by utilizing organic waste as a
+                resource for electricity production. This includes not only wastewater but also other types of organic
+                waste, such as agricultural residues, food waste, and even landfill leachate. By integrating MFCs into
+                waste management systems, it would be possible to reduce the need for landfilling or incineration, both
+                of which have environmental impacts. Additionally, as society seeks to shift toward a more circular
+                economy, MFCs can play a pivotal role in reducing the carbon footprint of waste disposal while
+                simultaneously providing energy.
+                <br></br>
+                Despite their promise, there are several challenges that must be addressed before MFCs can be widely
+                deployed. One of the primary obstacles is the relatively low power output of MFCs. Currently, the
+                electricity generated by MFCs is relatively small in scale, which limits their use to small
+                applications, such as powering sensors or low-energy devices. The energy produced is not yet sufficient
+                to meet the demands of large-scale power generation or to replace traditional energy sources.
+                Researchers are actively investigating ways to improve the efficiency of the microbial processes
+                involved and optimize the conditions for microbial growth. This includes selecting and engineering more
+                powerful microorganisms, improving the electrode materials to facilitate better electron transfer, and
+                developing new designs that maximize the surface area of the anode and cathode. The ultimate goal is to
+                increase the power output of MFCs to make them viable for more energy-demanding applications.
+                <br></br>
+                Scalability is another significant challenge for MFCs. While the technology works well on a small scale,
+                scaling up to meet the energy demands of larger applications presents difficulties. As the size of the
+                MFC system increases, it becomes more challenging to maintain optimal microbial activity and ensure that
+                the system remains efficient. One issue is ensuring that the microbial population in the anode chamber
+                has access to enough nutrients to support their metabolic processes. In larger systems, maintaining the
+                right balance of microorganisms, organic material, and oxygen can become increasingly complex.
+                Additionally, it is important to ensure that scaling up does not lead to the degradation of the
+                materials used in the fuel cell, such as the electrodes and membranes. Researchers are exploring ways to
+                design larger MFC systems that can accommodate these challenges, including using more robust materials,
+                optimizing system designs, and improving microbial strain selection.
+                <br></br>
+                The cost of materials used in MFCs is another hurdle to large-scale implementation. While the
+                microorganisms themselves are relatively inexpensive, the electrodes, membranes, and other components of
+                the fuel cell often require specialized materials, such as precious metals or advanced polymers, which
+                can increase the overall cost of the system. The cost of these materials is a limiting factor for
+                commercial viability. However, as the technology continues to develop, researchers are investigating
+                cheaper alternatives, such as carbon-based electrodes, bio-derived catalysts, and lower-cost membrane
+                materials. Reducing the cost of MFCs is critical to ensuring that they can be implemented on a larger
+                scale and provide a commercially competitive alternative to other forms of renewable energy generation.
+                <br></br>
+                Despite these challenges, the potential benefits of MFCs are significant, and continued research into
+                improving their performance, scalability, and cost-effectiveness could make them a key player in the
+                future energy landscape. MFCs represent an innovative and sustainable solution to some of the most
+                pressing global challenges, including waste management, renewable energy generation, and environmental
+                monitoring. As technology advances, MFCs could contribute to a cleaner, more sustainable future,
+                providing an energy-efficient, environmentally friendly alternative to traditional energy systems.
+                <br></br>
+                In conclusion, Microbial Fuel Cells offer a promising technology with the potential to transform the way
+                we approach energy production and waste management. By harnessing the power of microorganisms, MFCs
+                convert organic waste into valuable electricity, while simultaneously addressing environmental issues
+                such as pollution and resource depletion. With continued advancements in research and technology, MFCs
+                have the potential to become a significant component of the global energy landscape, offering a
+                sustainable, low-cost solution for decentralized power generation, wastewater treatment, and biosensing.
+                Although challenges remain, the future of MFCs is bright, and they represent a powerful example of how
+                nature-inspired technologies can contribute to solving the world’s energy and environmental problems.
+
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </div>
+</body>
+
+</html>

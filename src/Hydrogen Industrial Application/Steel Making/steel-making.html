@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steel Making</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '#' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Steel Making
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <!-- <img src="../../assets/Education and Awareness.jpg" alt="" class="mx-auto shadow-lg rounded-2xl" /> -->
+          <img src="../../assets/Hydrogen as Fuel.jpg" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Hydrogen is revolutionizing the steelmaking industry by providing a cleaner and more sustainable
+              alternative to traditional steel production processes that rely on coal or coke. Traditionally,
+              steelmaking involves the reduction of iron ore using coke, a form of carbon derived from coal. This
+              process, known as the blast furnace method, releases large amounts of carbon dioxide (CO₂) into the
+              atmosphere, contributing significantly to global greenhouse gas emissions. Given the growing urgency to
+              mitigate climate change, industries around the world are exploring more sustainable solutions, and
+              hydrogen-based steelmaking has emerged as one of the most promising options.
+
+              <span id="dots"></span>
+              <span id="more" style="display: none ">
+                <br><br>
+                In hydrogen-based steelmaking, hydrogen gas (H₂) serves as a reducing agent in place of coke. The
+                hydrogen reacts with iron ore, primarily iron oxide (Fe₂O₃), to produce iron and water vapor (H₂O),
+                rather than CO₂. This chemical reaction, known as the hydrogen reduction of iron ore, significantly
+                reduces the carbon emissions associated with steel production, potentially making it a zero-emission
+                process if the hydrogen is produced using renewable energy sources. The use of hydrogen to replace coke
+                in steelmaking is a breakthrough that could contribute to decarbonizing one of the most energy-intensive
+                and polluting industries in the world.
+                <br></br>
+                The process works by introducing hydrogen gas into the iron ore in a direct reduction reactor. The
+                hydrogen reacts with the iron ore at high temperatures to reduce the iron ore to iron and produce water
+                vapor as the only byproduct. This process is referred to as direct reduction (DR) or hydrogen-based
+                direct reduction (H-DR). The iron produced in this process is known as sponge iron or direct reduced
+                iron (DRI), which can then be melted and refined to produce steel in electric arc furnaces (EAFs) or
+                other steelmaking facilities.
+                <br></br>
+                One of the key advantages of hydrogen-based steelmaking is the reduction in carbon emissions.
+                Traditional steel production via blast furnaces accounts for a substantial portion of global CO₂
+                emissions, with the steel industry being one of the largest industrial sources of carbon emissions
+                worldwide. By switching to hydrogen as a reducing agent, steelmakers can drastically cut their CO₂
+                emissions and contribute to global efforts to achieve net-zero emissions. The impact of hydrogen-based
+                steelmaking is particularly significant considering that steel production is an essential part of modern
+                infrastructure and is used in a wide range of applications, from construction and transportation to
+                consumer goods and industrial equipment.
+                <br></br>
+                However, despite its promise, hydrogen-based steelmaking is still in its infancy. Several pilot projects
+                are currently underway around the world to demonstrate the viability of hydrogen as a reducing agent in
+                steel production. Some notable efforts include collaborations between steel producers and energy
+                companies to develop hydrogen-based steelmaking technologies. For instance, companies in Europe, Japan,
+                and Canada are leading efforts to build pilot plants and test hydrogen-based steelmaking processes.
+                These projects aim to scale up hydrogen steelmaking technologies, refine the processes, and evaluate
+                their economic and technical feasibility in real-world conditions.
+                <br></br>
+
+                The construction of these pilot plants is a critical step in advancing hydrogen-based steelmaking. The
+                success of these projects will determine whether hydrogen can be deployed at a commercial scale to
+                replace coke and coal in the steel industry. If successful, the widespread adoption of hydrogen in
+                steelmaking could lead to substantial reductions in global carbon emissions, while also enhancing the
+                overall sustainability of steel production.
+                <br></br>
+                One of the main challenges in hydrogen-based steelmaking is the availability of affordable, green
+                hydrogen. Hydrogen is not naturally available in a pure form and must be produced through
+                energy-intensive processes. The most common method of hydrogen production today is through natural gas
+                reforming (SMR), which releases CO₂ as a byproduct. This process, however, is not compatible with the
+                goals of decarbonization. To truly unlock the potential of hydrogen in steelmaking, it is crucial to
+                produce hydrogen through electrolysis, a process that splits water into hydrogen and oxygen using
+                electricity. When this electricity comes from renewable sources like wind, solar, or hydroelectric
+                power, the hydrogen is considered "green" and can be used as a clean alternative to fossil fuels.
+                However, green hydrogen production is currently more expensive than conventional hydrogen produced from
+                natural gas, and scaling up renewable hydrogen production to meet the demands of the steel industry
+                remains a significant challenge.
+                <br></br>
+                Another challenge is the integration of hydrogen into existing steelmaking infrastructure. Most steel
+                mills today are designed to operate with blast furnaces that use coke as a fuel and reducing agent.
+                Transitioning to hydrogen-based steelmaking will require substantial modifications to these facilities,
+                including the installation of new direct reduction reactors, hydrogen storage and distribution systems,
+                and electric arc furnaces for further refining. This transformation requires significant capital
+                investment, and the costs of building the necessary infrastructure for hydrogen steelmaking are
+                currently high. Nonetheless, as the technology matures and the demand for low-carbon steel increases,
+                these costs are expected to decrease, and economies of scale may help make hydrogen-based steel
+                production more economically competitive with traditional methods.
+                <br></br>
+                Despite these challenges, the benefits of hydrogen-based steelmaking are becoming increasingly evident.
+                The steel industry is under increasing pressure to reduce its carbon footprint, particularly as
+                governments and regulatory bodies around the world implement stricter environmental regulations. Many
+                countries have set ambitious targets for reducing greenhouse gas emissions, and industries like
+                steelmaking must play a crucial role in achieving these targets. Hydrogen offers a pathway to meet these
+                goals while maintaining the high-quality production of steel that is essential for economic growth and
+                infrastructure development.
+                <br></br>
+                In addition to its environmental benefits, hydrogen steelmaking can also enhance energy efficiency in
+                the steel production process. Hydrogen can be produced using renewable energy sources, such as solar and
+                wind power, which are increasingly becoming cost-competitive with fossil fuels. This offers steel
+                producers the opportunity to reduce their reliance on fossil fuels and transition to a more sustainable
+                energy mix. By adopting hydrogen-based steelmaking technologies, the steel industry can contribute to
+                the growing renewable energy economy and support the development of clean energy infrastructure.
+                <br></br>
+                Hydrogen-powered steelmaking could also have significant implications for global steel markets. As
+                countries adopt stricter environmental regulations and carbon pricing mechanisms, the demand for
+                low-carbon steel is expected to rise. This shift toward low-carbon steel production could lead to
+                changes in global trade patterns, as countries with access to cheap, renewable hydrogen may become key
+                exporters of green steel. Conversely, countries that continue to rely on carbon-intensive steel
+                production may face tariffs or penalties, making it less economically viable to produce steel through
+                traditional methods. This shift in the global steel market could spur investments in hydrogen
+                production, green steel production technologies, and the development of global supply chains for
+                low-carbon steel.
+                <br></br>
+                The success of hydrogen-based steelmaking has the potential to reshape the entire steel industry and
+                significantly reduce the sector's contribution to global carbon emissions. While there are significant
+                challenges to overcome, the growing momentum around hydrogen-based steelmaking, supported by pilot
+                projects and investments in hydrogen infrastructure, suggests that the transition to a cleaner, more
+                sustainable steel industry is well underway. As technology advances and the costs of green hydrogen
+                decrease, hydrogen steelmaking could become a central pillar of the global effort to decarbonize heavy
+                industry and achieve a sustainable future.
+
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more..
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

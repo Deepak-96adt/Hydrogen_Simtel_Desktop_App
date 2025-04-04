@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alkaline Fuel Cell</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '#' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Alkaline Fuel Cell
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <div>
+            
+          <img src="../../assets/Alkaline_Fuel_cell.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <!-- <a href="./Simulation/AlkalineFuelCell_Simulation.html"
+          class="  w-[10vw]    mt-4 block text-xs sm:text-sm lg:text-base xl:text-lg line-height-[26px] font-normal bg-[#0177fb] text-white rounded-full px-4 sm:px-6 py-2 sm:py-2.5 active:translate-y-1 active:shadow-none transition-all duration-75"
+          style="box-shadow: 0px 4px 0px 0px #0155b3;">
+          Simulation
+        </a> -->
+        </div>
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Alkaline fuel cells (AFCs) are a promising type of hydrogen fuel cell that utilize an alkaline
+              electrolyte, typically potassium hydroxide (KOH), to facilitate the electrochemical reaction between
+              hydrogen and oxygen. In this process, hydrogen gas (H₂) is fed into the anode, where it is split into
+              protons and electrons. The electrons travel through an external circuit, generating electricity, while the
+              protons move through the alkaline electrolyte to the cathode. At the cathode, the protons recombine with
+              oxygen (O₂) from the air to form water (H₂O) and heat as byproducts. This reaction is highly efficient,
+              making AFCs an attractive option for various clean energy applications.
+              Anode Reaction (Hydrogen Oxidation Reaction - HOR)
+              <br>
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+
+                <span style="font-weight: bold; ">
+                  H<sub>2</sub> + 2OH<sup>-</sup> → 2H<sub>2</sub>O + 2e<sup>-</sup>
+                </span>
+                <br>
+                Cathode Reaction (Oxygen Reduction Reaction - ORR)
+                <br>
+                <span style="font-weight: bold; ">
+                  O<sub>2</sub> + 2H<sub>2</sub>O + 4e<sup>-</sup> → 4OH<sup>-</sup>
+                </span>
+                </br>
+                Overall Cell Reaction
+                <br>
+                <span style="font-weight: bold; ">
+                  2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O
+                </span>
+                </br>
+                Operating at relatively low temperatures—typically between 60 and 90°C—alkaline fuel cells offer several
+                advantages over other types of fuel cells, such as Proton Exchange Membrane (PEM) or Solid Oxide Fuel
+                Cells (SOFCs). One of the main benefits of AFCs is their high efficiency, especially in applications
+                that require a steady power output. This characteristic makes them ideal for stationary power
+                generation, where consistent and reliable electricity is necessary. Historically, AFCs have been used in
+                a range of applications, including space missions, where they provided reliable power for spacecraft
+                like the Apollo lunar missions. This long-standing use in space exploration highlights the reliability
+                and effectiveness of AFC technology under extreme conditions, where space and weight are limited.
+                <br></br>
+                However, while alkaline fuel cells offer several advantages, they are not without challenges. One of the
+                most significant limitations of AFCs is their sensitivity to carbon dioxide (CO₂), which can degrade the
+                performance of the electrolyte. When carbon dioxide is present, it can react with the potassium
+                hydroxide electrolyte, forming potassium carbonate (K₂CO₃), which can hinder the ion exchange process
+                and reduce the overall efficiency of the fuel cell. This sensitivity to CO₂ requires that the hydrogen
+                and oxygen supplied to the cell be of very high purity to avoid contamination, which can make it more
+                challenging and costly to produce and store the necessary fuel. Therefore, AFCs are best suited for
+                applications where the supply of pure hydrogen and oxygen is easily controlled, such as in controlled
+                environments or space missions.
+                <br></br>
+                In addition to their CO₂ sensitivity, AFCs also face other operational challenges. One issue is the need
+                for a stable supply of electrolyte. Potassium hydroxide is commonly used as the electrolyte in AFCs, but
+                maintaining an optimal concentration of this alkaline solution can be difficult over time. As the fuel
+                cell operates, the electrolyte can become depleted, which can impact the efficiency and lifespan of the
+                system. This requires periodic replenishment or replacement of the electrolyte, which can increase
+                maintenance costs and complexity. Furthermore, AFCs are not as suitable for mobile applications compared
+                to other fuel cell technologies, such as PEM fuel cells, due to the challenges associated with
+                maintaining the required purity of hydrogen and oxygen over extended periods of use.
+                <br></br>
+                Despite these challenges, alkaline fuel cells hold significant promise for clean energy applications,
+                especially in controlled environments where high-purity hydrogen and oxygen are available. Their high
+                efficiency, combined with their relatively low operating temperatures, makes them an attractive option
+                for stationary power generation, particularly in locations where a steady, reliable power supply is
+                needed. AFCs have been explored for use in a variety of sectors, including backup power systems,
+                off-grid power generation, and remote power applications. In these contexts, AFCs can provide a
+                consistent source of electricity, offering a clean and sustainable alternative to traditional fossil
+                fuel-based power generation.
+                <br></br>
+                Additionally, research into improving AFC technology is ongoing, with many efforts focused on enhancing
+                the durability of the electrolyte and mitigating the effects of carbon dioxide contamination. One area
+                of research involves developing new alkaline electrolyte formulations that are more resistant to CO₂
+                degradation, which could make AFCs more versatile and suitable for a broader range of applications.
+                Another area of focus is improving the efficiency of hydrogen production and storage, which is critical
+                for ensuring that AFCs can operate effectively in the long term. By addressing these challenges, it is
+                possible that AFCs could become more widely adopted in various clean energy applications, including
+                large-scale renewable energy storage, where they could be integrated with solar and wind power systems
+                to provide consistent, on-demand power.
+                <br></br>
+                The potential of AFCs to contribute to a sustainable energy future is significant, particularly as
+                global demand for clean energy technologies continues to rise. As part of a larger hydrogen economy,
+                AFCs can play an essential role in the decarbonization of sectors such as transportation, industry, and
+                power generation. Their high efficiency, low operating temperatures, and ability to use hydrogen as a
+                clean fuel source make them an attractive option for reducing greenhouse gas emissions and improving the
+                sustainability of energy systems.
+                <br></br>
+                In the transportation sector, AFCs can be used in applications ranging from backup power for vehicles to
+                larger-scale systems such as buses, trucks, and even ships. By providing a zero-emission alternative to
+                conventional internal combustion engines, AFCs can help reduce air pollution and dependence on fossil
+                fuels. As the infrastructure for hydrogen production, storage, and distribution continues to expand, the
+                adoption of AFCs in transportation is likely to grow, particularly in areas where battery electric
+                vehicles (BEVs) are not as practical due to longer refueling times or range limitations.
+                <br></br>
+                The role of AFCs in stationary power generation is also crucial for the development of a hydrogen-based
+                energy infrastructure. As more renewable energy sources like solar and wind power are integrated into
+                the grid, the need for reliable energy storage solutions becomes more apparent. Alkaline fuel cells can
+                help address this need by providing a stable and efficient means of storing and distributing energy.
+                When paired with renewable hydrogen production methods, such as electrolysis powered by solar or wind
+                energy, AFCs can contribute to a fully decarbonized energy system, providing a flexible and sustainable
+                solution for balancing supply and demand.
+                <br></br>
+                In conclusion, while alkaline fuel cells face some challenges, their high efficiency, low operating
+                temperatures, and proven track record in space missions make them a promising technology for clean
+                energy applications. Continued research and development will be critical in overcoming the barriers
+                associated with CO₂ sensitivity and electrolyte degradation, paving the way for broader adoption of AFCs
+                in various sectors. As part of the broader hydrogen economy, alkaline fuel cells have the potential to
+                play a significant role in the transition to a cleaner, more sustainable energy future.
+
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more..
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </div>
+</body>
+
+</html>

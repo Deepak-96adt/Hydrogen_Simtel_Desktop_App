@@ -1,0 +1,107 @@
+
+//Hydrogen Simtel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydrogen Simtel Index</title>
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body onload="showSubItems('subItem1', 'item1')">
+  <header>
+    <div class="left-header">
+      <img id="header-logo" src="../shared/img/logo.png" alt="Logo">
+    </div>
+    <div id="header-title">HYDROGEN GENERATOR LEARNING</div>
+  </header>
+  <a href="../home.html"><img src="../shared/img/back.png" alt="back" class="back-btn"></a>
+  <div class="app">
+    <div class="menu-column" id="left-menu">
+      <h3 id="center-toc">Table of Contents</h3>
+      <hr>
+      <ul style="padding: 0; display: flex; gap: 10px;">
+        <!-- Hydrogen Basics -->
+        <div class="menuItemContainer">
+          <span class="menuItem" id="item1" onclick="showSubItems('subItem1', 'item1')">Hydrogen Basics</span>
+          <div id="subItem1" class="sub-menu">
+            <ol>
+              <a href="../PowerElectronics/introduction/introduction.html"><li>Introduction to Hydrogen</li></a>
+              <a href="../PowerElectronics/triggering/triggering.html"><li>Hydrogen as Fuel</li></a>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Categories of Hydrogen based on production -->
+        <div class="menuItemContainer">
+          <span class="menuItem" id="item2" onclick="showSubItems('subItem2', 'item2')">Categories of Hydrogen based on production</span>
+          <div id="subItem2" class="sub-menu">
+            <ol>
+              <a href="../motorDrive/PMSM/index.html"><li>Grey Hydrogen</li></a>
+              <a href="../motorDrive/PMDC/index.html"><li>Blue Hydrogen</li></a>
+              <a href="../motorDrive/BLDC/index.html"><li>Green Hydrogen</li></a>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Hydrogen Safety -->
+        <div class="menuItemContainer">
+          <span class="menuItem" id="item3" onclick="showSubItems('subItem3', 'item3')">Hydrogen Safety</span>
+          <div id="subItem3" class="sub-menu">
+            <ol>
+              <a href="../genConcepts/BMS/index.html"><li>Flammability and Explosivity</li></a>
+              <a href="../genConcepts/fourQuadrant/index.html"><li>Leakage and Detection</li></a>
+              <a href="../genConcepts/regenerativeChargingBraking/index.html"><li>Material Compatibility</li></a>
+              <a href="../genConcepts/CAN/index.html"><li>Handling and Transport</li></a>
+              <a href="../genConcepts/CAN/index.html"><li>Education and Awareness</li></a>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Hydrogen Generation Methodologies -->
+        <div class="menuItemContainer">
+          <span class="menuItem" id="item4" onclick="showSubItems('subItem4', 'item4')">Hydrogen Generation Methodologies</span>
+          <div id="subItem4" class="sub-menu">
+            <ol>
+              <a href="../BMS/bmsTheory/index.html"><li>Steam Methane Reforming</li></a>
+              <a href="../BMS/batteryTrainngSystem/lead-acid.html"><li>Electrolysis of Water</li></a>
+              <a href="../BMS/batteryTrainngSystem/lithium-ion.html"><li>Methanol Reforming</li></a>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Hydrogen Generation through Electrolysis -->
+        <div class="menuItemContainer">
+          <span class="menuItem" id="item5" onclick="showSubItems('subItem5', 'item5')">Hydrogen Generation through Electrolysis</span>
+          <div id="subItem5" class="sub-menu">
+            <ol>
+              <a href="../motorDrive/DC/index.html"><li>Alkaline Electrolysis</li></a>
+              <a href="../motorDrive/Induction/index.html"><li>PEM (Proton Exchange Membrane) Electrolysis</li></a>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Hydrogen Storage -->
+        <div class="menuItemContainer">
+          <span class="menuItem" id="item6" onclick="showSubItems('subItem6', 'item6')">Hydrogen Storage</span>
+          <div id="subItem6" class="sub-menu">
+            <ol>
+              <a href="../genConcepts/storage/index.html"><li>Geological Hydrogen Storage</li></a>
+              <a href="../genConcepts/compressed/index.html"><li>Compressed Hydrogen</li></a>
+              <a href="../genConcepts/liquid/index.html"><li>Liquid Hydrogen</li></a>
+              <a href="../genConcepts/material/index.html"><li>Material based Hydrogen Storage</li></a>
+              <a href="../genConcepts/ammonia/index.html"><li>Hydrogen Storage in Ammonia</li></a>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Add remaining sections similarly -->
+
+      </ul> 
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

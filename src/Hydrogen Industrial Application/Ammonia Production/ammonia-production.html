@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Ammonia Production</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '#' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Ammonia Production
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <!-- <img src="../../assets/Education and Awareness.jpg" alt="" class="mx-auto shadow-lg rounded-2xl" /> -->
+          <img src="../../assets/Ammonia_production.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[80%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Ammonia (NH₃) production is a fundamental and highly significant process in the global industrial sector,
+              primarily due to its crucial role in the production of fertilizers. Fertilizer production is vital for
+              supporting agricultural activities, and ammonia serves as the key ingredient for many fertilizers that
+              increase crop yields and help sustain global food production. The process of ammonia synthesis is complex
+              and energy-intensive, but it has been perfected over decades and remains a critical part of modern
+              industrial practices. As one of the largest industrial uses of hydrogen, ammonia production also
+              represents a major opportunity for reducing the carbon footprint of hydrogen production itself, as this
+              industry is traditionally reliant on hydrogen produced from fossil fuels, such as natural gas.
+              <br>
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                <br>
+                At the heart of ammonia production is the Haber-Bosch process, which was developed in the early 20th
+                century by Fritz Haber and Carl Bosch. This process revolutionized agriculture by enabling the efficient
+                synthesis of ammonia from nitrogen and hydrogen. The basic chemistry of the Haber-Bosch process involves
+                combining nitrogen (N₂), extracted from the air, with hydrogen (H₂) under high pressure and temperature
+                in the presence of a catalyst, typically iron. The reaction produces ammonia (NH₃), which can then be
+                used directly in the production of fertilizers or further processed into other chemicals.
+                <br></br>
+                The industrial-scale production of ammonia is vital to sustaining food production systems globally, as
+                ammonia-based fertilizers are essential for replenishing soil nutrients that are depleted through
+                farming practices. Without this essential process, the global capacity to produce food for the
+                ever-growing population would be severely limited. Ammonia is not only important for agriculture,
+                however, but it is also utilized in a wide range of industries, including chemical manufacturing,
+                textiles, refrigeration, and energy production. In the chemical industry, ammonia serves as a building
+                block for numerous chemicals, such as nitric acid, urea, and ammonium nitrate, which are critical to
+                manufacturing explosives, plastics, and cleaning products. Additionally, ammonia has been used
+                historically as a refrigerant in the cooling industry due to its high thermal efficiency and relatively
+                low environmental impact compared to some synthetic refrigerants.
+                <br></br>
+                Despite the immense importance of ammonia in various sectors, the traditional methods of ammonia
+                production, particularly those that rely on fossil fuels, come with significant environmental
+                consequences. Hydrogen used in the Haber-Bosch process is typically produced through steam methane
+                reforming (SMR), which extracts hydrogen from natural gas. This process is energy-intensive and releases
+                large amounts of carbon dioxide (CO₂) into the atmosphere, contributing to climate change. As a result,
+                ammonia production is considered one of the most significant industrial sources of greenhouse gas
+                emissions globally. The need to transition to more sustainable ammonia production practices has become
+                increasingly urgent in the context of global efforts to reduce carbon emissions and mitigate the effects
+                of climate change.
+                <br></br>
+                One promising solution to address the carbon emissions associated with ammonia production is the shift
+                toward renewable hydrogen. In this approach, hydrogen is produced using renewable energy sources, such
+                as wind, solar, or hydropower, through a process known as electrolysis. Electrolysis uses electricity to
+                split water (H₂O) into its constituent elements, hydrogen (H₂) and oxygen (O₂), without the need for
+                fossil fuels. This method of hydrogen production, when powered by renewable energy, generates zero
+                greenhouse gas emissions and offers a much cleaner alternative to SMR. By integrating renewable hydrogen
+                into ammonia production, the carbon footprint of the Haber-Bosch process can be dramatically reduced,
+                making it a key part of the transition toward a more sustainable and low-carbon industrial sector.
+                <br></br>
+                The development of renewable hydrogen production technologies has the potential to significantly change
+                the landscape of ammonia manufacturing. If large-scale renewable hydrogen production becomes
+                economically viable, it could not only decarbonize ammonia production but also provide an opportunity
+                for the wider industrial adoption of hydrogen as a clean energy carrier. In addition to reducing
+                emissions, renewable hydrogen could also help diversify the global energy mix and reduce dependence on
+                fossil fuels, contributing to energy security. However, challenges remain in terms of scaling up
+                renewable hydrogen production and integrating it into existing ammonia production facilities. The cost
+                of renewable hydrogen, driven by the need for expensive electrolysis equipment and electricity, remains
+                a significant barrier to widespread adoption.
+                <br><br>
+                Another potential avenue for improving the sustainability of ammonia production is through the use of
+                alternative feedstocks for hydrogen. While natural gas has been the dominant source of hydrogen for
+                ammonia production, other options are emerging, such as biogas and biomass. These renewable feedstocks
+                can be used to produce hydrogen through processes like gasification and anaerobic digestion. Biogas,
+                which is produced from organic waste materials such as agricultural residues, food waste, and
+                wastewater, contains methane (CH₄), which can be reformed into hydrogen through similar processes to
+                natural gas. Biomass, including wood and agricultural waste, can be converted into hydrogen through
+                gasification, offering another potential renewable source of hydrogen for ammonia production.
+
+                <br></br>
+                The potential benefits of using renewable feedstocks for hydrogen production extend beyond reducing
+                emissions and improving sustainability. By utilizing locally sourced renewable feedstocks, ammonia
+                production could become more distributed and less reliant on centralized fossil fuel resources. This
+                could help to reduce transportation costs and improve energy access in remote areas. Furthermore, the
+                use of agricultural waste or other organic materials as feedstocks for hydrogen production could help
+                address waste disposal issues and contribute to a circular economy, where waste products are repurposed
+                into valuable resources.
+                <br></br>
+                In addition to improving the sustainability of ammonia production, advances in ammonia utilization also
+                hold promise for further reducing its environmental impact. Ammonia has long been recognized as an
+                effective and efficient nitrogen fertilizer, but its potential extends far beyond agriculture. In recent
+                years, there has been growing interest in exploring ammonia as a clean energy carrier, particularly for
+                applications in power generation and transportation. Ammonia can be used in internal combustion engines
+                or fuel cells to produce electricity or drive vehicles, and it can also be employed as a hydrogen
+                carrier for long-distance transportation. When used as a fuel, ammonia has the advantage of being
+                energy-dense and storable at relatively low pressures compared to hydrogen, making it an attractive
+                option for shipping and transport.
+                <br></br>
+                The use of ammonia as a fuel also offers a potential solution for decarbonizing sectors such as shipping
+                and heavy industry, which are difficult to electrify using conventional renewable energy sources.
+                Ammonia can be burned in combustion engines or used in solid oxide fuel cells (SOFCs) to generate
+                electricity without the need for carbon-based fuels. In this context, ammonia provides a pathway for
+                achieving net-zero emissions in sectors that are otherwise difficult to decarbonize, further enhancing
+                its value as a key element in the global transition to clean energy.
+                <br></br>
+                In conclusion, ammonia production plays an indispensable role in modern industry and agriculture, making
+                it a key enabler of global food security and industrial productivity. The ammonia production process,
+                particularly through the Haber-Bosch method, relies heavily on hydrogen, and the environmental impact of
+                this process has historically been significant due to the reliance on fossil fuels for hydrogen
+                production. However, with advancements in renewable hydrogen production, the potential exists to
+                significantly reduce the carbon footprint of ammonia production and improve its sustainability. As the
+                global demand for clean energy and sustainable industrial practices grows, ammonia production will
+                continue to evolve, providing opportunities for both improved environmental performance and expanded
+                applications in clean energy systems.
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hydrogen Combustion Engine</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '#' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class=""  />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Hydrogen Combustion Engine
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <!-- <img src="../../assets/Education and Awareness.jpg" alt="" class="mx-auto shadow-lg rounded-2xl" /> -->
+          <img src="../../assets/Hydrogen_combustionEngine.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll ">
+              Hydrogen combustion engines present an exciting opportunity for the future of energy systems, particularly
+              in transportation and industrial sectors. These engines operate on the principle of burning hydrogen gas
+              in an internal combustion engine (ICE) to produce mechanical power, but instead of emitting the typical
+              pollutants associated with fossil fuels—such as carbon dioxide (CO₂), carbon monoxide (CO), and
+              particulate matter—hydrogen combustion produces only water vapor and trace amounts of nitrogen oxides
+              (NOₓ), making it a promising solution for decarbonizing heavy-duty transport, aviation, and maritime
+              industries.
+              <br></br>
+              One of the fundamental advantages of hydrogen combustion engines is their potential to leverage the
+              existing infrastructure of
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                internal combustion engines, which are already widely used in a variety of
+                sectors. Many of the components in hydrogen combustion engines are similar to those
+                found in traditional gasoline or diesel engines, such as the
+                pistons, crankshaft, and transmission systems. This compatibility allows manufacturers to use familiar
+                designs and processes, significantly reducing the time and cost associated with transitioning to
+                hydrogen-powered solutions. Furthermore, since hydrogen combustion engines can operate in a similar
+                manner to traditional engines, they can benefit from the vast experience and expertise that has been
+                built up over decades of internal combustion engine development.
+                <br></br>
+                Hydrogen as a fuel source for combustion engines offers numerous benefits over conventional fossil
+                fuels. Hydrogen has a very high energy content per kilogram, which allows for high energy density in
+                applications that require significant power output, such as trucks, buses, ships, and airplanes. This
+                energy density is particularly important for industries that rely on long-range transportation, where
+                battery electric solutions currently face challenges related to energy storage capacity and the weight
+                of batteries. Hydrogen, being a light and abundant element, is able to provide the necessary energy for
+                these applications without the weight penalties associated with traditional batteries. In addition,
+                hydrogen combustion engines offer faster refueling times compared to battery-electric vehicles (BEVs),
+                which can take several hours to recharge. This fast refueling capability makes hydrogen-powered vehicles
+                more practical for industries that rely on constant, around-the-clock operations, such as logistics,
+                shipping, and public transportation.
+                <br></br>
+                Hydrogen combustion engines also have the potential to provide a viable transitional technology in the
+                pursuit of cleaner energy systems. While hydrogen fuel cell vehicles (FCVs) are an attractive option for
+                some applications, they rely on significant infrastructure investments for refueling stations and are
+                still in the process of scaling up globally. Hydrogen combustion engines, on the other hand, can take
+                advantage of the existing engine manufacturing infrastructure and refueling systems that are already in
+                place for traditional gasoline and diesel-powered vehicles. This makes hydrogen combustion engines an
+                appealing alternative for sectors that require near-term solutions for reducing their carbon footprint
+                while hydrogen fuel cell technologies and infrastructure continue to mature. For instance,
+                hydrogen-powered heavy-duty trucks and buses could operate using hydrogen combustion engines, offering a
+                cleaner alternative to diesel vehicles while waiting for the necessary investments in fuel cell
+                technology to be realized.
+                <br></br>
+                In terms of fuel storage, hydrogen is typically stored in high-pressure tanks that are integrated into
+                the vehicle or engine system. These tanks store the hydrogen at pressures ranging from 350 to 700 bar,
+                allowing for the necessary amount of fuel to be carried to support long trips. However, hydrogen’s low
+                volumetric energy density (compared to gasoline or diesel) requires that these tanks be pressurized or
+                liquefied to store sufficient quantities of fuel for long-range applications. This storage system must
+                be robust, lightweight, and capable of withstanding the high pressures involved, while ensuring the
+                safety and integrity of the fuel supply. Innovations in hydrogen storage technologies are essential for
+                improving the practicality and efficiency of hydrogen combustion engines, and ongoing research into new
+                materials, tank designs, and safety protocols is crucial for advancing this technology.
+                <br></br>
+                Although hydrogen combustion engines offer many advantages, there are several challenges that need to be
+                addressed for widespread adoption. One of the primary concerns is the formation of nitrogen oxides (NOₓ)
+                during the combustion process. NOₓ are pollutants that are created when nitrogen in the air reacts with
+                oxygen at high temperatures. In conventional internal combustion engines, NOₓ emissions are typically
+                controlled through the use of exhaust gas recirculation (EGR), selective catalytic reduction (SCR), or
+                other after-treatment systems. However, hydrogen combustion engines operate at higher temperatures and
+                may produce greater amounts of NOₓ, which can contribute to air pollution and smog formation,
+                particularly in urban areas. Therefore, significant efforts are being made to develop advanced engine
+                designs that can operate at lower temperatures or employ sophisticated exhaust treatment technologies to
+                mitigate NOₓ emissions.
+                <br></br>
+                One potential solution is to optimize the combustion process by controlling factors such as the air-fuel
+                ratio, ignition timing, and the pressure at which hydrogen is injected into the combustion chamber.
+                Innovations in fuel injection systems and combustion chamber design are being explored to maximize
+                efficiency and minimize NOₓ formation. For instance, lean-burn combustion strategies, which involve
+                burning a mixture of hydrogen and air with a lower concentration of fuel, can help reduce combustion
+                temperatures and lower NOₓ emissions. Additionally, optimizing the spark ignition system or exploring
+                alternative ignition methods, such as plasma-assisted ignition, could help improve combustion efficiency
+                and reduce emissions.
+                <br></br>
+                Another challenge for hydrogen combustion engines is ensuring the availability of affordable and
+                sustainable hydrogen fuel. While hydrogen is the most abundant element in the universe, its production
+                and transportation require energy and infrastructure investments. Currently, the vast majority of
+                hydrogen is produced from natural gas through a process known as steam methane reforming (SMR), which
+                generates significant carbon emissions. To make hydrogen a truly clean fuel, the industry must
+                transition to more sustainable production methods, such as water electrolysis powered by renewable
+                energy sources. The availability of green hydrogen at scale is essential for the long-term viability of
+                hydrogen combustion engines, and investment in renewable hydrogen production infrastructure is crucial
+                to achieving this goal.
+                <br></br>
+                Hydrogen refueling infrastructure is another significant barrier to widespread adoption. While hydrogen
+                fueling stations are being developed, their availability remains limited, especially in remote or
+                less-populated areas. For hydrogen combustion engines to become a practical alternative to conventional
+                gasoline and diesel engines, a global network of hydrogen refueling stations must be established. This
+                will require substantial investment from both the private and public sectors, as well as strong
+                collaboration between governments, energy providers, and transportation companies. Governments may offer
+                incentives, subsidies, or grants to encourage the development of refueling stations and the adoption of
+                hydrogen-powered vehicles, helping to accelerate the transition to a hydrogen-based economy.
+                <br></br>
+                Despite these challenges, hydrogen combustion engines have the potential to make a significant impact in
+                the transition to a low-carbon energy system. By utilizing existing internal combustion engine
+                technology and infrastructure, hydrogen combustion engines offer a practical and scalable solution to
+                decarbonizing the transportation and industrial sectors. As hydrogen production methods improve,
+                refueling infrastructure expands, and engine technologies evolve, hydrogen combustion engines could play
+                an essential role in reducing greenhouse gas emissions across a wide range of applications. From
+                heavy-duty trucks and buses to aviation and maritime transport, hydrogen combustion engines offer a
+                clean and efficient alternative to fossil fuels, contributing to the global effort to mitigate climate
+                change and transition to a sustainable energy future.
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Aviation</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '#' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Aviation
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <!-- <img src="../../assets/Education and Awareness.jpg" alt="" class="mx-auto shadow-lg rounded-2xl" /> -->
+          <img src="../../assets/Aviation.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Hydrogen is rapidly emerging as one of the most promising and sustainable solutions for
+              decarbonizing aviation, an industry that has long been a significant contributor to global
+              greenhouse gas emissions. As air travel continues to grow, with the International Air
+              Transport Association (IATA) predicting a steady increase in passenger numbers over the
+              coming decades, the environmental impact of aviation becomes increasingly concerning.
+              Aircraft, which traditionally rely on fossil fuels such as jet fuel, are responsible for a
+              substantial portion of global CO₂ emissions, nitrogen oxides (NOₓ), and other pollutants,
+              making the need for cleaner alternatives imperative. Hydrogen fuel, with its potential for
+              zero-emission air travel, has captured theattention of researchers,
+              <br>
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                aviation companies, and policymakers alike, as a key player in efforts to
+                reduce the sector’s carbon footprint.
+                <br></br>
+                Hydrogen can be utilized in aviation through two main technologies: hydrogen combustion
+                engines and fuel cells. Both methods generate power with minimal or zero carbon emissions,
+                making them highly attractive in the context of global climate goals. Fuel cells operate by
+                converting hydrogen into electricity through an electrochemical reaction with oxygen,
+                producing water vapor as the only byproduct. This process is highly efficient, with no
+                direct emissions of carbon dioxide or other pollutants. On the other hand, hydrogen
+                combustion engines, which operate similarly to traditional internal combustion engines but
+                burn hydrogen instead of fossil fuels, offer another route to harness hydrogen’s potential.
+                Hydrogen combustion also produces water vapor as its primary emission, although some
+                concerns about the formation of nitrogen oxides (NOₓ) at high combustion temperatures need
+                to be addressed.
+                <br></br>
+                One of the primary advantages of hydrogen in aviation is its high energy density,
+                particularly in its liquid form. Liquid hydrogen has a much higher energy per kilogram than
+                conventional aviation fuels, making it an ideal candidate for use in aircraft, where weight
+                and energy efficiency are critical. The high energy content of liquid hydrogen allows it to
+                provide sufficient range for long-haul flights, which is one of the key challenges when it
+                comes to alternative fuels. Additionally, hydrogen’s low environmental impact—especially in
+                comparison to the fossil fuels currently used in aviation—positions it as a key solution for
+                achieving the aviation industry’s decarbonization targets.
+                <br></br>
+                However, several significant challenges must be addressed before hydrogen can be widely
+                adopted as a fuel for commercial aviation. The first of these challenges is the storage and
+                transportation of hydrogen. Hydrogen must be stored at extremely low temperatures to remain
+                in liquid form, as it has a boiling point of -253°C. This necessitates the development of
+                highly efficient cryogenic storage systems, which are not only costly but also require
+                significant engineering innovations to ensure safety and efficiency. Cryogenic tanks used in
+                aviation need to be lightweight and robust, capable of withstanding the stresses of
+                high-altitude flight and ensuring that the hydrogen remains in liquid form throughout the
+                journey. In addition to this, hydrogen fuel needs to be transported to airports and stored
+                on-site in large quantities, requiring the development of new infrastructure to accommodate
+                these storage and distribution systems.
+                <br></br>
+                Another major challenge is the redesign of aircraft to accommodate hydrogen as a fuel
+                source. Hydrogen fuel has a lower volumetric energy density than traditional aviation fuels,
+                meaning that it takes up more space for the same amount of energy. As a result, aircraft
+                designed to use hydrogen will require modifications to their fuel storage systems, wing
+                configurations, and overall aerodynamics. Hydrogen-powered aircraft will likely need to be
+                larger or have specialized storage tanks incorporated into their design. This poses both
+                technical and economic challenges, as retrofitting existing aircraft fleets to run on
+                hydrogen would be costly and time-consuming. Instead, manufacturers are focusing on
+                designing new aircraft from the ground up that are optimized for hydrogen use. These new
+                aircraft designs will need to balance hydrogen’s unique properties with the demands of
+                commercial aviation, including range, passenger comfort, and cost efficiency.
+                <br></br>
+                In addition to aircraft design and storage challenges, the aviation industry must also
+                invest in the development of hydrogen production and refueling infrastructure at airports.
+                Currently, hydrogen production is primarily derived from natural gas through a process
+                called steam methane reforming, which is energy-intensive and produces carbon emissions.
+                While this method is widely used, it does not support the goal of decarbonizing aviation. To
+                support sustainable aviation, hydrogen must be produced using renewable energy sources such
+                as wind, solar, or hydroelectric power. Electrolysis, the process of splitting water into
+                hydrogen and oxygen using electricity, is one promising method for producing green hydrogen,
+                but it requires large-scale infrastructure investments and a reliable supply of renewable
+                energy. This challenge extends to the establishment of refueling stations at airports, as
+                hydrogen refueling infrastructure is currently sparse and not yet capable of meeting the
+                demand for commercial hydrogen-powered aircraft.
+                <br></br>
+                Despite these challenges, there is significant momentum within the aviation sector to
+                explore hydrogen as a potential solution for zero-emission air travel. Several major
+                aerospace companies, including Airbus, Boeing, and Rolls-Royce, are actively researching and
+                developing hydrogen-powered aircraft concepts. Airbus, for example, has unveiled its vision
+                for a hydrogen-powered aircraft called “ZEROe,” which could enter service by 2035. This
+                concept involves three different hydrogen-powered aircraft designs, including a turbofan and
+                a turboprop, that would be capable of carrying between 100 and 200 passengers on short- to
+                medium-haul flights. These aircraft would run entirely on liquid hydrogen, stored in
+                cryogenic tanks located within the fuselage.
+                <br></br>
+                In addition to these corporate efforts, governments and international organizations are also
+                investing heavily in hydrogen aviation research. The European Union, for example, has
+                committed significant funding to the Clean Aviation Initiative, which aims to accelerate the
+                development of hydrogen-powered aircraft and sustainable aviation technologies. Similarly,
+                the United States’ Federal Aviation Administration (FAA) has been involved in exploring
+                hydrogen technologies as part of its broader efforts to reduce aviation’s environmental
+                impact. Governments are providing funding, incentives, and policy support to create an
+                enabling environment for hydrogen aviation, helping to drive innovation and reduce costs for
+                both manufacturers and airlines.
+                <br></br>
+                Hydrogen-powered aviation is not limited to large commercial aircraft; small and regional
+                aircraft are also seen as key targets for early adoption. In fact, smaller hydrogen-powered
+                aircraft could be among the first to achieve commercial success. By serving shorter regional
+                routes, these aircraft would benefit from the high energy density of hydrogen while
+                minimizing some of the challenges associated with long-haul flights. Companies like ZeroAvia
+                and Universal Hydrogen are already testing small hydrogen-powered planes for short-haul
+                routes, with the aim of achieving certification within the next few years. These smaller
+                aircraft are often seen as a stepping stone toward the widespread adoption of
+                hydrogen-powered commercial aviation, with the technology gaining momentum as it proves
+                itself in real-world applications.
+                <br></br>
+                In conclusion, hydrogen represents a promising pathway to decarbonize the aviation industry,
+                offering the potential for zero-emission air travel. The challenges of cryogenic storage,
+                aircraft design, and infrastructure development are significant, but they are not
+                insurmountable. With continued research, investment, and collaboration across the aviation
+                sector, hydrogen-powered aircraft could become a reality in the not-too-distant future. As
+                the world moves toward a more sustainable and low-carbon future, hydrogen’s role in aviation
+                will be a critical piece of the puzzle, enabling the sector to reduce its environmental
+                impact while maintaining the safety, reliability, and performance standards that passengers
+                expect.
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

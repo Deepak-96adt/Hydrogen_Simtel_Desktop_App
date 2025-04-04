@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hydrogen Intro</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script src="../../content.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="
+  opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/nvis 1.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '#' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen" style="height: 80%; overflow-y: auto">
+      <div class="`w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Introduction to Hydrogen
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5 " style="margin-right: 54px">
+      
+          <div>
+          <img src="../../assets/Introduction_to_Hydrogen.png" alt="" class="mx-auto shadow-lg rounded-2xl" style="height:80%;"  /></div>
+       
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll text-indent-[50px]">
+              Hydrogen is the most abundant element in the universe, constitutes approximately 75% of all matter by
+              mass. This colorless, odorless, and highly versatile gas is increasingly recognized as a cornerstone of
+              the global energy transition. Its ability to produce energy without emitting harmful pollutants or
+              greenhouse gases makes it a powerful clean energy carrier and a vital tool in addressing climate change.
+              Hydrogen’s diverse applications in transportation, power generation, industry, and energy storage position
+              it as a critical enabler of sustainable development and carbon neutrality. With its remarkable potential,
+              hydrogen is seen as not just a complement to renewable energy technologies but as a foundation for
+              reimagining energy systems around the globe.
+              <br>
+
+              <span id="dots"></span>
+              <span id="more" style="display: none"> 
+                Although hydrogen is widespread in compounds such as water (H₂O),
+                hydrocarbons, and organic matter, it is rarely found in its pure elemental form and must be extracted.
+                The process of hydrogen extraction largely determines its environmental impact, leading to its
+                classification into different types. Grey hydrogen, derived from fossil fuels through processes like
+                steam methane reforming, is the most common method of hydrogen production today. However, this process
+                results in significant carbon dioxide emissions, contributing to global warming. Blue hydrogen, also
+                produced from fossil fuels, incorporates carbon capture and storage (CCS) technologies to mitigate
+                emissions, making it a more sustainable option than grey hydrogen. Green hydrogen, the cleanest and most
+                sustainable form, is produced using renewable energy sources like wind, solar, or hydropower to split
+                water into hydrogen and oxygen through electrolysis. Emerging categories like turquoise hydrogen,
+                produced via methane pyrolysis, are also gaining attention due to their ability to yield hydrogen and
+                solid carbon, effectively eliminating carbon dioxide emissions. These distinctions are critical for
+                ensuring that hydrogen’s deployment aligns with environmental goals and sustainability targets.
+                <br></br>
+                Hydrogen’s unique chemical properties make it an ideal energy carrier. It has an exceptionally high
+                energy density by weight, enabling efficient energy storage and transfer. Unlike fossil fuels, its
+                combustion or use in fuel cells produces only water as a byproduct, ensuring minimal environmental
+                impact. Furthermore, hydrogen is non-toxic, making it safer to handle in various applications. It can be
+                used in a wide range of scenarios, from powering vehicles and industrial machinery to providing heat and
+                electricity for homes and businesses. Its ability to store energy for long periods adds to its value,
+                particularly in addressing the intermittency challenges of renewable energy sources like wind and solar.
+                By converting surplus renewable energy into storable hydrogen, it becomes possible to ensure a stable
+                and reliable energy supply even when renewable energy generation fluctuates.
+                <br></br>
+                The versatility of hydrogen enables its transformative role across various sectors. In transportation,
+                hydrogen-powered fuel cell electric vehicles (FCEVs) offer a clean and efficient alternative to
+                conventional internal combustion engines. These vehicles, which include passenger cars, buses, trucks,
+                and even trains, are especially suited for long-haul transportation due to their extended range, high
+                efficiency, and fast refueling capabilities. Hydrogen’s lightweight and high energy output also make it
+                a promising solution for decarbonizing aviation and maritime shipping, industries that are among the
+                hardest to electrify. In industrial applications, hydrogen is indispensable for processes like
+                steelmaking, where it can replace coal as a reducing agent in high-temperature operations, significantly
+                reducing carbon emissions. It is also a critical feedstock for ammonia production in fertilizers and is
+                extensively used in refining and chemical manufacturing. Hydrogen’s role in these industries underscores
+                its importance as a solution to decarbonizing traditionally high-emission sectors.
+                <br></br>
+                Hydrogen serves as a long-term energy storage medium, addressing the challenges posed by intermittent
+                renewable energy. By converting excess electricity generated during periods of high renewable energy
+                output into storable hydrogen, it becomes possible to stabilize the energy grid and ensure a consistent
+                supply during periods of low generation. This capability is particularly valuable for integrating
+                renewable energy sources like wind and solar into the grid at scale. Additionally, hydrogen can be
+                blended with natural gas in turbines to reduce emissions from power plants, and future dedicated
+                hydrogen turbines may enable completely carbon-free power generation. In residential and commercial
+                settings, hydrogen-powered fuel cells can provide heat and electricity, offering a clean and efficient
+                alternative to natural gas and other fossil fuels. These applications highlight hydrogen’s potential to
+                decarbonize sectors that are otherwise challenging to electrify directly.
+                <br></br>
+                The global hydrogen economy is rapidly evolving as countries recognize its potential to transform their
+                energy systems and achieve climate goals. Governments and industries worldwide are investing heavily in
+                hydrogen infrastructure, including production facilities, pipelines, storage systems, and refueling
+                stations. International collaborations and hydrogen trade agreements are fostering the development of a
+                global supply chain. Regions such as the European Union, Japan, South Korea, and Australia are leading
+                the way with ambitious hydrogen strategies, while countries in the Middle East and North Africa are
+                leveraging their abundant renewable energy resources to position themselves as major hydrogen exporters.
+                The creation of hydrogen valleys—integrated ecosystems that combine production, storage, and consumption
+                within specific regions—is accelerating hydrogen deployment and demonstrating its feasibility at scale.
+                <br></br>
+                Despite its immense promise, hydrogen faces several challenges that must be addressed to unlock its full
+                potential. The high cost of green hydrogen remains a significant barrier, driven by the expense of
+                electrolyzers and renewable energy. Infrastructure development, including pipelines, refueling stations,
+                and storage systems, requires substantial investment and coordination. Additionally, hydrogen production
+                and conversion involve energy losses, which can impact overall efficiency compared to direct
+                electrification in some applications. Ensuring the sustainability of hydrogen supply chains,
+                particularly for grey and blue hydrogen, is critical to maximizing its environmental benefits.
+                Addressing these challenges will require concerted efforts from governments, industries, and research
+                institutions.
+                <br></br>
+                Opportunities abound as technological innovation, policy support, and international cooperation drive
+                progress. Advances in electrolyzer technology, carbon capture systems, and hydrogen storage methods are
+                steadily reducing costs and improving efficiency. Government policies, such as subsidies, tax
+                incentives, and carbon pricing, are creating favorable conditions for hydrogen adoption. Collaborative
+                efforts among nations are facilitating the development of a robust and interconnected hydrogen market,
+                ensuring that the resource can be produced, stored, and transported efficiently on a global scale.
+                Public-private partnerships and pilot projects are also playing a crucial role in demonstrating
+                hydrogen’s potential and accelerating its commercialization.
+                <br></br>
+                Hydrogen is poised to transform energy systems and play a central role in achieving global carbon
+                neutrality. Its ability to decarbonize hard-to-abate sectors, integrate renewable energy, and reduce
+                dependence on fossil fuels makes it indispensable in the fight against climate change. By addressing
+                existing challenges and scaling up production and infrastructure, hydrogen can unlock a cleaner, more
+                sustainable future for generations to come. As the world transitions toward greener energy solutions,
+                hydrogen will remain at the forefront, driving innovation, fostering economic growth, and supporting a
+                global shift to a low-carbon economy. With its extraordinary versatility and environmental benefits,
+                hydrogen is not only a key to solving the energy challenges of today but also a foundation for building
+                a resilient and sustainable energy system for tomorrow.
+
+
+
+
+
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

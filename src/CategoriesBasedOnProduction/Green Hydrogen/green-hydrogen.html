@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Hydrogen</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+                { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+                { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+                { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+                { text: 'Green Hydrogen', url: '#' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety',
+              content: [
+                { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+                { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+                { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+                { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+                { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+                { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+                { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+                { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Through Electrolysis',
+              content: [
+                { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+                { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+                { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+                { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+                { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+                { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+                { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+                { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+                { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+                { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+                { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+                { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+                { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+                { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+                { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+                { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+                { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+                { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+                { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+                { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+                { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+                { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+                { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+                { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+                { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+                { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+                { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+                { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+                { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+                { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+                { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+                { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+                { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                  :class="activeAccordion === index ? 'block' : 'hidden'">
+                  <div class="overflow-hidden flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Green Hydrogen
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <img src="../../assets/Green_Hydrogen.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[24px] font-normal scroll">
+              Green hydrogen is produced by using electricity from renewable sources such as wind, solar, or hydropower
+              to split water molecules into hydrogen and oxygen through a process called electrolysis. This method of
+              hydrogen production is one of the most sustainable and environmentally friendly, as it generates no carbon
+              emissions. Unlike conventional methods, such as steam methane reforming (SMR), which rely on fossil fuels,
+              green hydrogen creates no greenhouse gases during its production, making it a key player in the transition
+              to a zero-carbon energy system. Since it does not emit CO2 during production, green hydrogen has been
+              widely recognized as a critical part of efforts to combat climate change and achieve global sustainability
+              goals.
+
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                <br></br>
+                The electrolysis process itself is relatively simple, involving the application of an electric current
+                to water, which separates the water molecules into hydrogen gas and oxygen gas. The hydrogen produced
+                through this method is referred to as "green" because the electricity used is sourced entirely from
+                renewable energy. In electrolysis, an electrolyzer is employed, which consists of two electrodes and an
+                electrolyte. When electric current flows through the water, it breaks the bonds between the hydrogen and
+                oxygen atoms, with hydrogen being collected at the cathode and oxygen at the anode. The electrolyzer,
+                powered by clean electricity, ensures that the entire process remains free of carbon emissions, unlike
+                traditional hydrogen production methods.
+                <br></br>
+                The role of renewable energy sources in this process is vital, as they provide the electricity that
+                powers the electrolysis. Renewable energy sources, such as solar, wind, and hydropower, are key to
+                ensuring that the production of hydrogen does not contribute to carbon emissions. Solar power, for
+                example, uses photovoltaic panels to convert sunlight into electricity, which can then be used to power
+                electrolyzers. Wind power, both onshore and offshore, can also be harnessed to generate electricity that
+                drives the electrolysis process. In regions with consistent and strong wind conditions, wind power can
+                provide a reliable and sustainable energy source for hydrogen production. Hydropower, on the other hand,
+                uses the energy from flowing water to generate electricity, and in areas with established hydroelectric
+                plants, it can provide a stable and low-cost energy supply for the production of green hydrogen.
+                <br></br>
+                The environmental benefits of green hydrogen extend far beyond its production process. Since it is
+                produced without emitting carbon dioxide, it is an attractive alternative to grey hydrogen, which is
+                produced from natural gas using steam methane reforming. The process of producing grey hydrogen releases
+                large amounts of CO2 into the atmosphere, contributing significantly to global greenhouse gas emissions.
+                In contrast, green hydrogen, produced using renewable electricity, has no associated CO2 emissions,
+                making it a much more sustainable option. Additionally, green hydrogen can serve as a key component in
+                decarbonizing industries and sectors that are otherwise difficult to electrify, such as heavy
+                manufacturing, transportation, and long-term energy storage.
+                <br></br>
+                Industries such as steel, cement, and chemicals are known for their energy-intensive operations, which
+                typically rely on fossil fuels for high-temperature processes. Green hydrogen can replace fossil fuels
+                in these industries, offering a cleaner alternative that significantly reduces their carbon footprint.
+                In the transportation sector, hydrogen fuel cells are increasingly being used in heavy-duty vehicles
+                like trucks, buses, and trains. These vehicles are challenging to electrify with batteries due to their
+                size and power needs, but hydrogen fuel cells offer an ideal solution, as they provide long-range and
+                fast refueling capabilities without producing harmful emissions. In this way, green hydrogen is expected
+                to play a major role in the decarbonization of transportation, reducing reliance on gasoline and diesel.
+               
+                <br> <br>
+                Moreover, green hydrogen can serve as a solution for long-duration energy storage. Renewable energy,
+                particularly from solar and wind, is intermittent in nature, meaning it is often generated when demand
+                is low and unavailable when demand peaks. Green hydrogen allows for the storage of excess energy
+                produced during times of high renewable generation, which can later be converted back into electricity
+                or used as a fuel during periods of high demand or when renewable generation is low. This ability to
+                store and release energy in a flexible and reliable manner helps stabilize energy grids and allows for
+                greater integration of renewable sources into the energy mix.
+                <br></br>
+                However, despite its numerous advantages, the production of green hydrogen is still more expensive than
+                conventional methods. The main reasons for this cost disparity are the high capital costs of
+                electrolyzers, the need for large-scale renewable energy infrastructure, and the relatively low
+                efficiency of current electrolyzer technology. As the cost of renewable energy continues to fall, and as
+                advances in electrolyzer technology improve efficiency and reduce production costs, green hydrogen is
+                expected to become increasingly cost-competitive with other forms of hydrogen and energy sources. The
+                decreasing costs of renewable energy are particularly important, as they make it more feasible to power
+                electrolyzers using solar, wind, and hydropower, further enhancing the economic viability of green
+                hydrogen.
+                <br></br>
+                Looking ahead, the role of green hydrogen in the global energy transition will likely continue to grow,
+                driven by both technological advancements and a global push to decarbonize economies. As countries
+                commit to ambitious climate goals and reduce their reliance on fossil fuels, green hydrogen has the
+                potential to become a cornerstone of a clean, sustainable energy system. It can be used not only for
+                decarbonizing hard-to-electrify sectors but also for creating an integrated and resilient energy system
+                that relies on renewable sources. This shift will require substantial investments in both infrastructure
+                and technology, but the long-term benefits of green hydrogen in terms of reducing greenhouse gas
+                emissions, improving energy security, and creating new economic opportunities make it a key piece of the
+                puzzle in achieving a sustainable, low-carbon future.
+                <br></br>
+                In conclusion, green hydrogen, produced through the electrolysis of water powered by renewable energy
+                sources, offers a highly sustainable and environmentally friendly solution for the energy transition.
+                Its ability to reduce carbon emissions, decarbonize hard-to-electrify sectors, and store renewable
+                energy makes it a critical component in the shift towards a clean, decarbonized energy system. While
+                currently more expensive than conventional hydrogen production methods, green hydrogen’s potential to
+                become more cost-competitive, combined with continued advancements in renewable energy and electrolysis
+                technology, suggests that it will play a central role in shaping the future of global energy. As the
+                world continues to seek solutions to climate change, green hydrogen stands as a symbol of hope,
+                representing both technological innovation and a commitment to a sustainable and carbon-neutral future.
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

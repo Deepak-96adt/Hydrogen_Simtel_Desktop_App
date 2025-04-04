@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alkaline Electrolysis</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '#' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Alkaline Electrolysis
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <div >
+          <!-- <img src="../../assets/Alkaline Electrolysis.png.jpg" alt="" class="mx-auto shadow-lg rounded-2xl  h-[80%]" /> -->
+          <img src="../../assets/Alkaline_Electrolysis.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]"/>
+          <a href="./Simulation/alkalineSimulation.html"
+              class=" w-[10vw] mt-4 block text-center text-xs sm:text-sm lg:text-base xl:text-lg line-height-[26px] font-normal bg-[#0177fb] text-white rounded-full px-4 sm:px- py-2 sm:py-2.5 active:translate-y-1 active:shadow-none transition-all duration-75"
+              style="box-shadow: 0px 4px 0px 0px #0155b3">
+              Simulation
+            </a>
+        </div>
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%] h-[74vh]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Alkaline electrolysis (AEL) is one of the most widely used and well-established methods for producing
+              hydrogen gas from water. This process involves the use of electricity to split water molecules into their
+              constituent elements, hydrogen (H₂) and oxygen (O₂). Unlike other forms of electrolysis, alkaline
+              electrolysis uses an alkaline solution as the electrolyte, most commonly potassium hydroxide (KOH) or
+              sodium hydroxide (NaOH). These alkalis are dissolved in water to enhance its conductivity, allowing the
+              electrical current to pass more efficiently through the solution. The production of hydrogen and oxygen
+              occurs at the electrodes, where the water molecules are chemically decomposed.
+
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                <br><br>
+                The fundamental reaction in alkaline electrolysis occurs when the electrical current flows through the
+                electrolyte, causing water to break apart at the electrodes. At the cathode (the negative electrode),
+                water molecules undergo a reduction reaction, which produces hydrogen gas:
+
+
+                <span style="font-weight: bold; ">
+                  2H<sub>2</sub>O + 2e<sup>-</sup> → H<sub>2</sub> + 2OH<sup>-</sup>
+                </span>
+                </br><br>
+                This reaction results in the formation of hydrogen gas, which is collected at the cathode and can be
+                stored for later use. The oxygen gas, on the other hand, is produced at the anode (the positive
+                electrode) through an oxidation reaction:
+
+
+                <span style="font-weight: bold; ">
+                  4OH<sup>-</sup> → O<sub>2</sub> + 2H<sub>2</sub>O + 4e<sup>-</sup>
+
+                </span>
+                </br><br>
+                The oxygen gas is released into the atmosphere as a byproduct of the electrolysis process. The reactions
+                at both the cathode and the anode are part of a continuous cycle that occurs as long as electrical
+                current is applied, splitting water molecules into hydrogen and oxygen.
+                <br></br>
+
+
+                One of the key advantages of alkaline electrolysis is its simplicity and efficiency. The system does not
+                require complex components or rare materials, making it an economically viable option for large-scale
+                hydrogen production. Alkaline electrolyzers are particularly well-suited for applications where moderate
+                hydrogen production is needed, such as in industrial processes, hydrogen fueling stations, and energy
+                storage solutions. Additionally, the use of relatively inexpensive and widely available materials, such
+                as KOH and NaOH, contributes to the cost-effectiveness of the process.
+                <br></br>
+
+                Alkaline electrolysis has been employed in various industries for decades, primarily for the production
+                of hydrogen used in ammonia synthesis, petroleum refining, and other chemical processes. It has proven
+                to be reliable and efficient in these settings, providing a steady supply of hydrogen for industrial
+                use. However, it is also gaining attention as a potential method for producing green hydrogen,
+                particularly when powered by renewable energy sources. If the electricity used in the electrolysis
+                process comes from renewable sources such as wind, solar, or hydroelectric power, the resulting hydrogen
+                is considered green hydrogen, as it is produced with minimal or no carbon emissions.
+                <br></br>
+
+                In terms of efficiency, alkaline electrolysis is relatively mature and well-understood. The process can
+                achieve efficiencies of around 60–70% depending on the system design and operating conditions. However,
+                there are still limitations to the efficiency and scalability of alkaline electrolysis when compared to
+                more advanced forms of electrolysis, such as proton exchange membrane (PEM) electrolysis. While alkaline
+                electrolysis has lower capital costs and is better suited for large-scale applications, PEM electrolysis
+                tends to have higher efficiency and faster response times. Despite these differences, alkaline
+                electrolysis remains a popular choice for hydrogen production due to its proven reliability,
+                scalability, and relatively low operating costs.
+                <br></br>
+
+
+                One of the major challenges associated with alkaline electrolysis is the need for effective management
+                of the electrolyte solution. The alkaline solution, typically KOH or NaOH, can become saturated over
+                time, which may impact the efficiency of the process. As the concentration of hydroxide ions (OH⁻)
+                decreases, the overall conductivity of the electrolyte solution may drop, leading to reduced
+                electrolysis efficiency. To counter this, the solution needs to be periodically replenished or replaced
+                to maintain optimal conditions. Additionally, the electrolyzers must be designed to withstand the
+                corrosive nature of the alkaline solution, which can degrade certain materials over time.
+                <br></br>
+
+
+                Another limitation of alkaline electrolysis is its relatively slow response to changes in electrical
+                input, particularly when using intermittent renewable energy sources. For example, wind and solar energy
+                production can fluctuate throughout the day due to changes in weather conditions, and electrolysis
+                systems must be able to adjust their operation accordingly. While alkaline electrolysis is capable of
+                responding to such fluctuations, it may not be as fast or flexible as other types of electrolysis
+                systems, such as PEM electrolysis, which can operate more rapidly under dynamic conditions. Researchers
+                are working on improving the design and control systems of alkaline electrolyzers to make them more
+                adaptable to variable power inputs, thus enhancing their viability as part of a renewable energy-driven
+                hydrogen production system.
+                <br></br>
+
+                To improve the overall efficiency and performance of alkaline electrolysis, ongoing research is focused
+                on optimizing various aspects of the process. This includes advancements in electrode materials,
+                electrolyte formulations, and system design. For example, new materials with higher conductivity and
+                greater resistance to corrosion are being developed for use in electrolyzers, which could lead to
+                improved system performance and longer operational lifespans. Similarly, efforts to improve the energy
+                efficiency of the electrolyzer cells, reduce power losses, and enhance heat management are also being
+                explored. Additionally, the development of more efficient catalysts for the electrolysis reactions could
+                reduce the energy required to split the water molecules and improve the overall efficiency of the
+                process.
+                <br></br>
+                One area of significant interest is the coupling of alkaline electrolysis with renewable energy sources
+                to produce green hydrogen. Alkaline electrolysis systems are well-suited for integration with renewable
+                power sources, as they can operate efficiently at scale and provide a steady supply of hydrogen. By
+                using renewable electricity for electrolysis, hydrogen production becomes a carbon-neutral or even
+                carbon-negative process, which is critical for achieving global decarbonization goals. This integration
+                is particularly attractive for regions with abundant renewable energy resources, such as areas with high
+                levels of solar or wind energy production. In such cases, excess electricity generated during periods of
+                low demand can be used to produce hydrogen, which can then be stored and used as a clean energy carrier.
+                <br></br>
+
+
+                Hydrogen produced via alkaline electrolysis can play a key role in a future hydrogen economy, where
+                hydrogen serves as a clean fuel for transportation, industrial applications, and energy storage. In
+                particular, hydrogen produced from renewable energy through alkaline electrolysis can be used in fuel
+                cells for electric vehicles (EVs), reducing the reliance on fossil fuels and helping to decarbonize the
+                transportation sector. Furthermore, the versatility of hydrogen as an energy carrier means that it can
+                be used in a variety of applications, from powering industrial processes to providing backup power
+                during grid outages.
+                <br></br>
+                In summary, alkaline electrolysis is a well-established and reliable method for producing hydrogen gas
+                through the electrolysis of water. While it has some limitations in terms of efficiency and response
+                time, its proven track record, low operating costs, and scalability make it an attractive option for
+                large-scale hydrogen production. When combined with renewable energy sources, alkaline electrolysis can
+                contribute to the production of green hydrogen, offering a sustainable and low-carbon solution for the
+                hydrogen economy. Ongoing research into improving system efficiency, optimizing materials, and
+                integrating renewable power sources will continue to advance the viability and competitiveness of
+                alkaline electrolysis in the global market for clean hydrogen production.
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+            <!-- <a href="./Simulation/alkalineSimulation.html"
+              class="text-xs sm:text-sm lg:text-base xl:text-lg line-height-[26px] font-normal bg-[#0177fb] text-white rounded-full px-4 sm:px- py-2 sm:py-2.5 active:translate-y-1 active:shadow-none transition-all duration-75"
+              style="box-shadow: 0px 4px 0px 0px #0155b3">
+              Simulation
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+   
+</body>
+
+</html>

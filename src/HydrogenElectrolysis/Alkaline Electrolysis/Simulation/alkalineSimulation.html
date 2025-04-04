@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alkaline Electrolysis Simulation</title>
+  <script src="../../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="./animation.css" />
+  <link rel="stylesheet" href="../../../assets/main.css" />
+  <script src="../../../assets/alpinejs.js"></script>
+  <script defer src="./animation.js"></script>
+  <script defer src="../../../main.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+</head>
+
+<body>
+  <div>
+    <header class="relative shadow-lg h-20 left-0 w-full z-[2000] bg-white" x-data="{ isOpen: false }">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../../home.html">
+          <img src="../../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{ 
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+              
+                  { text: 'Introduction to Hydrogen', url: '../../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                 { text: 'Hydrogen as Fuel', url: '../../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+              { text: 'Grey Hydrogen', url: '../../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../..CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety', 
+              content: [
+              { text: 'Flammability and Explosivity', url: '../../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+              { text: 'Steam Methane Reforming', url: '../../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation through Electrolysis',
+              content: [
+              { text: 'Alkaline Electrolysis', url: '../../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+              { text: 'Geological Hydrogen Storage', url: '../../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+              { text: 'Hydrogen Pipelines', url: '../../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+              { text: 'Introduction to Fuel Cell', url: '../../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+              { text: 'Alkaline Fuel Cell', url: '../../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+              { text: 'Ammonia Production', url: '../../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+              { text: 'Fuel Cell Buses', url: '../../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      </div>
+    </header>
+    <div class=""></div>
+    <div class="w-[95%] max-w-[90%] space-y-6 mx-auto py-6 sm:py-8 md:py-10">
+      <div
+        class="absolute left-[85%] top-[18%] h-[50px] w-[50px] sm:left-[88%] sm:top-[18%] sm:h-[70px] sm:w-[70px] md:left-[88%] md:top-[18%] md:h-[100px] md:w-[100px] lg:left-[84%] lg:top-[37%] lg:h-[100px] lg:w-[100px]">
+        <img src="../../../assets/Alkaline Electrolyte Solution.png" class="w-full h-full object-contain"
+          alt="Alkaline Electrolyte Solution" />
+
+      </div>
+
+      <div class="flex items-center gap-3.5">
+        <a href="../alkaline-electrolysics.html"
+          class="bg-white rounded-full size-[30px] flex items-center justify-center border border-[#05252433]">
+          <img src="../../../assets/icon5.png" alt="" />
+        </a>
+        <h3 class="text-base sm:text-xl md:text-2xl leading-normal sm:leading-relaxed font-medium">
+          Alkaline Electrolysis
+        </h3>
+      </div>
+    </div>
+    <div class="w-full h-screen relative">
+      <div class="flex flex-wrap flex items-center">
+        <div class="w-full lg:w-8/12 mx-auto">
+          <div class="flex justify-between h-full relative">
+            <div class="absolute inset-0">
+              <div class="relative size-full">
+                <div
+                  class="absolute z-[1001] top-[78%] sm:top-[42%] left-[20%] sm:left-[-7%] lg:left-[-15%] sunRaysController rotate-[0] sm:rotate-[270deg]">
+                  <div class="translate-y-[115%] pointer-events-none">
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="rotate-[0deg] sm:rotate-[90deg] translate-x-[-140%] translate-y-[-15%] text-[20px] VOLT_LOW"></span>
+                      <span
+                        class="rotate-[0deg] sm:rotate-[90deg] translate-x-[127%] sm:translate-x-[107%] translate-y-[-15%] text-[20px] VOLT_HIGH"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="jfgdnlkv absolute z-[1000] top-[56%] left-[14.5%] h-[20%] w-[0.425%] bg-red-700"></div>
+                <div class="tergoirtlimgbk absolute z-[1000] top-[70%] left-[9.8%] h-[0.65%] w-[24.6%] bg-red-700">
+                </div>
+                <div class="dsfmernjwifgoer absolute z-[1000] top-[16.5%] left-[34%] h-[54%] w-[0.40%] bg-red-700">
+                </div>
+                <div class="weljdfweoihfne absolute z-[1000] top-[16.5%] left-[34%] h-[0.65%] w-[36%] bg-red-700"></div>
+                <div class="wecfdefooisdck absolute z-[1000] top-[16.5%] left-[69.8%] h-[17.5%] w-[0.45%] bg-red-700">
+                </div>
+                <div class="wefwefwedpms absolute z-[1000] top-[56%] left-[11.9%] h-[15%] w-[0.40%] bg-black"></div>
+                <div class="ognioernfgore absolute z-[1000] top-[81%] left-[8.9%] h-[0.657%] w-[30%] bg-black"></div>
+                <div class="repfjkwopfk absolute z-[1000] top-[25%] left-[38.5%] h-[56.5%] w-[0.40%] bg-black"></div>
+                <div class="wepewsddcv absolute z-[1000] top-[25%] left-[38.6%] h-[0.657%] w-[20.4%] bg-black"></div>
+                <div class="erigjroepjgoerw absolute z-[1000] top-[25%] left-[58.8%] h-[9%] w-[0.425%] bg-black"></div>
+
+                <div class="absolute z-[1000] top-[70.4%] left-[26%] w-[5%] h-[11%] aspect-square">
+                  <div class="relative size-full flex gap-[10%] justify-center flex-col">
+                    <img src="../../../assets/voltage.png" alt="" class="absolute inset-0 size-full" />
+                    <b>
+                      <p class="text-center VOLT_COUNT sm:translate-y-[1px]"></p>
+                    </b>
+                  </div>
+                </div>
+                <div
+                  class="absolute z-[1000] top-[68.25%] left-[7%] h-[15%] aspect-video bg-white border-2 border-neutral-900">
+                  <div class="relative size-full flex gap-[10%] justify-center flex-col">
+                    <img src="../../../assets/charge.png" alt="" class="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-[40%] flex flex-col justify-">
+              <div class="w-[25%] aspect-square relative flex justify-start">
+                <div class="absolute w-[270%] h-[320%] overflow-hidden">
+                  <!-- <div class="SUN_RAYS"> -->
+                  <img src="../../../assets/SUN-RAYS.png" alt=""
+                    class="SUN_RAYS w-[60%] h-[57%] translate-x-[26%] translate-y-[31%] rotate-[3deg]" />
+                  <!-- </div> -->
+                </div>
+                <img src="../../../assets/SUN.png" alt="" class="relative z-[3]" />
+              </div>
+              <div class="w-auto h-[30%] aspect-square flex w-full">
+                <img src="../../../assets/solar-panel.png" alt="" class="relative left-[9.4%] top-[32%] z-[-1]" />
+              </div>
+            </div>
+            <div class="w-[60%]">
+              <div class="flex flex-col h-full">
+                <div class="h-full"></div>
+                <div class="w-[82%] h-[400%] aspect-square mt-auto relative bg-white">
+                  <div class="absolute left-[5%] right-[5%] bottom-[5%] top-[20%]">
+                    <div
+                      class="ORANGE_H2_BALL_SANIMATIONS moveOrangeH2Balls z-[1000] flex flex-wrap w-[6%] h-[8%] aspect-square absolute">
+                    </div>
+                    <div class="BLUE_H2O_BALLS_ANIMATIONS w-full h-full inset-0 z-[1000] absolute"></div>
+                    <div class="BLUE_OO_BALLS_ANIMATIONS w-full h-full inset-0 z-[1000] absolute"></div>
+                    <div class="GREEN_E_PLUS_BALLS_ANIMATIONS w-full h-full inset-0 z-[1000] absolute"></div>
+                    <div class="RED_H2_BALLS_ANIMATIONS w-full h-full inset-0 z-[1000] absolute"></div>
+
+                    <div class="absolute top-[35%] left-[16%] font-bold h-auto w-[5%] italic text-gray-600">
+                      <img src="../../../assets/cathode.png" alt="" class="h-full w-full" />
+                    </div>
+                    <div class="absolute z-[10] top-[35%] left-[79%] font-bold h-auto w-[5%] italic text-gray-600">
+                      <img src="../../../assets/anode.png" alt="" class="h-full w-full" />
+                    </div>
+                    <div class="absolute bottom-[-1%] left-[35%] font-bold h-[5%] auto italic text-gray-600"></div>
+                    <!-- H2 Quantity -->
+                    <div
+                      class="H2_QUANTITY absolute top-[30%] border-[0.5px] border-black bg-black rounded-md rounded-md h-[28%] w-[2.5%] flex items-end overflow-hidden">
+                      <div class="bg-green-400 w-full" id="h2-quantity" height="0%"></div>
+                    </div>
+
+                    <!-- O2 Quantity -->
+                    <div
+                      class="O2_QUANTITY absolute top-[30%] right-0 border-[0.5px] border-black bg-black rounded-md h-[28%] w-[2.5%] flex items-end overflow-hidden">
+                      <div class="bg-[#56daf8] w-full" id="o2-quantity" height="0%"></div>
+                    </div>
+
+                    <!-- H2O Quantity -->
+                    <!-- <div class="H2O_QUANTITY absolute top-[71%] right-0 border-[0.5px] border-yellow-600 rounded-md h-[17%] w-[2.5%] flex items-end overflow-hidden">
+										<div class="bg-green-300 w-full" id="h2o-quantity"></div>
+									</div> -->
+
+                    <!-- For the + and - symbols -->
+                    <div
+                      class="absolute z-[100] top-[-6%] left-[34.75%] flex items-center justify-center translate-x-[20%] translate-y-[10%]">
+                      <span
+                        class="text-black font-bold charge-symbols ml-[10px] sm:ml-[15px] md:ml-[20px] lg:ml-[25px]">-</span>
+                    </div>
+                    <div
+                      class="absolute z-[100] top-[-6%] right-[35.75%] flex items-center justify-center translate-x-[3%] translate-y-[10%]">
+                      <span
+                        class="text-black font-bold charge-symbols mr-[10px] sm:mr-[15px] md:mr-[20px] lg:mr-[25px]">+</span>
+                    </div>
+
+                    <div class="relative size-full">
+                      <div
+                        class="uisbdfhcusvchue absolute z-[10] top-[5%] left-[22.8%] w-[6.3%] h-[4.5%] bg-[#848484] border-x-[2px] border-black">
+                      </div>
+                      <div
+                        class="absolute z-[0] top-[-10%] left-[5.9%] w-[23.5%] h-[42.5%] bg-[#848484] border-x-[3.5px] border-t-[3.5px] border-black rounded-t-xl">
+                        <div
+                          class="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 border-t-[3.5px] border-x-[3.5px] border-black w-[50%] h-[70%] bg-white rounded-t-lg">
+                        </div>
+                        <div class="absolute h-[15%] w-[110%] left-[-3%] bottom-0 bg-white"></div>
+                        <div class="absolute h-[50%] w-[40%] right-[-3%] top-[36%] bg-white"></div>
+                      </div>
+                      <!-- CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER -->
+                      <div class="absolute z-[100] top-[30%] left-[3.9%] h-[26%] w-[10%]">
+                        <div
+                          class="CYLINDER_MAIN RED_H2_BALLS_ANIMATIONS relative w-[100%] h-[100%] border rounded-t-[50px] rounded-b-[10px] mx-auto ml-[3px]">
+                          <div class="absolute h-[25%] bg-white z-[-1] w-[100%] -top-[15%]"></div>
+                          <div
+                            class="CYLINDER_STICKER absolute w-[40%] h-[7%] bg-gray-600 rounded-sm -top-[2%] left-[30%]">
+                          </div>
+                          <div
+                            class="CYLINDER_CAP absolute w-[60%] h-[16%] bg-gray-700 rounded-sm -top-[16%] left-[19%]">
+                          </div>
+                          <div class="CYLINDER_LABEL absolute w-[80%] h-[20%] top-[50%] left-[10%]">
+                            <!-- H₂ -->
+                            <img src="../../../assets/H2img.png" alt="" class="w-8/12 mx-auto" />
+                          </div>
+                          <div
+                            class="CYLINDER_BASE absolute w-[105%] h-[10%] bg-gray-900 rounded-md bottom-[-8%] left-[0%]">
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="oijrtnyuidbh absolute z-[10] top-[5%] left-[70.9%] w-[6.5%] h-[4.5%] bg-[#848484] border-x-[2px] border-black">
+                      </div>
+                      <div
+                        class="absolute z-[0] top-[-10%] right-[5.9%] w-[23.5%] h-[42.5%] bg-[#848484] border-x-[3.5px] border-t-[3.5px] border-black rounded-t-xl">
+                        <div
+                          class="absolute top-[52%] left-1/2 -translate-x-1/2 -translate-y-1/2 border-t-[3.5px] border-x-[3.5px] border-black w-[50%] h-[70%] bg-white rounded-t-lg">
+                        </div>
+                        <div class="absolute h-[15%] w-[110%] left-[-3%] bottom-0 bg-white"></div>
+                        <div class="absolute h-[50%] w-[40%] right-[70%] top-[36%] bg-white"></div>
+                      </div>
+                      <!-- CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER -->
+                      <div class="absolute z-[100] top-[30%] right-[3.8%] h-[26%] w-[10%]">
+                        <div
+                          class="CYLINDER_MAIN BLUE_OO_BALLS_ANIMATIONS relative w-[100%] h-[100%] border rounded-t-[50px] rounded-b-[10px] mx-auto mr-[20px]">
+                          <div class="absolute h-[25%] bg-white z-[-1] w-[100%] -top-[15%]"></div>
+                          <div
+                            class="CYLINDER_STICKER absolute w-[40%] h-[7%] bg-gray-600 rounded-sm -top-[2%] left-[30%]">
+                          </div>
+                          <div
+                            class="CYLINDER_CAP absolute w-[60%] h-[16%] bg-gray-700 rounded-sm -top-[16%] left-[15%]">
+                          </div>
+                          <div class="CYLINDER_LABEL absolute w-[80%] h-[20%] top-[50%] left-[10%]">
+                            <!-- O₂ -->
+                            <img src="../../../assets/O2img.png" alt="" class="w-8/12 mx-auto" />
+                          </div>
+                          <div
+                            class="CYLINDER_BASE absolute w-[105%] h-[10%] bg-gray-900 rounded-md bottom-[-8%] left-[-4%]">
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="fghbdhdfgcx absolute z-[10] top-[85%] left-[67%] w-[7.9%] h-[4.5%] bg-[#848484] border-x-[3.5px] border-black">
+                      </div>
+                      <div
+                        class="lghudrghnui absolute z-[500] top-[56%] left-[110.8%] w-[8.1%] h-[4.5%] bg-[#848484] border-x-[3.5px] border-black">
+                      </div>
+                      <div
+                        class="absolute z-[0] bottom-[-7%] right-[-19%] w-[52%] h-[48.5%] bg-[#848484] border-x-[3.5px] border-b-[3.5px] border-black rounded-b-xl overflow-hidde">
+                        <div
+                          class="absolute z-[0] top-[0%] left-1/2 translate-x-[-50.5%] translate-y-[0%] border-b-[3.5px] border-black border-x-[3.5px] w-[74%] h-[82%] bg-white rounded-b-lg">
+                        </div>
+                        <div class="absolute h-[67%] w-[22%] top-[-3%] bottom-0 left-[-5%] bg-white"></div>
+                      </div>
+                      <!-- CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER CYLINDER -->
+                      <div class="absolute z-[100] top-[-50%] rotate-[180deg] right-[-27%] h-[109%] w-[23%]">
+                        <div
+                          class="CYLINDER_MAIN relative w-[100%] h-[100%] border-x-[4px] border-t-[4px] border-black rounded-t-[12px] overflow-hidden rounded-b-[12px mx-auto">
+                          <div
+                            class="absolute bg-[#c1dff8] w-full h-[95% rotate-[180deg] overflow-hidde rounded-b-[10px]"
+                            id="h2o-quantity" height="100%"></div>
+
+                          <div
+                            class="CYLINDER_LABEL BLUE_H2O_BALLS_ANIMATIONS relative rotate-[180deg] absolute w-[80%] h-[20%] rounded-md top-[50%] left-[10%] flex justify-center items-center text-[100%] font-bold text-green-700">
+                            <img src="../../../assets/KOH+H2O-txt.png" alt="" class="w-[80%] sm:w-8" />
+                          </div>
+                          <!-- <div class="CYLINDER_BASE absolute w-[105%] h-[10%] bg-gray-900 rounded-md bottom-[-8%] left-[-3%]"></div> -->
+                        </div>
+                      </div>
+                      <div
+                        class="absolute bottom-[10.6%] top-[5.2%] inset-x-[22%] border-b-[4px] border-x-[4px] border-black rounded-b-[12px] overflow-hidde">
+                        <div class="h-full rounded-b-[12px] overflow-hidde">
+                          <div class="absolute inset-x-0 bottom-0 rounded-b-[10px] h-[75% bg-[#c1dff8]"
+                            id="h2o-2-quantity" height="0%"></div>
+                          <div class="absolute z-[0] top-[0%] left-[0%] right-0 h-[1.2%] w-[100%] bg-black"></div>
+                          <div class="absolute top-[12.8%] left-[15%] h-[2.1%] w-[70%] bg-[#312e81]"></div>
+                          <div class="flex relative size-full">
+                            <div class="w-[22%]"></div>
+                            <div class="w-[10%]">
+                              <div
+                                class="bg-[#c8c6c7] border-[3px] border-[#c8c6c7] rounded-2xl h-[110%] translate-y-[-10%] w-full flex items-end">
+                                <div class="bg-[#000] rounded-b-2xl w-full h-[70%]"></div>
+                              </div>
+                            </div>
+                            <div class="w-[10%]"></div>
+                            <div class="w-[16%] flex items-end">
+                             
+
+                              <div class="bg-transparent h-[85%] w-full flex items-center justify-center relative">
+                                <span style="font-size: 30px;font-weight: bold;" >&rarr;</span>
+                                <!-- OH text centered -->
+                                <span class="absolute flex flex-col items-center text-black font-bold z-10 
+                                text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl" style="top: 1%;">
+                                  <span>OH<sup>−</sup></span>
+                                 
+
+                                </span>
+                              
+                                <!-- Vertical dots line -->
+                                <div class="absolute inset-0 pt-2 pb-2 flex flex-col justify-between items-center">
+                              
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                  <div class="dot rounded-full bg-black"></div>
+                                </div>
+                               
+                              </div>
+
+                            </div>
+                            <div class="w-[10%]"></div>
+                            <div class="w-[10%]">
+                              <div
+                                class="bg-[#c8c6c7] border-[3px] border-[#c8c6c7] rounded-2xl h-[110%] translate-y-[-10%] w-full flex items-end">
+                                <div class="bg-[#9f1c34] rounded-b-2xl w-full h-[70%]"></div>
+                              </div>
+                            </div>
+                            <div class="w-[22%]"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute top-0 right-0">
+        <button id="resetBtn"
+          class="resetBtn hidden m-2 sm:m-4 pl-2 sm:pl-4 pr-3 sm:pr-6 py-1 sm:py-2 text-sm sm:text-base bg-[#f19923] text-white rounded-lg shadow-md hover:bg-orange-400 active:bg-red-700 transition-colors duration-150 flex items-center gap-1 sm:gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-4 h-4 animate-spin sm:w-5 sm:h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+          </svg>
+          Reset
+        </button>
+      </div>
+      <div
+        class="hidden w-full h-screen bg-[#7f7f7f backdrop-blur-sm backdrop-filter fixed z-[1100] inset-0 flex justify-center items-center"
+        id="resetModal">
+        <div
+          class="relative m-4 w-11/12 md:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 rounded-xl bg-white transition-all duration-300 opacity-1 translate-y-0"
+          style="box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.49)">
+          <div class="h-12 bg-[#f19923] rounded-t-xl"></div>
+          <div class="p-4 rounded-b-xl">
+            <div class="flex justify-center">
+              <img src="../../../assets/warning-icon.png" alt="" class="w-[30%]" />
+            </div>
+            <p class="text-center text-2xl font-semibold text-neutral-800">
+              Warning
+            </p>
+            <div class="relative py-4 text-base space-y-2 leading-normal text-neutral-800 text-center">
+              <p>Water is empty</p>
+              <p>Would you like to reset the simulation?</p>
+            </div>
+            <div class="flex shrink-0 flex-wrap items-center pt-4 justify-center">
+              <button id="cancelBtn"
+                class="rounded-md border bg-[#d9d9d9] border-transparent py-2 px-4 text-center text-sm transition-all text-slate-600 hover:bg-gray-200 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                Cancel
+              </button>
+              <button id="confirmResetBtn"
+                class="rounded-md bg-[#f19923] py-2 px-4 border border-transparent text-center text-base text-white transition-all shadow-md hover:shadow-lg focus:shadow-none active:bg-green-700 hover:bg-orange-400 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

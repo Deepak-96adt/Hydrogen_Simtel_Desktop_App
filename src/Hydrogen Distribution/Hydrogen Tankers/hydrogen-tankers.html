@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hydrogen Tankers</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '#' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Hydrogen Tankers
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+
+          <img src="../../assets/Hydrogen_Tanker.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%] h-[80%]" />
+
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Hydrogen tankers play an essential role in the transport and distribution of hydrogen, a key energy
+              carrier in the transition to cleaner and more sustainable energy systems. These specialized vehicles
+              enable the transportation of hydrogen in gaseous or liquid form over long distances, bridging the gap
+              between production facilities and end users or storage sites. Hydrogen tankers are particularly crucial in
+              areas where pipeline infrastructure is not feasible or has not yet been developed. By facilitating the
+              delivery of hydrogen across regions and even internationally, these tankers support the growth and
+              accessibility of the hydrogen economy.
+              <br>
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                <br>
+                For gaseous hydrogen, transport is carried out using high-pressure tanks designed to withstand the
+                challenges associated with hydrogen’s low density and high diffusivity. These tanks are often
+                constructed from advanced materials like carbon fiber composites or steel alloys, ensuring the
+                structural integrity and safety required for high-pressure conditions. Hydrogen is compressed to
+                pressures ranging from 350 to 700 bar, significantly increasing its density and making transportation
+                more efficient. While compression processes require substantial energy inputs, technological
+                advancements are improving the efficiency and cost-effectiveness of these operations. Gaseous hydrogen
+                transport is widely used for short- to medium-distance deliveries, such as from local production sites
+                to industrial facilities, fueling stations, or storage hubs.
+                <br></br>
+                For liquid hydrogen, transportation requires cryogenic tankers capable of maintaining ultra-cold
+                temperatures of -253°C, the boiling point of hydrogen. These tankers feature sophisticated insulation
+                systems designed to minimize heat transfer and reduce boil-off losses during transit. Liquid hydrogen
+                has a much higher energy density per volume compared to gaseous hydrogen, making it a preferred choice
+                for long-distance transport and applications requiring compact storage solutions. Cryogenic hydrogen
+                tankers are extensively used in industries like aerospace, where liquid hydrogen serves as a key fuel
+                for rockets and space exploration missions. However, the process of liquefaction is energy-intensive,
+                requiring approximately 30% of the hydrogen’s energy content, posing a challenge for cost and
+                efficiency.
+                <br></br>
+                The use of hydrogen tankers is especially significant in regions where pipeline networks are not yet
+                established. Pipelines are often expensive and require significant time and resources to construct,
+                particularly across geographically challenging terrains or where hydrogen demand is not yet high enough
+                to justify the investment. Tankers offer a flexible and scalable alternative, enabling hydrogen to be
+                delivered to remote or emerging markets. They also facilitate the development of hydrogen fueling
+                infrastructure for transportation, allowing hydrogen refueling stations to operate independently of
+                local production facilities. This flexibility is crucial for advancing hydrogen adoption in sectors such
+                as mobility, where fuel cell vehicles are gaining traction as a zero-emission alternative.
+                <br></br>
+                Hydrogen tankers also play a pivotal role in enabling regional and international trade of hydrogen.
+                Countries with abundant renewable energy resources can produce green hydrogen and export it to regions
+                with limited capacity for domestic production. For example, hydrogen-rich nations like Australia and
+                Saudi Arabia are exploring the use of tankers to transport hydrogen to energy-demanding regions such as
+                Europe and Asia. This global trade is expected to drive the establishment of international hydrogen
+                supply chains, contributing to the decarbonization of global energy systems. Hydrogen tankers,
+                therefore, act as critical enablers of this emerging hydrogen trade, supporting the integration of
+                renewable energy into global markets.
+                <br></br>
+                Despite their importance, the use of hydrogen tankers presents several challenges. The compression and
+                liquefaction processes required for transporting hydrogen are energy-intensive, adding to the cost and
+                environmental footprint of hydrogen logistics. Efforts to improve the efficiency of these processes are
+                ongoing, with innovations in compression technology and cryogenic systems aiming to reduce energy
+                consumption and associated costs. Additionally, boil-off losses—where a small amount of liquid hydrogen
+                evaporates due to heat ingress—remain a concern during the transport of cryogenic hydrogen. While
+                advanced insulation systems help mitigate these losses, further research and development are needed to
+                optimize tanker designs and minimize evaporation.
+                <br></br>
+                Safety is another critical consideration in hydrogen tanker operations. Hydrogen’s flammability and wide
+                explosive range necessitate stringent safety measures during transport. Tankers are equipped with leak
+                detection systems, pressure relief valves, and fire suppression technologies to ensure safe handling.
+                Drivers and operators are trained to follow strict safety protocols, including procedures for loading,
+                unloading, and responding to emergencies. Regulatory frameworks also play a key role in governing the
+                design, operation, and maintenance of hydrogen tankers, ensuring that safety standards are upheld across
+                the industry. By prioritizing safety, the hydrogen sector can build public confidence in its
+                technologies and expand its adoption.
+                <br></br>
+                The development of hydrogen tankers is closely linked to advancements in material science and
+                engineering. Researchers are exploring new materials for tanker construction that offer improved
+                strength, durability, and resistance to hydrogen embrittlement. For cryogenic tankers, innovations in
+                insulation materials and designs are enhancing the ability to maintain ultra-cold temperatures and
+                reduce heat transfer. These advancements are crucial for improving the performance and efficiency of
+                hydrogen tankers, making them more viable for large-scale and long-distance transport. Additionally,
+                modular and scalable tanker designs are being developed to meet the diverse needs of hydrogen markets,
+                from small-scale local deliveries to bulk international shipments.
+                <br></br>
+                Policy support and international collaboration are essential for overcoming the challenges associated
+                with hydrogen tankers. Governments and industry stakeholders must work together to establish standards,
+                provide incentives for hydrogen infrastructure development, and promote research into advanced
+                transportation technologies. Initiatives such as subsidies for green hydrogen production and tax credits
+                for clean energy transportation can help offset the costs of hydrogen logistics, making tankers more
+                economically competitive. Furthermore, international agreements and frameworks are needed to facilitate
+                cross-border hydrogen trade, ensuring consistent safety standards and regulatory alignment across
+                regions.
+                <br></br>
+                In conclusion, hydrogen tankers are indispensable for the transport and distribution of hydrogen,
+                enabling flexible and scalable logistics solutions that support the growth of the hydrogen economy. By
+                facilitating the delivery of hydrogen in gaseous or liquid form, these tankers bridge the gap between
+                production and consumption, ensuring that hydrogen can reach markets where it is needed most. While
+                challenges such as energy-intensive processes, boil-off losses, and safety concerns must be addressed,
+                ongoing advancements in technology and policy support are paving the way for the widespread adoption of
+                hydrogen tankers. As hydrogen continues to play a central role in the transition to a sustainable energy
+                future, tankers will remain a vital component of the global hydrogen supply chain, driving progress
+                toward a cleaner and more resilient energy system.
+
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </div>
+</body>
+
+</html>

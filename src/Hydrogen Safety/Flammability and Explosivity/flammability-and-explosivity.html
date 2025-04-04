@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Flammability and Explosivity</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+                { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+                { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+                { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+                { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety',
+              content: [
+                { text: 'Flammability and Explosivity', url: '#' },
+                { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+                { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+                { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+                { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+                { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+                { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+                { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Through Electrolysis',
+              content: [
+                { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+                { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+                { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+                { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+                { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+                { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+                { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+                { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+                { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+                { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+                { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+                { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+                { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+                { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+                { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+                { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+                { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+                { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+                { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+                { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+                { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+                { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+                { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+                { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+                { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+                { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+                { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+                { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+                { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+                { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+                { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+                { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+                { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                  :class="activeAccordion === index ? 'block' : 'hidden'">
+                  <div class="overflow-hidden flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+ 
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Flammability and Explosivity
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <div>
+          <img src="../../assets/Flammability and Explosivity.jpg" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" /></div>
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Hydrogen, as a highly flammable and explosive substance, presents a range of safety challenges in both its
+              production and use. The characteristics that make hydrogen an attractive energy source—its lightness, high
+              energy content, and potential for clean combustion—also make it a hazardous material if not handled
+              correctly. As such, it is essential to understand the inherent flammability and explosivity risks
+              associated with hydrogen to ensure its safe handling, storage, and transportation in various industrial
+              and transport applications.
+              <br></br>
+              One of the most significant dangers associated with hydrogen is its wide flammability range. Hydrogen can
+              ignite in air at concentrations
+
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+
+                as low as 4% and as high as 75%, a much wider range compared to most other gases.
+                This wide flammability range means that hydrogen is particularly volatile, capable of forming explosive
+                mixtures with air over a broad range of concentrations. This can lead to the formation of potentially
+                dangerous conditions in both controlled and uncontrolled environments. In the presence of an ignition
+                source, such as a spark or heat, hydrogen can combust, causing catastrophic results. The wide
+                flammability limits necessitate constant vigilance to prevent the buildup of hydrogen in any enclosed or
+                semi-enclosed space.
+                <br></br>
+                Another key factor contributing to hydrogen's explosive potential is its low ignition energy. Unlike
+                many fuels, which require a relatively large amount of energy to ignite, hydrogen can be ignited by a
+                very small amount of energy. A spark from static electricity, an electrical switch, or even a heated
+                surface can be enough to initiate combustion. This characteristic is particularly concerning in
+                environments where hydrogen may be released, as even a minor electrical fault or a small heat source
+                could trigger an explosion. This emphasizes the need for rigorous electrical standards, proper
+                grounding, and other measures designed to prevent sparks and heat buildup in areas where hydrogen is
+                present.
+                <br></br>
+                Additionally, hydrogen has high diffusivity, which means it can spread rapidly in the air. This
+                property, while useful in certain industrial applications, contributes to the flammability risks because
+                hydrogen can easily disperse and accumulate in areas where it is not immediately noticed. For example,
+                if hydrogen leaks into an enclosed space, it can quickly fill the area, potentially reaching dangerous
+                concentrations without being detected. This is particularly risky in areas such as pipelines, storage
+                tanks, or vehicle fuel cells, where hydrogen may escape from the system. The diffusivity of hydrogen
+                means that it does not stay concentrated in one place for long but instead spreads across a wide area,
+                increasing the potential for ignition and explosion.
+                <br></br>
+
+                Another unique challenge with hydrogen is that its flames are almost invisible in daylight. When
+                hydrogen burns, it produces a pale blue, non-luminous flame that is difficult to detect in daylight.
+                This poses a significant hazard because people may not be able to see the flames or recognize the
+                presence of a fire. This invisibility increases the likelihood of accidental ignition because workers or
+                emergency responders may not be able to visually identify a dangerous situation before it escalates. To
+                mitigate this risk, hydrogen flames require specific detection systems, such as infrared or ultraviolet
+                sensors, to identify their presence and provide early warning in case of combustion. Without such
+                systems, the risk of fire spreading unnoticed in critical situations becomes higher.
+                <br></br>
+
+
+                The high diffusivity, low ignition energy, wide flammability range, and invisibility of hydrogen flames
+                all point to the importance of creating comprehensive safety protocols for working with or storing
+                hydrogen. Proper ventilation is essential in any environment where hydrogen is used or stored.
+                Ventilation ensures that any hydrogen gas that escapes into the air is quickly dispersed and does not
+                accumulate to dangerous concentrations. In confined spaces, such as tunnels, underground facilities, or
+                storage tanks, hydrogen can accumulate and reach flammable levels in a very short period, making
+                ventilation systems vital to prevent explosions. Air circulation systems must be designed to move large
+                volumes of air quickly enough to dilute the hydrogen gas before it can ignite.
+                <br></br>
+                In addition to ventilation, hydrogen leak detection systems are critical for ensuring safety. Given
+                hydrogen’s tendency to diffuse rapidly and its lack of color or smell, detecting leaks early is a
+                significant challenge. Specialized sensors are used to detect the presence of hydrogen in the air. These
+                sensors are typically installed in areas where leaks are most likely to occur, such as joints, valves,
+                and connections in pipelines or storage tanks. Once a leak is detected, the system can trigger alarms or
+                automatic shut-off mechanisms to prevent further release of hydrogen and minimize the risk of an
+                explosion. These detection systems are an essential part of any hydrogen infrastructure, as they provide
+                real-time monitoring and help prevent accidents before they escalate into dangerous situations.
+                <br></br>
+
+                The proper training of personnel handling hydrogen is another crucial element of safe hydrogen usage.
+                Workers must be trained to understand the risks associated with hydrogen and the safety protocols
+                required to prevent accidents. This includes understanding how hydrogen behaves in different
+                environments, how to use leak detection systems, and how to respond effectively in the event of a
+                hydrogen leak or fire. Regular drills and exercises should be conducted to ensure that all workers are
+                familiar with emergency procedures and can act quickly and decisively if a dangerous situation arises.
+                Safety equipment such as flame arrestors, explosion-proof electrical equipment, and personal protective
+                gear must also be in place to protect workers in case of an incident.
+                <br></br>
+
+
+                Storage and transportation of hydrogen are also areas where safety measures must be tightly controlled.
+                Hydrogen is typically stored in high-pressure cylinders or tanks, and the storage systems must be
+                designed to withstand the pressures involved. Any failure of these systems could result in a
+                catastrophic release of hydrogen, leading to an explosion. Tank and cylinder integrity must be regularly
+                inspected to ensure they are free from cracks or defects that could lead to leaks. Furthermore, hydrogen
+                transportation, whether by pipeline, truck, or in other forms, must be carried out in accordance with
+                strict safety regulations. Transport vehicles must be equipped with monitoring systems to detect leaks
+                and are often equipped with specialized safety equipment to handle the explosive potential of hydrogen.
+                <br></br>
+
+                Despite the challenges posed by hydrogen's flammability and explosivity, it is possible to use this
+                substance safely with the right safety protocols in place. Safety regulations, advanced technologies,
+                and strict operational practices can mitigate the risks associated with hydrogen. Innovations in leak
+                detection, flame monitoring, and hydrogen storage systems continue to improve the safety of hydrogen as
+                an energy source, making it a viable and environmentally friendly option for the future. As the use of
+                hydrogen increases, especially in industrial applications and transportation, ensuring the safe handling
+                of hydrogen will be essential in preventing accidents and ensuring that the benefits of this clean
+                energy source can be realized without compromising safety.
+                <br></br>
+                In conclusion, while hydrogen offers tremendous potential as a clean energy source, its flammability and
+                explosivity present significant safety risks that must be carefully managed. Understanding the wide
+                flammability range, low ignition energy, high diffusivity, and invisible flames of hydrogen is essential
+                for implementing effective safety measures. Proper ventilation, leak detection systems, and rigorous
+                safety protocols are necessary to mitigate these risks and prevent accidents. With ongoing advancements
+                in technology and a continued focus on safety, hydrogen can be handled and used safely in a wide range
+                of applications, ultimately contributing to a cleaner, more sustainable energy future.
+              </span>
+
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

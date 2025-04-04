@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electrolysis of Water</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '#' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Electrolysis of Water
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <img src="../../assets/Electrolysis_of_Water.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Electrolysis of water is a significant process in the production of hydrogen, one that holds the promise
+              of contributing to a cleaner, more sustainable energy future. Essentially, electrolysis involves the
+              decomposition of water (H₂O) into its constituent elements—hydrogen (H₂) and oxygen (O₂)—through the
+              application of an electric current. This process takes place in an electrolytic cell, where water
+              molecules are split at two electrodes: hydrogen is generated at the cathode (the negative electrode) via a
+              reduction reaction, and oxygen is produced at the anode (the positive electrode) via an oxidation
+              reaction. Electrolysis is a critical technology for the production of hydrogen because, when
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                powered by renewable electricity sources such as solar, wind,
+                or hydropower, it produces hydrogen without any carbon emissions, offering a cleaner alternative to
+                traditional fossil fuel-based hydrogen production methods.
+                <br><br>
+
+                The basic principle of electrolysis is relatively simple but requires specific conditions to be
+                effective. Water itself is not a good conductor of electricity, so an electrolyte (a substance that
+                facilitates the conduction of electricity) is added to the water to enhance its conductivity. Common
+                electrolytes used in this process include potassium hydroxide (KOH) or sulfuric acid (H₂SO₄), both of
+                which improve the ability of water to carry an electric current. When a voltage is applied across the
+                electrodes, the water molecules are broken apart at the atomic level. At the cathode, where reduction
+                occurs, positively charged hydrogen ions (protons) gain electrons to form hydrogen gas. The reaction can
+                be represented as:
+                <BR>
+                <span style="font-weight: bold; ">
+                  2H<sub>2</sub>O(l) + 2e<sup>-</sup> → H<sub>2</sub>(g) + 2OH<sup>-</sup>(aq)
+                </span>
+                <BR>
+                At the anode, where oxidation takes place, water molecules are broken down to release oxygen gas and
+                produce positively charged hydrogen ions. The reaction can be represented as:
+                <BR>
+                <span style="font-weight: bold; ">
+                  2H<sub>2</sub>O(l) → O<sub>2</sub>(g) + 4H<sup>+</sup>(aq) + 4e<sup>-</sup>
+                </span>
+                <BR>
+                The overall reaction of water electrolysis is the combination of these two half-reactions:
+                <BR>
+                <span style="font-weight: bold; ">
+                  2H<sub>2</sub>O(l) → 2H<sub>2</sub>(g) + O<sub>2</sub>(g)
+
+                </span>
+                <br>
+                This means that for every two molecules of water, two molecules of hydrogen and one molecule of oxygen
+                are produced. The oxygen is typically vented to the atmosphere as a byproduct, while the hydrogen can
+                be collected and stored for various uses.
+                <br></br>
+                Electrolysis stands out as a clean and sustainable method of hydrogen production due to its potential
+                to be powered entirely by renewable energy sources. When the electricity used in the electrolysis
+                process comes from solar, wind, or hydropower, the hydrogen produced is referred to as "green
+                hydrogen" because the entire process has no associated carbon emissions. This contrasts sharply with
+                traditional methods such as steam methane reforming (SMR), which rely on natural gas and produce
+                significant amounts of carbon dioxide (CO₂) as a byproduct. In a world increasingly focused on
+                reducing carbon footprints and addressing climate change, green hydrogen represents a promising
+                solution for a zero-emission fuel source that can be used in various applications, such as in fuel
+                cells for vehicles, industrial processes, and power generation.
+                <br></br>
+                Despite its environmental advantages, the widespread adoption of water electrolysis faces some
+                significant challenges, primarily related to its cost-effectiveness compared to conventional hydrogen
+                production methods. Electrolysis is currently more expensive than fossil-fuel-based methods like SMR,
+                primarily due to the cost of the electricity required to power the process and the capital investment
+                required for electrolysis infrastructure. The efficiency of the electrolysis process also varies
+                depending on the type of electrolyzer used and the quality of the renewable electricity input.
+                Currently, the cost of renewable energy is falling steadily, which has improved the economics of
+                electrolysis, but it is still not on par with traditional hydrogen production methods in many regions.
+                Additionally, electrolysis systems require specialized equipment, such as proton exchange membrane
+                (PEM) electrolyzers or alkaline electrolyzers, both of which involve complex materials and
+                sophisticated engineering. These systems can be expensive to build, install, and maintain,
+                particularly when considering the scale of hydrogen production needed to meet the growing demand in
+                various industries.
+                <br></br>
+
+                The cost of electrolysis could decrease significantly with continued advances in renewable energy
+                generation and electrolyzer technology. The falling cost of solar and wind energy is one of the most
+                promising developments in the transition to green hydrogen. As renewable energy sources become more
+                widespread and cost-effective, the cost of electrolysis is expected to decrease. For example, in
+                regions with abundant solar or wind resources, the cost of electricity could become low enough to make
+                water electrolysis a viable and competitive option for large-scale hydrogen production. In fact, in
+                some regions, the cost of green hydrogen produced via electrolysis could eventually become comparable
+                to that of hydrogen produced through conventional methods, especially as renewable energy prices
+                continue to fall and technological advancements in electrolyzer efficiency are realized.
+                <br></br>
+                Furthermore, advances in electrolyzer technology are critical for improving the efficiency of water
+                electrolysis and reducing costs. Electrolyzers work by passing an electric current through water to
+                break it down into hydrogen and oxygen, but this process is not perfectly efficient. Current
+                electrolyzers typically operate at efficiencies of around 60-80%, meaning that a significant portion
+                of the input energy is lost as heat or in other forms. However, researchers are actively working on
+                improving electrolyzer performance by developing more efficient catalysts, better membrane materials,
+                and designs that minimize energy losses. Innovations such as solid oxide electrolyzers (SOECs), which
+                operate at higher temperatures, are also being explored as a way to improve overall efficiency and
+                reduce the cost of electrolysis. As these technologies mature and become more widely adopted,
+                electrolysis could become a much more efficient and cost-effective method for hydrogen production.
+                <br></br>
+
+                Another key challenge is the storage and transport of green hydrogen produced through electrolysis.
+                Hydrogen is the lightest element in the periodic table, which makes it challenging to store and
+                transport efficiently. Hydrogen gas has a low energy density, which means that it must be compressed
+                or liquefied to be stored and transported in large quantities. Compressing hydrogen requires
+                significant energy, and liquefaction involves cooling hydrogen to extremely low temperatures, which is
+                both energy-intensive and expensive. As the demand for hydrogen grows, especially in sectors such as
+                transportation and industry, developing more efficient storage and transport technologies will be
+                crucial. Advances in hydrogen storage technologies, such as the development of new high-pressure
+                tanks, liquid hydrogen storage solutions, and even novel materials that can absorb hydrogen at a
+                molecular level, will be key to making green hydrogen a viable option for large-scale applications.
+                <br></br>
+
+                In addition to the technological challenges associated with electrolysis, there are also regulatory
+                and infrastructure hurdles to overcome. The hydrogen economy is still in its infancy, and the
+                regulatory framework surrounding the production, storage, transport, and use of hydrogen is not fully
+                developed. Governments and policymakers will need to create supportive regulatory environments and
+                provide incentives to accelerate the development and adoption of green hydrogen. This may include
+                subsidies or tax incentives for the installation of electrolysis systems, investments in renewable
+                energy infrastructure, and the development of hydrogen transport networks. Coordinating efforts at the
+                local, national, and international levels will be crucial in building the necessary infrastructure to
+                support a global hydrogen economy.
+                <br></br>
+                While electrolysis remains more expensive than fossil-fuel-based methods in many places, its
+                environmental benefits make it an essential part of the future of energy production. Green hydrogen
+                produced by electrolysis can help decarbonize hard-to-electrify sectors, such as heavy industry,
+                long-haul transport, and power generation, which are difficult to address with direct electrification
+                alone. Furthermore, hydrogen produced through electrolysis can serve as an energy storage medium,
+                allowing excess renewable energy to be stored as hydrogen and used when demand exceeds supply. This
+                flexibility makes electrolysis a key technology for the integration of renewable energy into the grid
+                and the transition to a sustainable, low-carbon energy system.
+                <br></br>
+                Looking forward, the role of electrolysis in hydrogen production is expected to grow significantly as
+                the global demand for clean hydrogen increases. With continued investment in research and development,
+                as well as the ongoing decline in the cost of renewable energy, electrolysis will likely become a
+                central component of the hydrogen economy. The ability to produce hydrogen with zero carbon emissions,
+                particularly when powered by renewable energy, positions electrolysis as a key enabler of a
+                decarbonized energy future. As technology advances, costs decrease, and infrastructure expands, the
+                promise of green hydrogen will become a reality, helping to mitigate the impacts of climate change and
+                transform the global energy landscape.
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </div>
+</body>
+
+</html>

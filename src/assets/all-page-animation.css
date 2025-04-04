@@ -1,0 +1,16 @@
+
+@keyframes moveAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+    /* Start 200px left */
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translateX(0);
+    /* Move to original position */
+  }
+
+
+}

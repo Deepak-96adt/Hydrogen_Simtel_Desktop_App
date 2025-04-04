@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methanol Reforming</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+                { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+                { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+                { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+                { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety',
+              content: [
+                { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+                { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+                { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+                { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+                { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+                { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+                { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+                { text: 'Methanol Reforming', url: '#' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Through Electrolysis',
+              content: [
+                { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+                { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+                { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+                { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+                { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+                { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+                { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+                { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+                { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+                { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+                { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+                { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+                { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+                { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+                { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+                { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+                { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+                { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+                { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+                { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+                { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+                { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+                { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+                { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+                { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+                { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+                { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+                { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+                { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+                { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+                { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+                { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+                { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                  :class="activeAccordion === index ? 'block' : 'hidden'">
+                  <div class="overflow-hidden flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Methanol Reforming
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <!-- <img src="../../assets/Methanol Reforming.png" alt="" class="mx-auto shadow-lg rounded-2xl" /> -->
+          <img src="../../assets/Methanol_Reforming.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Methanol reforming is a well-established chemical process that offers an efficient route to produce
+              hydrogen gas, which is crucial for various industrial applications, including fuel cells and
+              hydrogen-based power generation. The process involves converting methanol (CH₃OH), a simple alcohol, into
+              hydrogen (H₂) and either carbon dioxide (CO₂) or carbon monoxide (CO), depending on the method used.
+              Methanol, which is liquid at room temperature, provides certain advantages over other feedstocks, such as
+              natural gas, in terms of storage and handling. Methanol reforming can be performed using several
+              techniques, including steam reforming and partial oxidation, with the most widely employed method being
+              steam reforming. 
+
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                <br><br>
+                In steam reforming, methanol reacts with steam at high temperatures, typically between 200 and 300°C, in
+                the presence of a catalyst, usually copper-based. The catalyst helps to break the chemical bonds in
+                methanol and facilitate the formation of hydrogen gas. The overall reaction for steam reforming can be
+                expressed as:
+                <br>
+                <span style="font-weight: bold; ">
+                  CH<sub>3</sub>OH + H<sub>2</sub>O → CO<sub>2</sub> + 3H<sub>2</sub>
+                </span>
+                <br><br>
+                This reaction produces hydrogen, which can be used directly in fuel cells, industrial processes, or as a
+                feedstock for other chemical production processes. The production of hydrogen from methanol is
+                advantageous in that it offers a more compact and efficient alternative to conventional hydrocarbon
+                reforming processes, particularly in applications where space and weight are critical factors, such as
+                in
+                portable power systems and fuel cells for vehicles.
+                <br></br>
+                An alternative method for methanol reforming is partial oxidation, which involves reacting methanol with
+                oxygen at high temperatures to produce hydrogen and carbon monoxide. The partial oxidation reaction
+                proceeds as follows:
+                
+                <span style="font-weight: bold; ">
+                  CH<sub>3</sub>OH + ½O<sub>2</sub> → CO + 2H<sub>2</sub>
+                </span>
+                <br><br>
+                This reaction generates hydrogen and carbon monoxide, both of which can be used in subsequent reactions.
+                One key advantage of partial oxidation is that it can operate at higher temperatures and can be more
+                thermodynamically favorable under certain conditions. However, the presence of carbon monoxide in the
+                product stream necessitates further processing, typically in a water-gas shift (WGS) reaction, where the
+                carbon monoxide reacts with additional water to produce more hydrogen and carbon dioxide. The WGS
+                reaction
+                is crucial in purifying the hydrogen output, as the carbon monoxide must be removed to avoid poisoning
+                the
+                catalyst in fuel cells.
+                <br></br>
+                While methanol reforming, particularly steam reforming, is efficient and widely used in hydrogen
+                production, it does face several challenges, especially in relation to the environmental impact of
+                carbon
+                dioxide (CO₂) and carbon monoxide emissions. These emissions arise primarily from the incomplete
+                oxidation
+                of carbon-containing fuels such as methanol. Although CO₂ is the major byproduct of steam reforming, the
+                process still contributes to the overall carbon footprint of hydrogen production, which is a concern in
+                the context of efforts to reduce global greenhouse gas emissions. The carbon dioxide produced in
+                methanol
+                reforming is generally captured and vented into the atmosphere, contributing to climate change unless
+                integrated with carbon capture and storage (CCS) technologies. In some cases, the use of CCS can
+                mitigate
+                the environmental impact by capturing CO₂ before it is released, preventing its entry into the
+                atmosphere.
+                However, CCS technologies are still developing, and the integration of such systems can increase the
+                overall cost of hydrogen production.
+                <br></br>
+
+                Another concern with methanol reforming is the potential for carbon monoxide (CO) contamination in the
+                hydrogen stream. Carbon monoxide is a toxic gas, and even small traces of it can significantly reduce
+                the
+                efficiency of hydrogen fuel cells. As a result, CO poisoning is a serious issue that must be addressed
+                in
+                any hydrogen production system using methanol reforming. One common method for removing carbon monoxide
+                from the hydrogen stream is the use of a water-gas shift reaction, which converts CO and steam into CO₂
+                and hydrogen. However, this reaction requires careful temperature control and additional equipment,
+                which
+                can add to the complexity and cost of the process.
+                <br></br>
+                Despite these challenges, methanol reforming remains a key technology for hydrogen production,
+                particularly in portable and small-scale applications. Methanol’s liquid state at room temperature makes
+                it easier to handle and store than hydrogen, which is a gas at ambient conditions. The transportation
+                and
+                storage of hydrogen require high-pressure tanks or cryogenic conditions, which add significant cost and
+                complexity to the system. Methanol, on the other hand, can be stored and transported using existing
+                infrastructure designed for liquids, making it an attractive option for hydrogen generation in areas
+                where
+                hydrogen infrastructure is lacking or for applications that require on-demand hydrogen production.
+                <br></br>
+                Methanol reforming also offers advantages in terms of efficiency and scalability. The process can be
+                easily scaled to meet the specific hydrogen demand of a given application. For example, small-scale
+                hydrogen generation units, such as those used in portable fuel cell systems for electronic devices or
+                backup power, can benefit from methanol reforming. In these applications, methanol is a convenient and
+                energy-dense fuel source that can provide hydrogen on-demand, reducing the need for large, bulky
+                hydrogen
+                storage systems. This makes methanol reforming particularly useful in remote areas or in emergency
+                situations where the availability of hydrogen is limited.
+                <br></br>
+                Despite the advantages of methanol reforming, its widespread adoption is hindered by environmental
+                concerns related to CO₂ and CO emissions. As the demand for clean, low-carbon hydrogen continues to
+                grow,
+                it is crucial to find ways to make methanol reforming more environmentally friendly. One approach to
+                addressing the CO₂ emissions from methanol reforming is the integration of renewable energy sources with
+                the process. For example, hydrogen production from methanol reforming could be paired with renewable
+                carbon-neutral methanol production, derived from sources like biomass, wind, or solar power. In such
+                systems, the carbon dioxide released during reforming could be offset by the renewable production of
+                methanol, thereby reducing the overall carbon footprint of the hydrogen production process.
+                <br></br>
+                Another potential solution is the use of advanced catalysts and reaction optimization to minimize CO₂
+                and
+                CO emissions. Researchers are working on developing new catalysts that can increase the efficiency of
+                methanol reforming while reducing the formation of unwanted byproducts. For instance, the use of
+                advanced
+                catalysts in the partial oxidation step can help promote more complete oxidation of methanol, minimizing
+                the production of CO and improving the overall efficiency of the process. In addition, improvements in
+                the
+                design and operation of the water-gas shift reaction can help reduce the need for additional energy
+                inputs
+                and make the process more cost-effective.
+                <br></br>
+                Moreover, methanol reforming could play a role in the emerging hydrogen economy, where hydrogen is used
+                as
+                a clean fuel for transportation, power generation, and industrial processes. In this context, methanol
+                reforming offers a pathway to distributed hydrogen generation, enabling hydrogen production closer to
+                the
+                point of use. This can reduce the need for extensive hydrogen transport infrastructure and provide a
+                reliable source of hydrogen for applications such as fuel cells in vehicles and portable power systems.
+                <br></br>
+                In summary, methanol reforming is a promising method for hydrogen production, particularly for
+                small-scale
+                and portable applications. The process offers several advantages, including ease of storage and
+                transport,
+                scalability, and the ability to generate hydrogen on-demand. However, the environmental impact of CO₂
+                and
+                CO emissions remains a significant challenge. As the demand for clean hydrogen continues to grow, the
+                development of carbon capture technologies, renewable methanol production, and more efficient catalysts
+                will be crucial for making methanol reforming a more sustainable and environmentally friendly method of
+                hydrogen production. By addressing these challenges, methanol reforming can contribute to the transition
+                to a cleaner, hydrogen-based energy system, providing a valuable tool for the decarbonization of various
+                sectors.
+
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more..
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+  <script src="../../content.js"></script>
+</body>
+
+</html>

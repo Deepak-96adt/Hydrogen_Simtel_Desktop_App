@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phosphoric Acid Fuel Cells (PAFC)</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+                { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+                { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+                { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+                { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety',
+              content: [
+                { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+                { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+                { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+                { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+                { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+                { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+                { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+                { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Through Electrolysis',
+              content: [
+                { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+                { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+                { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+                { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+                { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+                { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+                { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+                { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+                { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+                { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+                { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+                { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+                { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+                { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+                { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+                { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+                { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+                { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '#' },
+                { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+                { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+                { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+                { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+                { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+                { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+                { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+                { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+                { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+                { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+                { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+                { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+                { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+                { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+                { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                  :class="activeAccordion === index ? 'block' : 'hidden'">
+                  <div class="overflow-hidden flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+ 
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Phosphoric Acid Fuel Cells (PAFC)
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <img src="../../assets/Phosphoric Acid Fuel Cells (PAFC).jpg" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Phosphoric Acid Fuel Cells (PAFCs) represent one of the most established and widely used types of fuel
+              cells, with a strong track record in industrial and stationary power generation applications. These fuel
+              cells utilize phosphoric acid (H₃PO₄) as the electrolyte, which plays a crucial role in facilitating the
+              electrochemical reactions that convert hydrogen and oxygen into electricity, water, and heat. PAFCs
+              operate at moderate temperatures, typically ranging from 150°C to 200°C, which allows for greater
+              tolerance to impurities in the hydrogen fuel, making them a reliable and durable choice for various
+              applications.
+              <br>
+              The overall chemical reaction in a PAFC is:
+              <br>
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                <span style="font-weight: bold; ">
+                  2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O + electricity + heat
+
+                </span>
+                </br>
+                At the anode:
+                <br>
+                <span style="font-weight: bold; ">
+                  H<sub>2</sub> → 2H<sup>+</sup> + 2e<sup>-</sup>
+
+                </span>
+                </br>
+                At the cathode:
+                <br>
+                <span style="font-weight: bold; ">
+                  O<sub>2</sub> + 4H<sup>+</sup> + 4e<sup>-</sup> → 2H<sub>2</sub>O
+
+                </span>
+                <br></br>
+                The core function of a PAFC involves the electrochemical reaction that occurs at the anode and cathode.
+                At the anode, hydrogen molecules are split into protons and electrons. The protons move through the
+                electrolyte, while the electrons flow through an external circuit, generating electricity. At the
+                cathode, oxygen from the air combines with the protons and electrons to form water as the byproduct.
+                This process is both efficient and environmentally friendly, as it produces zero harmful emissions—only
+                water and heat are generated as byproducts, making PAFCs a clean energy technology.
+                <br></br>
+                One of the key advantages of PAFCs is their ability to operate at moderate temperatures compared to
+                other fuel cell technologies, such as Solid Oxide Fuel Cells (SOFCs), which operate at much higher
+                temperatures. This moderate operating temperature of 150°C to 200°C provides a balanced combination of
+                high performance and manageable thermal requirements. Additionally, the liquid nature of the phosphoric
+                acid electrolyte allows for better heat management and contributes to the stability of the fuel cell
+                system, ensuring a longer lifespan and reducing the need for complex cooling systems.
+                <br></br>
+                PAFCs also exhibit excellent tolerance to impurities in the hydrogen fuel, which is another notable
+                advantage over other types of fuel cells, such as Proton Exchange Membrane Fuel Cells (PEMFCs). While
+                PEM fuel cells require high-purity hydrogen for optimal performance, PAFCs can operate with hydrogen
+                that contains small amounts of carbon monoxide, a common impurity in hydrogen gas derived from natural
+                gas. This characteristic makes PAFCs more versatile and less dependent on high-purity hydrogen supply,
+                which is often expensive and difficult to maintain in many regions. As a result, PAFCs are a suitable
+                option for applications where the availability of ultra-pure hydrogen may be limited, such as industrial
+                plants or combined heat and power (CHP) systems that rely on reforming hydrogen from natural gas.
+                <br></br>
+                The durability of PAFCs is another major benefit. These fuel cells are capable of withstanding long
+                operational lifetimes, often exceeding 40,000 hours of continuous operation in many cases. This makes
+                them well-suited for stationary power generation and CHP applications, where a reliable and long-lasting
+                energy source is essential. PAFCs have already been deployed in a variety of large-scale power plants,
+                where they provide continuous, stable electricity generation. They are also used in backup power systems
+                for critical infrastructure, such as hospitals and data centers, where uninterrupted power supply is
+                crucial. The ability of PAFCs to deliver both electricity and heat through CHP systems further enhances
+                their value, as they can increase overall energy efficiency by utilizing the waste heat for space
+                heating or industrial processes.
+                <br></br>
+                However, despite their many advantages, PAFCs do have some limitations. One of the most significant
+                drawbacks is their lower power density compared to other fuel cell technologies, such as PEMFCs or Solid
+                Oxide Fuel Cells (SOFCs). This means that PAFCs require larger physical volumes to generate the same
+                amount of power as other fuel cell types. For instance, PEMFCs, which operate at lower temperatures
+                (around 50–100°C), tend to be more compact and can provide higher power density in a smaller space. This
+                difference in power density can make PAFCs less suitable for applications where space is limited, such
+                as in transportation or portable devices. The larger size requirement also contributes to higher
+                installation and maintenance costs in certain applications, especially in sectors where space efficiency
+                is a premium.
+                <br></br>
+                Another challenge associated with PAFCs is the cost of the platinum catalysts used in the electrodes.
+                Platinum, being a rare and expensive metal, is often used in fuel cells to promote the electrochemical
+                reactions that generate electricity. Although PAFCs require less platinum than PEM fuel cells, the cost
+                of platinum remains a significant factor in the overall cost of the system. Efforts are underway to
+                reduce the reliance on platinum by exploring alternative catalysts or reducing the amount of platinum
+                required. Additionally, the cost of phosphoric acid itself and other materials used in the construction
+                of PAFCs can contribute to their high initial cost, making them less competitive compared to other
+                energy technologies in certain markets.
+                <br></br>
+                Despite these challenges, PAFCs remain a valuable and promising technology in the clean energy
+                landscape. Their ability to provide high-efficiency electricity generation, their relatively low
+                operating temperatures, and their durability make them well-suited for stationary and industrial
+                applications. In particular, PAFCs are a key component of the hydrogen economy, playing a crucial role
+                in large-scale power plants, backup power systems, and CHP applications. As the world moves toward a
+                cleaner, more sustainable energy future, the importance of PAFCs as a reliable and efficient source of
+                power cannot be overstated.
+                <br></br>
+                To further increase the adoption and deployment of PAFCs, ongoing research and development efforts are
+                focused on improving their performance, reducing costs, and expanding their range of applications. One
+                area of focus is improving the performance of the phosphoric acid electrolyte itself. Researchers are
+                exploring ways to enhance the conductivity of the electrolyte to improve the overall efficiency of the
+                fuel cell. Additionally, advancements in catalyst development aim to reduce the reliance on platinum and
+                other precious metals, making the technology more cost-competitive. New materials and manufacturing
+                techniques are also being explored to reduce the size and weight of PAFCs, addressing some of the space
+                and scalability challenges they face.
+                <br></br>
+                Moreover, PAFCs are poised to play a key role in the integration of renewable energy sources, such as
+                solar and wind power, into the broader energy grid. As the demand for clean, low-carbon energy
+                increases, PAFCs can provide a flexible and reliable means of generating electricity while also
+                supporting energy storage and backup power capabilities. The ability of PAFCs to operate efficiently
+                with a variety of fuels, including hydrogen produced from renewable sources, further strengthens their
+                position as a cornerstone of the hydrogen economy.
+                <br></br>
+                In conclusion, Phosphoric Acid Fuel Cells (PAFCs) are a mature and reliable fuel cell technology with
+                significant potential for clean, efficient power generation. While they face challenges such as lower
+                power density and high catalyst costs, their advantages—particularly in terms of reliability,
+                durability, and tolerance to fuel impurities—make them a valuable technology for stationary power and
+                combined heat and power (CHP) applications. As research continues to improve their performance and
+                reduce costs, PAFCs will likely continue to play a critical role in the transition to a sustainable and
+                low-carbon energy future. Their ability to integrate with renewable energy systems and support
+                large-scale industrial applications positions them as an essential technology in the global effort to
+                reduce greenhouse gas emissions and achieve energy security.
+
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </div>
+</body>
+
+</html>

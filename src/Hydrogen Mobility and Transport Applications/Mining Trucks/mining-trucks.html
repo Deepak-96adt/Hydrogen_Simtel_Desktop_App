@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Mining Trucks</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '#' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Mining Trucks
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <!-- <img src="../../assets/Education and Awareness.jpg" alt="" class="mx-auto shadow-lg rounded-2xl" /> -->
+          <img src="../../assets/Mining trucks 2.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Hydrogen-powered mining trucks are revolutionizing the mining industry by offering a cleaner, more
+              sustainable alternative to traditional diesel-powered vehicles. In mining operations, trucks are used
+              extensively for transporting ore, waste, and equipment across large sites, and these vehicles typically
+              consume vast amounts of fuel, contributing significantly to both emissions and operating costs. As the
+              mining industry faces increasing pressure to reduce its carbon footprint and meet global environmental
+              standards, hydrogen-powered mining trucks are emerging as a viable solution that combines high performance
+              with sustainability.
+              <br><br>
+              At the heart of hydrogen-powered mining trucks are hydrogen fuel
+
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                cells, which generate electricity
+                through an electrochemical process that combines hydrogen with oxygen to produce water as the only
+                byproduct. This electricity is used to power electric motors, which in turn propel the truck. The key
+                advantage of hydrogen-powered trucks over traditional diesel-powered trucks is the zero-emission nature
+                of hydrogen fuel cells. Hydrogen fuel cells produce only water vapor and heat as exhaust, unlike diesel
+                engines that emit carbon dioxide (CO₂), nitrogen oxides (NOₓ), and particulate matter that contribute to
+                air pollution and climate change. This makes hydrogen-powered mining trucks an attractive option for
+                companies striving to meet sustainability goals, reduce their environmental impact, and operate more
+                responsibly.
+                <br></br>
+                The mining industry has long been one of the highest contributors to global carbon
+                emissions, primarily due to the reliance on diesel-powered vehicles and heavy machinery.
+                Diesel engines not only emit harmful pollutants but also contribute to noise pollution,
+                which can negatively impact both human workers and wildlife in mining areas.
+                Hydrogen-powered mining trucks help to address both of these concerns. With the transition
+                to hydrogen fuel cells, mining operations can significantly reduce their carbon emissions
+                while improving the environmental quality of the surrounding area. Hydrogen trucks operate
+                quietly compared to their diesel counterparts, contributing to a safer and more comfortable
+                working environment for miners. This is particularly beneficial in remote, high-volume
+                mining sites where noise can be disruptive to both people and wildlife.
+                <br></br>
+                Another key benefit of hydrogen-powered mining trucks is their potential to reduce
+                operational costs in the long run. While the initial capital investment for hydrogen-powered
+                vehicles may be higher than that of diesel trucks, the operational and maintenance costs are
+                often lower. Diesel engines require frequent servicing, including fuel system maintenance,
+                exhaust treatment, and engine repairs, all of which contribute to significant maintenance
+                costs. Hydrogen fuel cells, on the other hand, have fewer moving parts and are less prone to
+                wear and tear. In addition, hydrogen fuel cells can be refueled quickly—typically in less
+                than 15 minutes—whereas diesel trucks require longer refueling times and often need to be
+                serviced more frequently. The quick refueling process is a significant advantage for mining
+                operations, where downtime can result in substantial productivity losses.
+                <br></br>
+                Hydrogen-powered mining trucks are also beneficial for improving air quality in mining
+                communities and surrounding regions. Diesel-powered mining trucks are notorious for emitting
+                large quantities of harmful pollutants, including particulate matter, nitrogen oxides, and
+                sulfur compounds, which can have detrimental effects on human health, particularly
+                respiratory conditions such as asthma. The shift to hydrogen-powered trucks can greatly
+                improve air quality around mining sites, which is especially important in regions where
+                mining activities are in close proximity to populated areas. In addition to reducing
+                emissions, hydrogen-powered trucks also help mitigate the impact of mining operations on
+                local ecosystems, preserving biodiversity and reducing the environmental footprint of
+                resource extraction.
+                <br></br>
+                Despite these significant benefits, there are several challenges to overcome in the adoption
+                of hydrogen-powered mining trucks. One of the primary obstacles is the high initial cost of
+                hydrogen fuel cell systems. Fuel cells are still relatively expensive compared to
+                traditional diesel engines, and the technology required to produce, store, and distribute
+                hydrogen at scale is still being developed. The mining industry typically operates on tight
+                margins, and the upfront investment in hydrogen trucks can be a deterrent, particularly for
+                smaller companies or those with limited access to capital. However, as hydrogen production
+                costs continue to decrease and fuel cell technology becomes more widely available, the cost
+                of hydrogen-powered trucks is expected to decrease, making them more accessible to a broader
+                range of mining operations.
+                <br></br>
+                Another challenge is the need for on-site hydrogen production or reliable hydrogen delivery
+                infrastructure. In many remote mining sites, it may not be feasible to transport large
+                quantities of hydrogen over long distances, which necessitates the establishment of on-site
+                hydrogen production or refueling stations. Hydrogen production itself requires energy, and
+                the source of this energy will determine the overall environmental impact of hydrogen fuel
+                cell systems. Ideally, hydrogen should be produced using renewable energy sources, such as
+                wind or solar power, to ensure that the entire system is sustainable and low-carbon. The
+                logistics of hydrogen delivery and refueling are also complex, especially in regions without
+                established hydrogen infrastructure. To address these challenges, the mining industry is
+                working with governments, energy companies, and infrastructure providers to build the
+                necessary infrastructure for hydrogen production and refueling stations.
+                <br></br>
+                In addition to these technical and logistical challenges, the mining industry must also
+                invest in the development of a skilled workforce to maintain and operate hydrogen-powered
+                vehicles. Fuel cell technology is highly specialized, and mining companies will need to
+                train their workers to operate, maintain, and troubleshoot hydrogen-powered equipment. This
+                will require investments in training programs and partnerships with fuel cell manufacturers
+                and academic institutions to build a workforce capable of supporting the hydrogen economy.
+                <br></br>
+                Despite these challenges, hydrogen-powered mining trucks are gaining traction in the mining
+                sector, with several mining companies already piloting or investing in hydrogen fuel cell
+                technology. For example, leading mining companies in Europe, Asia, and North America are
+                testing hydrogen-powered haul trucks, bulldozers, and other heavy equipment in various
+                mining environments. These pilot projects are helping to demonstrate the viability of
+                hydrogen technology in mining and provide valuable insights into the performance, cost, and
+                operational challenges of hydrogen-powered vehicles. In addition to mining companies,
+                governments and regulatory bodies are providing incentives and funding for the development
+                of hydrogen infrastructure and the adoption of hydrogen-powered vehicles in the mining
+                sector. These incentives are helping to reduce the financial burden on mining companies and
+                accelerate the transition to a more sustainable future.
+                <br></br>
+                The successful implementation of hydrogen-powered mining trucks could also have broader
+                implications for the transportation industry as a whole. Mining trucks are among the largest
+                and most demanding vehicles on the road, and the development of hydrogen-powered mining
+                trucks could pave the way for the adoption of hydrogen fuel cell technology in other
+                heavy-duty vehicle sectors, including long-haul trucking, construction, and agriculture.
+                Hydrogen-powered mining trucks offer a glimpse of a future where hydrogen plays a critical
+                role in decarbonizing some of the most challenging and carbon-intensive industries.
+                <br></br>
+                In conclusion, hydrogen-powered mining trucks represent a significant advancement in the
+                mining industry’s efforts to reduce emissions, improve operational efficiency, and promote
+                sustainability. Although there are challenges to overcome, including the high cost of fuel
+                cell systems and the need for robust hydrogen infrastructure, the potential benefits of
+                hydrogen-powered mining trucks make them a promising solution for the mining sector. As
+                hydrogen fuel cell technology matures and the necessary infrastructure is developed,
+                hydrogen-powered trucks are poised to play a critical role in the future of sustainable
+                mining operations, helping the industry meet its environmental and performance goals while
+                contributing to the global transition to clean energy.
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+  <!-- <script src="../../script.js"></script> -->
+</body>
+
+</html>

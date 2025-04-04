@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PEM (Proton Exchange Membrane) Fuel Cell</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+
+</head>
+
+<body>
+
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+                { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+                { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+                { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+                { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety',
+              content: [
+                { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+                { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+                { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+                { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+                { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+                { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+                { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+                { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Through Electrolysis',
+              content: [
+                { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+                { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+                { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+                { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+                { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+                { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+                { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+                { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+                { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+                { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+                { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+                { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+                { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+                { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+                { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+                { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '#' },
+                { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+                { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+                { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+                { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+                { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+                { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+                { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+                { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+                { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+                { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+                { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+                { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+                { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+                { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+                { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+                { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+                { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                  :class="activeAccordion === index ? 'block' : 'hidden'">
+                  <div class="overflow-hidden flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+ 
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            PEM (Proton Exchange Membrane) Fuel Cell
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <div >
+            <img src="../../assets/Proton_Exchange_Membrane.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+            <div style="display: flex; gap: 15px;">
+            <a href="./Simulation/FuelCell_Simulation.html"
+              class="  w-[10vw]    mt-4 block text-xs sm:text-sm lg:text-base xl:text-lg line-height-[26px] font-normal bg-[#0177fb] text-white rounded-full px-4 sm:px-6 py-2 sm:py-2.5 active:translate-y-1 active:shadow-none transition-all duration-75"
+              style="box-shadow: 0px 4px 0px 0px #0155b3;">
+              Simulation
+            </a>
+            <a href="./Virtual/virtual_experiment.html"
+            class="  w-[10vw]    mt-4 block text-xs sm:text-sm lg:text-base xl:text-lg line-height-[26px] font-normal bg-[#0177fb] text-white rounded-full px-4 sm:px-6 py-2 sm:py-2.5 active:translate-y-1 active:shadow-none transition-all duration-75"
+            style="box-shadow: 0px 4px 0px 0px #0155b3; height: 45px; text-align: center; font-size: 17px; width: 192px; font-weight: 500;">
+                 Virtual Experiment
+          </a>
+        </div>
+          </div>
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Proton Exchange Membrane (PEM) fuel cells, also known as Polymer Electrolyte Membrane fuel cells,
+              represent one of the most promising hydrogen fuel cell technologies in the quest for clean and efficient
+              energy solutions. These fuel cells rely on a solid polymer membrane as the electrolyte, which facilitates
+              the electrochemical reaction between hydrogen and oxygen, generating electricity, water, and heat. The
+              basic operation of a PEM fuel cell involves the splitting of hydrogen molecules at the anode, where they
+              release protons (hydrogen ions) and electrons. The protons pass through the electrolyte membrane, while
+              the electrons travel through an external circuit, generating an electric current that can be used to power
+              various devices or systems. At the cathode,the protons
+            
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                combine with oxygen from the air   to form water, completing the electrochemical process.
+                <br></br>
+                The overall chemical reaction in a PEM fuel cell is:
+                <br>
+                <span style="font-weight: bold; ">
+                  2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O + electricity + heat
+
+                </span>
+                </br>
+                At the anode:
+                <br>
+                <span style="font-weight: bold; ">
+                  H<sub>2</sub> → 2H<sup>+</sup> + 2e<sup>-</sup>
+
+                </span>
+                </br>
+                At the cathode:
+                <br>
+                <span style="font-weight: bold; ">
+                  O<sub>2</sub> + 4H<sup>+</sup> + 4e<sup>-</sup> → 2H<sub>2</sub>O
+
+                </span>
+                <br><br>
+                One of the primary reasons why PEM fuel cells are considered a key technology for the hydrogen economy
+                is their efficiency and versatility. They operate at relatively low temperatures, typically between 50
+                and 100°C, which makes them well-suited for a wide range of applications, from transportation to
+                stationary power generation. Unlike traditional internal combustion engines that rely on combustion to
+                produce power, PEM fuel cells generate electricity directly through an electrochemical reaction. This
+                direct conversion process is highly efficient and produces only water and heat as byproducts, making PEM
+                fuel cells one of the cleanest energy technologies available. This characteristic is especially
+                important in the context of global efforts to reduce greenhouse gas emissions and transition to
+                sustainable energy systems.
+                <br></br>
+                In the transportation sector, PEM fuel cells have gained significant attention due to their lightweight,
+                compact design and ability to provide quick start-up times. These attributes make PEM fuel cells ideal
+                for use in hydrogen-powered vehicles, including cars, buses, trucks, and even trains. In particular,
+                hydrogen-powered vehicles have the potential to overcome some of the key limitations of battery electric
+                vehicles (BEVs), such as long refueling times and limited driving range. Unlike BEVs, which require
+                extended charging times, PEM fuel cell vehicles can be refueled in just a few minutes, providing a more
+                convenient and practical solution for long-distance travel. Additionally, hydrogen-powered vehicles
+                produce zero emissions, offering a clean alternative to conventional gasoline and diesel-powered
+                vehicles.
+                <br></br>
+                Beyond transportation, PEM fuel cells also hold significant promise in the realm of portable devices and
+                stationary power systems. For portable electronics, such as laptops, smartphones, and other consumer
+                gadgets, PEM fuel cells can offer a longer-lasting and more efficient power source compared to
+                conventional batteries. These fuel cells can be easily integrated into portable power units, providing
+                users with a reliable and sustainable energy solution for off-grid applications or during power outages.
+                In stationary power systems, PEM fuel cells can be used to provide backup power for homes, businesses,
+                and critical infrastructure. They can also be integrated into larger-scale energy systems to help
+                balance the intermittent nature of renewable energy sources, such as wind and solar power. When paired
+                with hydrogen produced from renewable sources, PEM fuel cells offer a pathway to a fully decarbonized
+                energy grid.
+                <br></br>
+                Despite their many advantages, PEM fuel cells face several challenges that must be addressed in order to
+                unlock their full potential. One of the most significant challenges is the high cost of platinum
+                catalysts, which are used in the fuel cell electrodes to facilitate the electrochemical reactions.
+                Platinum is a rare and expensive material, and its cost can significantly increase the overall price of
+                PEM fuel cells, making them less competitive with other energy technologies. To address this issue,
+                researchers are exploring alternative catalyst materials, such as non-precious metals or metal alloys,
+                that can perform similarly to platinum but at a lower cost. Additionally, advances in catalyst design
+                and manufacturing processes are being explored to improve the efficiency and reduce the amount of
+                platinum required in PEM fuel cells.
+                <br></br>
+                Another challenge facing PEM fuel cells is their sensitivity to fuel impurities, particularly carbon
+                monoxide (CO). Even small amounts of CO in the hydrogen fuel can poison the platinum catalyst, reducing
+                the fuel cell's performance and lifespan. To mitigate this issue, hydrogen fuel must be purified before
+                being used in PEM fuel cells, which adds complexity and cost to the fuel supply chain. Researchers are
+                working on developing advanced filtration and purification systems that can remove contaminants from
+                hydrogen fuel more efficiently, ensuring that PEM fuel cells can operate at their optimal performance
+                levels.
+                <br></br>
+                In addition to these technical challenges, PEM fuel cells also face economic and infrastructure-related
+                barriers that need to be overcome for widespread adoption. One of the main hurdles is the lack of a
+                robust hydrogen fueling infrastructure, particularly in areas where hydrogen-powered vehicles are not
+                yet widely available. Building a network of hydrogen refueling stations is expensive and requires
+                significant investment from both the public and private sectors. However, as the hydrogen economy grows
+                and more hydrogen-powered vehicles enter the market, the demand for refueling stations will increase,
+                creating opportunities for further investment and infrastructure development. Governments around the
+                world are already taking steps to support the growth of hydrogen infrastructure through incentives,
+                subsidies, and partnerships with industry stakeholders.
+                <br></br>
+                Despite these challenges, PEM fuel cells are widely regarded as a cornerstone technology for the
+                hydrogen economy. Their ability to provide clean, efficient, and reliable energy makes them a crucial
+                component of the transition to a sustainable energy future. As research continues to address the
+                technical, economic, and infrastructure-related challenges associated with PEM fuel cells, it is likely
+                that their adoption will continue to grow across a wide range of applications. With the right support
+                and investment, PEM fuel cells have the potential to play a leading role in decarbonizing
+                transportation, power generation, and other sectors, helping to create a cleaner, more sustainable
+                world.
+                <br></br>
+                In conclusion, PEM fuel cells offer a versatile, efficient, and environmentally friendly energy solution
+                with the potential to revolutionize multiple industries. While challenges such as high catalyst costs
+                and fuel impurity sensitivity must be addressed, ongoing research and development in catalyst materials,
+                fuel purification technologies, and infrastructure expansion are helping to overcome these obstacles. As
+                the hydrogen economy continues to evolve, PEM fuel cells will play a key role in the shift toward clean,
+                sustainable energy systems, driving innovation in transportation, portable devices, and stationary power
+                generation. Their adaptability, combined with their low emissions and high efficiency, makes PEM fuel
+                cells an essential technology in the pursuit of a carbon-neutral future.
+
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+
+            <!-- <a href="./Simulation/FuelCell_Simulation.html"
+              class="text-xs sm:text-sm lg:text-base xl:text-lg line-height-[26px] font-normal bg-[#0177fb] text-white rounded-full px-4 sm:px- py-2 sm:py-2.5 active:translate-y-1 active:shadow-none transition-all duration-75"
+              style="box-shadow: 0px 4px 0px 0px #0155b3"> Simulation </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Direct Ethanol Fuel Cells (DMFC)</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '#' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Direct Ethanol Fuel Cells (DEFC)
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <div>
+            <img src="../../assets/Direct_Ethanol_Fuel_Cells.png" alt=""
+              class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+              <a href="./Simulation/Direct_Ethanol_FuleCellSimulation.html"
+              class="  w-[10vw]    mt-4 block text-xs sm:text-sm lg:text-base xl:text-lg line-height-[26px] font-normal bg-[#0177fb] text-white rounded-full px-4 sm:px-6 py-2 sm:py-2.5 active:translate-y-1 active:shadow-none transition-all duration-75"
+              style="box-shadow: 0px 4px 0px 0px #0155b3;">
+              Simulation
+            </a>
+          </div>
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Direct ethanol fuel cells (DEFCs) represent a promising and innovative technology in the growing field of
+              renewable energy, specifically in the conversion of ethanol into electricity. Ethanol, a biofuel that is
+              commonly derived from renewable sources like corn, sugarcane, and other plant materials, has long been
+              recognized as a potential alternative to fossil fuels. In a DEFC, ethanol undergoes an electrochemical
+              reaction with oxygen to produce electricity, carbon dioxide, and water, without the need for combustion.
+              This makes DEFCs inherently more efficient and environmentally friendly compared to traditional energy
+              generation methods. While still in the developmental stages for large-scale use, DEFCs have garnered
+              considerable interest for their potential in
+              
+              <span id="dots"></span>
+              <span id="more" style="display: none">
+                 portable power applications, providing a cleaner and more
+                sustainable alternative to conventional batteries.
+
+                <br></br>
+                The overall chemical reaction in a DEFC is:
+                <br>
+                <span style="font-weight: bold; ">
+                  C<sub>2</sub>H<sub>5</sub>OH + 3O<sub>2</sub> → 2CO<sub>2</sub> + 3H<sub>2</sub>O + electricity
+                </span>
+                </br>
+                At the anode:
+                <br>
+                <span style="font-weight: bold; ">
+                  C<sub>2</sub>H<sub>5</sub>OH + 3H<sub>2</sub>O → 2CO<sub>2</sub> + 12H<sup>+</sup> + 12e<sup>-</sup>
+                </span>
+                </br>
+                At the cathode:
+                <br>
+                <span style="font-weight: bold; ">
+                  3O<sub>2</sub> + 12H<sup>+</sup> + 12e<sup>-</sup> → 6H<sub>2</sub>O
+
+                </span>
+                </br>
+                <br>
+                The basic operating principle of a DEFC involves a process similar to that of direct methanol fuel cells
+                (DMFCs), but with ethanol as the fuel source instead of methanol. In DEFCs, ethanol is fed into the
+                anode side of the fuel cell, where it reacts with water molecules to produce hydrogen ions (protons),
+                electrons, and carbon dioxide. The protons then pass through the proton-conducting electrolyte membrane,
+                while the electrons flow through an external circuit, generating electricity. On the cathode side,
+                oxygen from the air reacts with the protons and electrons to form water. This overall reaction allows
+                for the generation of clean electricity with minimal byproducts, aside from the carbon dioxide, which is
+                released as a result of the ethanol oxidation process.
+                <br></br>
+                One of the primary advantages of DEFCs over other fuel cell technologies, such as direct methanol fuel
+                cells or hydrogen fuel cells, is the use of ethanol as the fuel source. Ethanol is widely available and
+                can be produced from a variety of renewable resources, making it a sustainable and potentially low-cost
+                fuel option. Additionally, ethanol has a relatively high energy density compared to other biofuels, such
+                as methanol, which means that DEFCs can provide a substantial amount of power in a compact and portable
+                form. Ethanol is also less toxic than methanol, which makes it safer for use in consumer applications,
+                particularly in devices such as portable electronics and small-scale energy devices. The fact that
+                ethanol can be easily stored and transported at ambient temperatures further enhances its appeal as a
+                fuel for DEFCs, as it eliminates the need for expensive and complex storage systems, such as those
+                required for hydrogen.
+                <br></br>
+                Despite these advantages, DEFCs face several technical challenges that must be addressed before they can
+                achieve widespread commercial adoption. One of the primary challenges in DEFC technology is ethanol
+                crossover through the proton-conducting membrane. In fuel cells, the electrolyte membrane serves as a
+                selective barrier that allows protons to pass from the anode to the cathode, but prevents the fuel from
+                crossing over to the cathode side. However, in DEFCs, ethanol molecules have been found to cross through
+                the membrane and reach the cathode side, where they can cause undesirable side reactions and reduce the
+                efficiency of the fuel cell. This ethanol crossover phenomenon results in lower overall performance and
+                less efficient power generation. To overcome this issue, researchers are focused on developing more
+                effective membranes that are better at preventing ethanol crossover while still allowing protons to pass
+                through.
+                <br></br>
+                Another challenge faced by DEFCs is catalyst degradation. In order to facilitate the ethanol oxidation
+                reaction at the anode, DEFCs require the use of catalysts, often made from precious metals such as
+                platinum or palladium. Over time, these catalysts can degrade due to the harsh conditions within the
+                fuel cell, leading to a decrease in performance and efficiency. The high temperatures and acidic
+                environment within the cell can accelerate the degradation of the catalyst, which reduces the longevity
+                of the fuel cell and increases the cost of operation. To address this issue, researchers are exploring
+                alternative catalyst materials, such as non-precious metal alloys or novel catalyst designs, that can
+                offer improved stability and performance over extended periods of use. Additionally, efforts are being
+                made to improve the electrode structure and optimize the electrochemical reaction to enhance the overall
+                efficiency of the cell.
+                <br></br>
+                Ethanol fuel cells also suffer from lower overall efficiency compared to other types of fuel cells, such
+                as proton exchange membrane (PEM) fuel cells or solid oxide fuel cells (SOFCs). While DEFCs can operate
+                at relatively low temperatures (typically between 60 and 120°C), the reaction kinetics of ethanol
+                oxidation are slower than those of hydrogen or methanol, resulting in less efficient energy conversion.
+                This slower reaction rate can reduce the power output of the fuel cell, which is particularly
+                problematic in applications where high power density is required. In addition, the ethanol oxidation
+                reaction produces a mixture of products, including acetaldehyde and acetic acid, which can interfere
+                with the overall efficiency of the system. Researchers are working to develop more effective catalysts
+                and electrochemical processes that can improve the rate of ethanol oxidation and increase the overall
+                efficiency of DEFCs.
+                <br></br>
+                Despite these challenges, DEFCs have significant potential for providing clean, efficient, and renewable
+                energy from a liquid fuel source. The fact that ethanol is widely available and relatively easy to store
+                and handle makes it an attractive option for portable power applications. DEFCs can be used in a wide
+                range of devices, including personal electronics, mobile power sources, and small-scale energy devices,
+                offering a promising alternative to traditional batteries and fuel cells. Furthermore, DEFCs could play
+                a role in the transportation sector, particularly in vehicles that are powered by ethanol or other
+                biofuels. As the global demand for clean energy solutions continues to grow, DEFCs could provide a
+                practical and sustainable way to power a variety of applications while reducing reliance on fossil
+                fuels.
+                <br></br>
+                In addition to their potential in portable power and transportation applications, DEFCs could also be
+                integrated into larger-scale energy systems. For example, ethanol-powered fuel cells could be used in
+                stationary power generation systems, particularly in rural or off-grid areas where access to the
+                electric grid is limited. The ability to use ethanol as a fuel source, combined with the high efficiency
+                of fuel cell technology, makes DEFCs a promising option for distributed energy systems. Furthermore, the
+                renewable nature of ethanol, when derived from biomass or other sustainable sources, could help reduce
+                the carbon footprint of energy generation and contribute to the transition to a low-carbon energy
+                economy.
+                <br></br>
+                In conclusion, direct ethanol fuel cells (DEFCs) represent an exciting and innovative technology in the
+                field of clean energy. The use of ethanol as a fuel source offers numerous advantages, including its
+                renewable nature, high energy density, and lower toxicity compared to other fuels. While challenges such
+                as ethanol crossover, catalyst degradation, and lower efficiency remain, ongoing research and
+                development efforts are focused on improving DEFC technology to overcome these obstacles. As
+                advancements are made in catalyst design, membrane technology, and overall system optimization, DEFCs
+                have the potential to become a valuable solution for a wide range of applications, from portable
+                electronics to large-scale energy systems. With continued progress, DEFCs could play a significant role
+                in the future of clean, renewable energy production, providing a sustainable and efficient alternative
+                to traditional energy sources.
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+            <!-- <a href="./Simulation/Direct_Ethanol_FuleCellSimulation.html"
+              class="text-xs sm:text-sm lg:text-base xl:text-lg line-height-[26px] font-normal bg-[#0177fb] text-white rounded-full px-4 sm:px- py-2 sm:py-2.5 active:translate-y-1 active:shadow-none transition-all duration-75"
+              style="box-shadow: 0px 4px 0px 0px #0155b3"> Simulation </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </div>
+</body>
+
+</html>

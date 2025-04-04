@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compressed Hydrogen</title>
+  <script src="../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script defer src="../../assets/main.js"></script>
+  <script defer src="../../assets/alpinejs.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  <script src="../../content.js"></script>
+
+</head>
+
+<body>
+  <div class="opacity-0 transform translate-x-[-200px] scale-50 rotate-[-1deg] transition-all duration-1000 ease-out"
+    x-init="setTimeout(() => $el.classList.remove('opacity-0', 'translate-x-[-200px]', 'scale-50', 'rotate-[-1deg]'), 100)">
+    <header class="relative shadow-lg h-20 left-0 w-full z-[100] bg-white" x-data="{ isOpen: false }"
+      style="position: sticky; top: 0; z-index: 1200">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../home.html">
+          <img src="../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{
+        activeAccordion: null,
+        items: [
+          {
+            title: 'Hydrogen Basics',
+            content: [
+              { text: 'Introduction to Hydrogen', url: '../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+              { text: 'Hydrogen as Fuel', url: '../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+            ]
+          },
+          {
+            title: 'Categories of Hydrogen based on production',
+            content: [
+              { text: 'Grey Hydrogen', url: '../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../../CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Safety',
+            content: [
+              { text: 'Flammability and Explosivity', url: '../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Methodologies',
+            content: [
+              { text: 'Steam Methane Reforming', url: '../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Generation Through Electrolysis',
+            content: [
+              { text: 'Alkaline Electrolysis', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Storage',
+            content: [
+              { text: 'Geological Hydrogen Storage', url: '../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '#' },
+              { text: 'Liquid Hydrogen', url: '../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Distribution',
+            content: [
+              { text: 'Hydrogen Pipelines', url: '../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+            ]
+          },
+          {
+            title: 'Fuel Cell Fundamentals',
+            content: [
+              { text: 'Introduction to Fuel Cell', url: '../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+            ]
+          },
+          {
+            title: 'Categories of Fuel Cell',
+            content: [
+              { text: 'Alkaline Fuel Cell', url: '../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen industrial Application',
+            content: [
+              { text: 'Ammonia Production', url: '../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+            ]
+          },
+          {
+            title: 'Hydrogen Combustion Engine',
+            content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+            ]
+          },
+          {
+            title: 'Hydrogen Mobility and Transportation Applications',
+            content: [
+              { text: 'Fuel Cell Buses', url: '../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+            ]
+          }
+        ],
+        init() {
+          document.addEventListener('click', (e) => {
+            // Check if click is outside the accordion container
+            if (!this.$el.contains(e.target)) {
+              this.activeAccordion = null;
+            }
+          })
+        }
+      }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                :class="activeAccordion === index ? 'block' : 'hidden'">
+                <div class="overflow-hidden flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      </div>
+    </header>
+
+    <div class="bg-[#f5f5f5] min-h-screen">
+      <div class="w-[95%] max-w-[90%] space-y-[30px] mx-auto py-[30px]">
+        <div class="flex items-center gap-3.5">
+          <a href="../../home.html"
+            class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+            <img src="../../assets/icon5.png" alt="" class="" />
+          </a>
+          <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium">
+            Compressed Hydrogen
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+          <img src="../../assets/Compressed_Hydrogen.png" alt="" class="mx-auto shadow-lg rounded-2xl h-[80%]" />
+          <div class="flex-col flex items-start space-y-3.5 lg:space-y-[26px] justify-center h-[85%]">
+            <h3 class="text-[22px] md:text-3xl lg:text-[32px] line-height-[32px] font-semibold">
+              Overview
+            </h3>
+            <p class="text-sm lg:text-base xl:text-lg line-height-[26px] font-normal scroll">
+              Compressed hydrogen storage is a widely utilized method for storing hydrogen gas at high pressures,
+              offering a practical solution for various applications, including transportation, fuel cell systems, and
+              stationary energy storage. This method involves compressing hydrogen gas to pressures typically ranging
+              between 350 and 700 bar (approximately 5,000 to 10,000 psi) and storing it in specially designed tanks
+              capable of withstanding such high pressures. The tanks are engineered to prioritize safety, durability,
+              and efficiency, making compressed hydrogen storage a scalable and viable option in the growing hydrogen
+              economy.
+              <br></br>
+              One of the primary reasons for the popularity of compressed hydrogen storage is its simplicity and
+              adaptability. The process of<span id="dots"></span>
+              <span id="more" style="display: none">
+                hydrogen involves using mechanical compressors to pressurize the gas,
+                reducing its volume significantly and enabling it to be stored in a compact form. This makes it suitable
+                for a wide range of applications, particularly in the transportation sector, where space and weight are
+                critical considerations. For instance, hydrogen-powered vehicles, such as fuel cell electric cars,
+                buses, and trucks, rely on compressed hydrogen storage tanks to provide a lightweight and efficient
+                means of carrying hydrogen fuel. These tanks allow vehicles to achieve significant driving ranges while
+                maintaining a manageable weight, contributing to the feasibility of hydrogen as a clean fuel
+                alternative.
+                <br></br>
+
+                The design of compressed hydrogen storage tanks is a key factor in ensuring their performance and
+                safety. These tanks are typically constructed from advanced materials, such as carbon fiber composites,
+                which offer an optimal balance of strength and lightweight properties. Carbon fiber tanks are capable of
+                withstanding the immense pressures required for hydrogen storage while minimizing the overall weight of
+                the storage system. This is particularly important in applications like transportation, where weight
+                directly affects fuel efficiency and performance. Additionally, the inner linings of these tanks are
+                often made from materials like high-density polyethylene to prevent hydrogen permeation and ensure the
+                integrity of the storage system over time.
+                <br></br>
+
+                Safety is a paramount consideration in compressed hydrogen storage due to the high pressures involved.
+                Hydrogen is highly flammable and poses unique risks, such as its low ignition energy and wide
+                flammability range, which necessitate rigorous safety measures. Storage tanks are subjected to extensive
+                testing to ensure they can withstand extreme conditions, including impacts, temperature fluctuations,
+                and pressure changes. Advanced safety features, such as pressure relief valves and burst disks, are
+                integrated into the design to prevent overpressurization and allow controlled release of hydrogen in the
+                event of an emergency. These features, combined with stringent industry standards and regulations, make
+                compressed hydrogen storage a reliable option for various applications.
+                <br></br>
+
+
+
+                One of the significant advantages of compressed hydrogen storage is its compatibility with existing gas
+                infrastructure. Hydrogen can be transported in compressed form using pipelines, trailers, or cylinders,
+                enabling it to be distributed efficiently across different regions. This compatibility simplifies the
+                integration of hydrogen into current energy systems and facilitates its adoption as a clean energy
+                carrier. For example, compressed hydrogen can be delivered to refueling stations for use in fuel cell
+                vehicles, providing a convenient and scalable solution for hydrogen distribution.
+
+                <br></br>
+
+                Compressed hydrogen storage also offers the benefit of rapid refueling, making it an attractive option
+                for applications requiring quick turnaround times, such as public transportation and emergency services.
+                Hydrogen-powered vehicles can be refueled in a matter of minutes, comparable to refueling conventional
+                gasoline or diesel vehicles, which is a significant advantage over battery electric vehicles that
+                require longer charging times. This convenience makes compressed hydrogen storage a practical choice for
+                consumers and industries looking to transition to cleaner energy solutions without compromising on
+                efficiency or usability.
+                <br></br>
+
+
+                Despite its many advantages, compressed hydrogen storage faces several challenges that must be addressed
+                to enhance its efficiency and scalability. One of the primary challenges is the energy-intensive nature
+                of the compression process. Compressing hydrogen to the required high pressures consumes a significant
+                amount of energy, which can impact the overall efficiency and carbon footprint of the hydrogen supply
+                chain. To mitigate this, advancements in compression technology are being explored, including the
+                development of more efficient compressors and the integration of renewable energy sources to power the
+                compression process.
+                <br></br>
+
+                Another challenge is the relatively low storage density of compressed hydrogen compared to other storage
+                methods, such as liquid hydrogen or chemical storage. While compression reduces the volume of hydrogen,
+                it remains less dense than liquid hydrogen, which can pose limitations for applications requiring high
+                energy densities. Research is ongoing to improve the volumetric efficiency of compressed hydrogen
+                storage systems, including optimizing tank designs and exploring hybrid storage solutions that combine
+                compression with other methods.
+                <br></br>
+
+
+                Safety concerns associated with high-pressure storage also present challenges, particularly in densely
+                populated or confined spaces. The risk of leaks or accidental releases, although minimized through
+                advanced tank designs and safety protocols, must be carefully managed to ensure the safe deployment of
+                compressed hydrogen storage systems. Continuous monitoring and maintenance of storage infrastructure,
+                along with the implementation of robust leak detection technologies, are essential to addressing these
+                safety concerns and building public confidence in hydrogen as a safe energy carrier.
+                <br></br>
+
+
+                The cost of manufacturing and maintaining high-pressure storage tanks is another factor that affects the
+                scalability of compressed hydrogen storage. The use of advanced materials, such as carbon fiber,
+                contributes to the high upfront costs of these tanks, which can be a barrier to widespread adoption.
+                However, as hydrogen technology matures and economies of scale are achieved, it is expected that the
+                costs of compressed hydrogen storage systems will decrease, making them more accessible and competitive
+                in the energy market.
+                <br></br>
+
+                In conclusion, compressed hydrogen storage is a versatile and practical solution for storing and
+                transporting hydrogen gas, offering numerous benefits, including simplicity, compatibility with existing
+                infrastructure, and rapid refueling capabilities. Its widespread use in transportation, portable
+                applications, and stationary energy systems underscores its importance in the transition to a
+                hydrogen-based energy economy. While challenges such as energy-intensive compression, storage density
+                limitations, and safety concerns remain, ongoing advancements in technology and materials are likely to
+                address these issues and enhance the efficiency and reliability of compressed hydrogen storage systems.
+                As the demand for clean energy solutions continues to grow, compressed hydrogen storage is poised to
+                play a critical role in enabling the adoption of hydrogen as a sustainable and scalable energy carrier.
+
+              </span>
+              <button onclick="myFunction()" id="myBtn" style="color: blue">
+                Read more...
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </div>
+</body>
+
+</html>
