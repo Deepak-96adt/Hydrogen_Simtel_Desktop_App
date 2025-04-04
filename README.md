@@ -10,7 +10,7 @@ Virtual learning lab to learn about Hydrogen Generator.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-To be able to start development on EV-SIMTEL, make sure that you have the following prerequisites installed: 
+To be able to start development on HYDROGEN-SIMTEL, make sure that you have the following prerequisites installed: 
 
 - [Node.js](https://nodejs.org/en)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
@@ -33,7 +33,7 @@ brew install node npm
 **2. Clone the repo:**
 ```bash
 git clone https://github.com/alphadottechnologies/HydrogenSimtel.git
-cd EV-SIMTEL
+cd HYDROGEN-SIMTEL
 ```
 
 **3. Install NPM packages:**
