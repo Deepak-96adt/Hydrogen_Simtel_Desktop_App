@@ -38,8 +38,8 @@
       <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
         class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
         <div
-        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
-        x-data="{
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{
         activeAccordion: null,
         items: [
           {
@@ -118,7 +118,7 @@
               { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
               { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
               { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
-              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '#' }
+              { text: 'Direct Ethanol Fuel Cells (DEFC)', url: '#' }
             ]
           },
           {
@@ -158,39 +158,41 @@
           })
         }
       }" @click.outside="activeAccordion = null">
-        <template x-for="(item, index) in items" :key="index">
-          <div class="relative font-inter antialiased text-sm lg:text-base">
-            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
-              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
-                <button :id="'faqs-title-' + index" type="button"
-                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
-                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
-                  @click="activeAccordion = activeAccordion === index ? null : index"
-                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
-                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
-                  <div
-                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
-                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
-                    <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
-                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 transition-all duration-300 ease-in-out"
+                  :class="[
+                  activeAccordion === index ? 'block' : 'hidden',
+                  item.title === 'Categories of Fuel Cell' ? 'max-h-64 overflow-y-auto' : 'overflow-hidden'
+                ]">
+                  <div class="flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
                   </div>
-                </button>
-              </h2>
-              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
-                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
-                :class="activeAccordion === index ? 'block' : 'hidden'">
-                <div class="overflow-hidden flex flex-col gap-3.5">
-                  <template x-for="line in item.content" :key="line.text">
-                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
-                      x-text="line.text"></a>
-                  </template>
                 </div>
               </div>
             </div>
-          </div>
-        </template>
-      </div>
-
+          </template>
+        </div>
       </div>
     </header>
 

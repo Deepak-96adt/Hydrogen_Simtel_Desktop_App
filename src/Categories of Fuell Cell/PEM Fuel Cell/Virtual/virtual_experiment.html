@@ -1,224 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
 
- <!DOCTYPE html>
- <html lang="en">
- 
- <head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title> Virtual Experiments</title>
-   <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="stylesheet" href="./8420765460-548472423593.css" />
-   <style type="text/tailwindcss"></style>
- 
-   <script src="../../../assets/tailwind.min.css"></script>
-   <link rel="stylesheet" href="./animation.css" />
-   <link rel="stylesheet" href="../../../assets/main.css" />
-   <script src="../../../assets/alpinejs.js"></script>
-   <script defer src="./animation.js"></script>
-   <script defer src="../../../main.js"></script>
-   <link rel="stylesheet" href="Virtual_experiment.css"/>
-   <link rel="stylesheet" href="../../assets/all-page-animation.css" />
- 
- </head>
- 
- <body class="min-h-screen">
-   <div>
-     <header class="relative shadow-lg h-20 left-0 w-full z-[2000] bg-white" x-data="{ isOpen: false }">
-       <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
-         <a href="../../../home.html">
-           <img src="../../../assets/logo2.png" alt="logo" class="h-[50px]" />
-         </a>
-         <div class="flex items-center gap-2 sm:gap-4">
-           <button @click="isOpen = !isOpen"
-             class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
-             <img src="../../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
-           </button>
-           <a href="../../../home.html"
-             class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
-             <img src="../../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
-           </a>
-         </div>
-       </div>
-       <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
-         class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
-         <div
-         class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
-         x-data="{ 
-           activeAccordion: null,
-           items: [
-             {
-               title: 'Hydrogen Basics',
-               content: [
-               
-                   { text: 'Introduction to Hydrogen', url: '../../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
-                  { text: 'Hydrogen as Fuel', url: '../../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
-               ]
-             },
-             {
-               title: 'Categories of Hydrogen based on production',
-               content: [
-               { text: 'Grey Hydrogen', url: '../../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
-               { text: 'Blue Hydrogen', url: '../..CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
-               { text: 'Green Hydrogen', url: '../../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
-               ]
-             },
-             {
-               title: 'Hydrogen Safety', 
-               content: [
-               { text: 'Flammability and Explosivity', url: '../../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
-               { text: 'Leakage and Detection', url: '../../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
-               { text: 'Material Compatibility', url: '../../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
-               { text: 'Handling and Transport', url: '../../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
-               { text: 'Education and Awareness', url: '../../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
-               ]
-             },
-             {
-               title: 'Hydrogen Generation Methodologies',
-               content: [
-               { text: 'Steam Methane Reforming', url: '../../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
-               { text: 'Electrolysis of Water', url: '../../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
-               { text: 'Methanol Reforming', url: '../../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
-               ]
-             },
-             {
-               title: 'Hydrogen Generation through Electrolysis',
-               content: [
-               { text: 'Alkaline Electrolysis', url: '../../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
-               { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
-               { text: 'Study of hydrogen  using an electrolyzer', url: '../../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
-               { text: 'Renewable Hydrogen Integration', url: '../../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
-               ]
-             },
-             {
-               title: 'Hydrogen Storage',
-               content: [
-               { text: 'Geological Hydrogen Storage', url: '../../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
-               { text: 'Compressed Hydrogen', url: '../../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
-               { text: 'Liquid Hydrogen', url: '../../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
-               { text: 'Material based Hydrogen Storage', url: '../../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
-               { text: 'Hydrogen Storage in Ammonia', url: '../../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
-               ]
-             },
-             {
-               title: 'Hydrogen Distribution',
-               content: [
-               { text: 'Hydrogen Pipelines', url: '../../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
-               { text: 'Hydrogen Tankers', url: '../../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
-               { text: 'Hydrogen Refueling Stations', url: '../../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
-               { text: 'Ammonia as a Hydrogen Carrier', url: '../../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
-               ]
-             },
-             {
-               title: 'Fuel Cell Fundamentals',
-               content: [
-               { text: 'Introduction to Fuel Cell', url: '../../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
-               ]
-             },
-             {
-               title: 'Categories of Fuel Cell',
-               content: [
-               { text: 'Alkaline Fuel Cell', url: '../../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
-               { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
-               { text: 'Microbial Fuel Cell', url: '../../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
-               { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
-               { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
-               { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
-               { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
-               ]
-             },
-             
-             {
-               title: 'Hydrogen industrial Application',
-               content: [
-               { text: 'Ammonia Production', url: '../../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
-               { text: 'Methanol Production', url: '../../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
-               { text: 'Steelmaking', url: '../../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
-               { text: 'Concrete Production', url: '../../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
-               { text: 'Oil Refining', url: '../../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
-               ]
-             },
-             {
-               title: 'Hydrogen Combustion Engine',
-               content: [
-               { text: 'Hydrogen Combustion Engine', url: '../../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
-               ]
-             },
-             {
-               title: 'Hydrogen Mobility and Transportation Applications',
-               content: [
-               { text: 'Fuel Cell Buses', url: '../../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
-               { text: 'Material Handling', url: '../../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
-               { text: 'Mining trucks', url: '../../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
-               { text: 'Aviation', url: '../../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
-               { text: 'Rail Transportation', url: '../../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
-               { text: 'Marine Transportation', url: '../../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
-               ]
-             }
-           ],
-           init() {
-             document.addEventListener('click', (e) => {
-               // Check if click is outside the accordion container
-               if (!this.$el.contains(e.target)) {
-                 this.activeAccordion = null;
-               }
-             })
-           }
-         }" @click.outside="activeAccordion = null">
-         <template x-for="(item, index) in items" :key="index">
-           <div class="relative font-inter antialiased text-sm lg:text-base">
-             <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
-               <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
-                 <button :id="'faqs-title-' + index" type="button"
-                   class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
-                   :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
-                   @click="activeAccordion = activeAccordion === index ? null : index"
-                   :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
-                   <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
-                   <div
-                     class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
-                     :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
-                     <img src="../../../assets/icon3.png" alt="" class="transition-all duration-700"
-                       :class="activeAccordion === index ? 'rotate-180' : ''" />
-                   </div>
-                 </button>
-               </h2>
-               <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
-                 class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
-                 :class="activeAccordion === index ? 'block' : 'hidden'">
-                 <div class="overflow-hidden flex flex-col gap-3.5">
-                   <template x-for="line in item.content" :key="line.text">
-                     <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
-                       x-text="line.text"></a>
-                   </template>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </template>
-       </div>
-       </div>
-     </header>
-     <div class="flex items-center gap-3.5 mt-[20px] ml-[10px] p-5">
-       <a href="../pem-fuel-cell.html"
-         class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
-         <img src="../../../assets/icon5.png" alt="" class="" />
-       </a>
-       <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium z-[1000]">
-         PEM (Proton Exchange Membrane) Fuel Cell
-       </h3>
-     </div>
-     <div class="container" style="margin-top: 57px; width: 65vw;">
-      <h1 style="font-weight: 600; font-size: 23px;">Virtual Experiment</h1>
-      <ul class="experiment-list" style="margin-top: 18px;">
-          <li>Test the fuel cell at different load condition</li>
-          <li>Study of IV characteristics of fuel cell</li>
-          <li>Study of the Measurement of Fuel Cell Efficiency</li>
-          <li>Study of Current-Voltage Characteristic of Electrolyzer</li>
-          <li>Study of Fuel Cell providing electrical energy to loads</li>
-          <li>Study of Assembly and Disassembly of Fuel Cell</li>
-          <li>Study of operation of the Fuel Cell Technology System</li>
-      </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> (PEM) FuelCell Simulation Animation</title>
+  <script src="../../../assets/tailwind.min.css"></script>
+  <link rel="stylesheet" href="./Virtual_experiment.css" />
+  <style type="text/tailwindcss"></style>
+
+  <link rel="stylesheet" href="../../../assets/main.css" />
+  <script src="../../../assets/alpinejs.js"></script>
+  <script defer src="../../../main.js"></script>
+  <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+
+</head>
+
+<body class="min-h-screen">
+  <div>
+    <header class="relative shadow-lg h-20 left-0 w-full z-[2000] bg-white" x-data="{ isOpen: false }">
+      <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
+        <a href="../../../home.html">
+          <img src="../../../assets/logo2.png" alt="logo" class="h-[50px]" />
+        </a>
+        <div class="flex items-center gap-2 sm:gap-4">
+          <button @click="isOpen = !isOpen"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../../assets/icon1.png" alt="" class="w-4 sm:w-5" />
+          </button>
+          <a href="../../../home.html"
+            class="size-8 sm:size-10 border-[0.67px] border-[#05252433] rounded-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-100">
+            <img src="../../../assets/icon2.png" alt="" class="w-4 sm:w-5" />
+          </a>
+        </div>
+      </div>
+      <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
+        class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
+        <div
+        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+        x-data="{ 
+          activeAccordion: null,
+          items: [
+            {
+              title: 'Hydrogen Basics',
+              content: [
+              
+                  { text: 'Introduction to Hydrogen', url: '../../../Hydrogen Basics/Hydrogen Intro/hydrogen-intro.html' },
+                 { text: 'Hydrogen as Fuel', url: '../../../Hydrogen Basics/Hydrogen as Fuel/hydrogen-as-fuel.html' }
+              ]
+            },
+            {
+              title: 'Categories of Hydrogen based on production',
+              content: [
+              { text: 'Grey Hydrogen', url: '../../../CategoriesBasedOnProduction/Grey Hydrogen/grey-hydrogen.html' },
+              { text: 'Blue Hydrogen', url: '../..CategoriesBasedOnProduction/Blue Hydrogen/blue-hydrogen.html' },
+              { text: 'Green Hydrogen', url: '../../../CategoriesBasedOnProduction/Green Hydrogen/green-hydrogen.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Safety', 
+              content: [
+              { text: 'Flammability and Explosivity', url: '../../../Hydrogen Safety/Flammability and Explosivity/flammability-and-explosivity.html' },
+              { text: 'Leakage and Detection', url: '../../../Hydrogen Safety/Leakage and Detection/leakage-and-detection.html' },
+              { text: 'Material Compatibility', url: '../../../Hydrogen Safety/Material Compatibility/material-compatibility.html' },
+              { text: 'Handling and Transport', url: '../../../Hydrogen Safety/Handling and Transport/handling-and-transport.html' },
+              { text: 'Education and Awareness', url: '../../../Hydrogen Safety/Education and Awareness/education-and-awareness.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation Methodologies',
+              content: [
+              { text: 'Steam Methane Reforming', url: '../../../Hydrogen Generation Methodologies/Steam Methane Reforming/steam-methane-reforming .html' },
+              { text: 'Electrolysis of Water', url: '../../../Hydrogen Generation Methodologies/Electrolysis of Water/electrolysis-of-water.html' },
+              { text: 'Methanol Reforming', url: '../../../Hydrogen Generation Methodologies/Methanol Reforming/method-reforming.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Generation through Electrolysis',
+              content: [
+              { text: 'Alkaline Electrolysis', url: '../../../HydrogenElectrolysis/Alkaline Electrolysis/alkaline-electrolysics.html' },
+              { text: 'PEM (Proton Exchange Membrane) Electrolysis', url: '../../../HydrogenElectrolysis/PEM_Electrolysis/PEM-electrolysis.html' },
+              { text: 'Study of hydrogen  using an electrolyzer', url: '../../../HydrogenElectrolysis/Study of Hydrogen/study-of-hydrogen.html' },
+              { text: 'Renewable Hydrogen Integration', url: '../../../HydrogenElectrolysis/Alkaline Electrolysis/Renewable Hydrogen Integration/renewable-hydrogen-integration.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Storage',
+              content: [
+              { text: 'Geological Hydrogen Storage', url: '../../../Hydrogen Storage/Geological Hydrogen Storage/geological-hydrogen-storage.html' },
+              { text: 'Compressed Hydrogen', url: '../../../Hydrogen Storage/Compressed Hydrogen/compressed-hydrogen.html' },
+              { text: 'Liquid Hydrogen', url: '../../../Hydrogen Storage/Liquid Hydrogen/liquid-hydrogen.html' },
+              { text: 'Material based Hydrogen Storage', url: '../../../Hydrogen Storage/MaterialBasedHydrogenStorage/material-based.html' },
+              { text: 'Hydrogen Storage in Ammonia', url: '../../../Hydrogen Storage/HydrogenStorageInAmmonia/hydrogen-storage-in-ammonia.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Distribution',
+              content: [
+              { text: 'Hydrogen Pipelines', url: '../../../Hydrogen Distribution/Hydrogen Pipelines/hydrogen-pipelines.html' },
+              { text: 'Hydrogen Tankers', url: '../../../Hydrogen Distribution/Hydrogen Tankers/hydrogen-tankers.html' },
+              { text: 'Hydrogen Refueling Stations', url: '../../../Hydrogen Distribution/Hydrogen Refueling Stations/refueling-stations.html' },
+              { text: 'Ammonia as a Hydrogen Carrier', url: '../../../Hydrogen Distribution/Ammonia as a Hydrogen Carrier/ammonia-as-a-hydrogen-carrier.html' }
+              ]
+            },
+            {
+              title: 'Fuel Cell Fundamentals',
+              content: [
+              { text: 'Introduction to Fuel Cell', url: '../../../Fuel Cell Fundamentals/Introduction to Fuel Cell/intro-to-fuel-cell.html'}
+              ]
+            },
+            {
+              title: 'Categories of Fuel Cell',
+              content: [
+              { text: 'Alkaline Fuel Cell', url: '../../../Categories of Fuell Cell/Alkaline Fuell Cell/alkaline-fuel-cell.html' },
+              { text: 'PEM (Proton Exchange Membrane) Fuel Cell', url: '../../../Categories of Fuell Cell/PEM Fuel Cell/pem-fuel-cell.html' },
+              { text: 'Microbial Fuel Cell', url: '../../../Categories of Fuell Cell/Microbial fuel Cell/microbial-fuel-cell.html' },
+              { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
+              { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
+              { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
+              { text: 'Direct Ethanol Fuel Cells (DEFC)', url: '../../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              ]
+            },
+            
+            {
+              title: 'Hydrogen industrial Application',
+              content: [
+              { text: 'Ammonia Production', url: '../../../Hydrogen Industrial Application/Ammonia Production/ammonia-production.html' },
+              { text: 'Methanol Production', url: '../../../Hydrogen Industrial Application/Methanol Production/methanol-production.html' },
+              { text: 'Steelmaking', url: '../../../Hydrogen Industrial Application/Steel Making/steel-making.html' },
+              { text: 'Concrete Production', url: '../../../Hydrogen Industrial Application/Concrete Production/concrete-production.html' },
+              { text: 'Oil Refining', url: '../../../Hydrogen Industrial Application/Oil Refining/oil-refining.html' }
+              ]
+            },
+            {
+              title: 'Hydrogen Combustion Engine',
+              content: [
+              { text: 'Hydrogen Combustion Engine', url: '../../../Hydrogen Combustion Engine/Hydrogen Combustion Engine/hydrogen-combustion-engine.html' },
+              ]
+            },
+            {
+              title: 'Hydrogen Mobility and Transportation Applications',
+              content: [
+              { text: 'Fuel Cell Buses', url: '../../../Hydrogen Mobility and Transport Applications/Fuel Cell Buses/fuel-cell-buses.html' },
+              { text: 'Material Handling', url: '../../../Hydrogen Mobility and Transport Applications/Material Handling/material-handling.html' },
+              { text: 'Mining trucks', url: '../../../Hydrogen Mobility and Transport Applications/Mining Trucks/mining-trucks.html' },
+              { text: 'Aviation', url: '../../../Hydrogen Mobility and Transport Applications/Aviation/aviation.html' },
+              { text: 'Rail Transportation', url: '../../../Hydrogen Mobility and Transport Applications/Rail transport/rail-transport.html' },
+              { text: 'Marine Transportation', url: '../../../Hydrogen Mobility and Transport Applications/Marine Transport/marine-transport.html' }
+              ]
+            }
+          ],
+          init() {
+            document.addEventListener('click', (e) => {
+              // Check if click is outside the accordion container
+              if (!this.$el.contains(e.target)) {
+                this.activeAccordion = null;
+              }
+            })
+          }
+        }" @click.outside="activeAccordion = null">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="relative font-inter antialiased text-sm lg:text-base">
+            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                <button :id="'faqs-title-' + index" type="button"
+                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                  @click="activeAccordion = activeAccordion === index ? null : index"
+                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                  <div
+                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                    <img src="../../../assets/icon3.png" alt="" class="transition-all duration-700"
+                      :class="activeAccordion === index ? 'rotate-180' : ''" />
+                  </div>
+                </button>
+              </h2>
+              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 transition-all duration-300 ease-in-out"
+                :class="[
+                activeAccordion === index ? 'block' : 'hidden',
+                item.title === 'Categories of Fuel Cell' ? 'max-h-64 overflow-y-auto' : 'overflow-hidden'
+              ]">
+                <div class="flex flex-col gap-3.5">
+                  <template x-for="line in item.content" :key="line.text">
+                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                      x-text="line.text"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      </div>
+    </header>
   </div>
+  <div class="flex items-center gap-3.5 mt-[20px] ml-[10px] p-5">
+    <a href="../pem-fuel-cell.html"
+      class="bg-white rounded-full size-[30px] flex items-center justify-center border-[0.5px] border-[#05252433]">
+      <img src="../../../assets/icon5.png" alt="" class="" />
+    </a>
+    <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium z-[1000]">
+      PEM (Proton Exchange Membrane) Fuel Cell
+    </h3>
+  </div>
+  <div class="container" style="margin-top: 57px; width: 65vw;">
+   <h1 style="font-weight: 600; font-size: 23px;">Virtual Experiment</h1>
+   <ul class="experiment-list" style="margin-top: 18px;">
+       <li>Test the fuel cell at different load condition</li>
+       <li>Study of IV characteristics of fuel cell</li>
+       <li>Study of the Measurement of Fuel Cell Efficiency</li>
+       <li>Study of Current-Voltage Characteristic of Electrolyzer</li>
+       <li>Study of Fuel Cell providing electrical energy to loads</li>
+       <li>Study of Assembly and Disassembly of Fuel Cell</li>
+       <li>Study of operation of the Fuel Cell Technology System</li>
+   </ul>
+</div>
+</body>
 
-     
-     </div>
+</html>

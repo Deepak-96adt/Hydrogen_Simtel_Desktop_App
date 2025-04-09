@@ -117,7 +117,7 @@
               { text: 'Phosphoric Acid Fuel Cells (PAFC)', url: '../../Categories of Fuell Cell/Phosphoric Acid Fuel Cells/pafc-fuel-cells.html' },
               { text: 'Molten Carbonate Fuel Cells (MCFC)', url: '../../Categories of Fuell Cell/Molten Carbonate Fuel Cell/molten-carbonate-fuel-cell.html' },
               { text: 'Solid Oxide Fuel Cells (SOFC)', url: '../../Categories of Fuell Cell/Solid Oxide Fuel Cells/solid-oxide-fuel-cells.html' },
-              { text: 'Direct Methanol Fuel Cells (DMFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
+              { text: 'Direct Ethanol Fuel Cells (DEFC)', url: '../../Categories of Fuell Cell/Direct Ethanol Fuel Cells/direct-ethanol-fuel-cells.html' }
             ]
           },
           {
@@ -176,9 +176,12 @@
                 </button>
               </h2>
               <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
-                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
-                :class="activeAccordion === index ? 'block' : 'hidden'">
-                <div class="overflow-hidden flex flex-col gap-3.5">
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 transition-all duration-300 ease-in-out"
+                :class="[
+                activeAccordion === index ? 'block' : 'hidden',
+                item.title === 'Categories of Fuel Cell' ? 'max-h-64 overflow-y-auto' : 'overflow-hidden'
+              ]">
+                <div class="flex flex-col gap-3.5">
                   <template x-for="line in item.content" :key="line.text">
                     <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
                       x-text="line.text"></a>
