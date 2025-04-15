@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>  Direct Ethanol Fuel Cell Simulation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+    <link rel="stylesheet" href="animation.css" />
+    <style type="text/tailwindcss"></style>
+    <script defer src="../../../main.js"></script>
+    <script src="../../../assets/alpinejs.js"></script>
+    <link rel="stylesheet" href="../../assets/all-page-animation.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Direct Ethanol Fuel Cell Animation</title>
-  <script src="../../../assets/tailwind.min.css"></script>
-  <style type="text/tailwindcss"></style>
+  <body class="min-h-screen">
 
-  <script src="../../../assets/tailwind.min.css"></script>
-  <link rel="stylesheet" href="./animation.css" />
-  <link rel="stylesheet" href="../../../assets/main.css" />
-  <script src="../../../assets/alpinejs.js"></script>
-  <script defer src="./animation.js"></script>
-  <script defer src="../../../main.js"></script>
-
-</head>
-
-<body class="min-h-screen">
-  <div>
     <header class="relative shadow-lg h-20 left-0 w-full z-[2000] bg-white" x-data="{ isOpen: false }">
       <div class="w-[95%] max-w-[90%] mx-auto flex justify-between items-center h-full">
         <a href="../../../home.html">
@@ -180,12 +176,12 @@
                 </button>
               </h2>
               <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
-                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 transition-all duration-300 ease-in-out"
+                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
                 :class="[
                 activeAccordion === index ? 'block' : 'hidden',
                 item.title === 'Categories of Fuel Cell' ? 'max-h-64 overflow-y-auto' : 'overflow-hidden'
               ]">
-                <div class="flex flex-col gap-3.5">
+                <div class="overflow-hidden flex flex-col gap-3.5">
                   <template x-for="line in item.content" :key="line.text">
                     <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
                       x-text="line.text"></a>
@@ -205,52 +201,41 @@
         <img src="../../../assets/icon5.png" alt="" class="" />
       </a>
       <h3 class="text-base sm:text-xl md:text-2xl line-height-[32px] font-medium z-[1000]">
-        Direct Ethanol Fuel Cells (DEFC)
+        Direct Ethanol Fuel Cell  
       </h3>
     </div>
-
-    <!-- FIXED: Single Reset button with proper z-index and positioning -->
-    <button id="resetBtn"
-      class="resetBtn fixed top-40 right-4 z-50 pl-2 sm:pl-4 pr-3 sm:pr-6 py-1 sm:py-2 text-sm sm:text-base bg-indigo-600 text-white rounded-lg shadow-md hover:bg-orange-400 active:bg-red-700 transition-colors duration-150 flex items-center gap-1 sm:gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-        class="w-4 h-4 animate-spin sm:w-5 sm:h-5">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-      </svg>
-      Reset
-    </button>
-
-    <div
-      class="h-screen flex flex-col lg:flex-row space-x-5 max-w-[800px] xl:max-w-[1000px] xl:max-h-[1000px] m-auto space-y-5 items-center justify-center h-[670px] w-[670px]" style="height: 64vh; width: 52vw;">
-      <div
-        class="max-h-[50px] lg:max-h-[800px] lg:max-w-[50px] size-full order-2 lg:order-1 xl:-translate-x-[250%] 2xl:-translate-x-[320%]">
+    <div class="h-screen flex flex-col lg:flex-row space-x-5 max-w-[800px] xl:max-w-[1000px] xl:max-h-[1000px] m-auto space-y-5 items-center justify-center" style="width: 49vw; height: 67vh;">
+      <div class="max-h-[50px] lg:max-h-[800px] lg:max-w-[50px] size-full order-2 lg:order-1 xl:-translate-x-[250%] 2xl:-translate-x-[320%]">
         <div class="h-[100%] w-full flex items-center justify-center">
-          <div
-            class="max-w-[95%] size-full flex lg:flex-col lg:pt-[140%] lg:translate-x-[-100%] justify-between lg:justify-center lg:gap-[50px] items-center">
+          <div class="max-w-[95%] size-full flex lg:flex-col lg:pt-[140%] lg:translate-x-[-100%] justify-between lg:justify-center lg:gap-[50px] items-center">
             <span class="lg:translate-y-[160px] order-1 lg:order-3">1</span>
-            <input id="BulbController" type="range" min="1" max="100" value="50"
-              class="order-2 !w-[80%] lg:absolute lg:!w-[350px] lg:rotate-[-90deg] lg:!h-[11px] mx-auto" />
+            <input id="BulbController" type="range" min="1" max="100" value="50" class="order-2 !w-[80%] lg:absolute lg:!w-[350px] lg:rotate-[-90deg] lg:!h-[11px] mx-auto" />
             <span class="lg:-translate-y-[155px] order-3 lg:order-1">100</span>
           </div>
         </div>
-        <img src="../../../assets/H2 and O2 controller.png" alt=""
-          class="max-w-[250px] sm:!max-w-4/12 md:!max-w-[250px] xl:!max-w-[265px] lg:rotate-[-90deg] lg:translate-y-[-650%] lg:translate-x-[-75%] xl:!translate-y-[-250%] xl:!translate-x-[-50%] 2xl:!translate-x-[-59%] xl:rotate-[0deg] mx-auto" style="margin-top: 100px;" />
+        <!-- <div>
+          <img
+          src="../../../assets/direct-ethanol-fuel-cell/H2 and O2 controller.png"
+            alt=""
+            class="lg:hidden max-w-[250px] sm:!max-w-4/12 md:!max-w-[250px] xl:!max-w-[265px] lg-:rotate-[90deg] lg:-translate-y-[650%] lg:-translate-x-[75%] xl :!-translate-y-[250%] xl :!-translate-x-[50%] 2xl :!-translate-x-[59%] xl :rotate-[0deg] mx-auto"
+          />
+        </div> -->
+        <img
+          src="../../../assets/direct-ethanol-fuel-cell/H2 and O2 controller.png"
+          alt=""
+          class="max-w-[250px] sm:!max-w-4/12 md:!max-w-[250px] xl:!max-w-[265px] lg:rotate-[-90deg] lg:translate-y-[-650%] lg:translate-x-[-75%] xl:!translate-y-[-250%] xl:!translate-x-[-50%] 2xl:!translate-x-[-59%] xl:rotate-[0deg] mx-auto" style="margin-top: 170px;"
+        />
       </div>
-      <div id="STRUCTURE"
-        class="w-[95%] lg:w-[90%] lg:w-[80%] max-w-[800px] xl:w-[100%] aspect-square order-1 lg:order-2">
+      <div id="STRUCTURE" class="w-[95%] lg:w-[90%] lg:w-[80%] max-w-[800px] xl:w-[100%] aspect-square order-1 lg:order-2">
         <div class="flex h-full">
           <div class="w-[17.5%]"></div>
           <div class="w-[65%]">
             <div class="size-full bg-white flex flex-col">
               <div class="h-[22.5%] flex items-center justify-center">
                 <div class="h-[40%] w-[15%] relative">
-                  <img src="../../../assets/direct-ethanol-fuel-cell/light-bulb-off.png" alt="Bulb Off"
-                    class="absolute w-full h-full" />
-                  <div id="bulb-shadow"
-                    class="absolute size-[141%] -top-[40%] left-[-19.5%] pointer-events-none rounded-full z-[1] bg-gradient-to-t from-yellow-200 opacity-0 to-yellow-100">
-                  </div>
-                  <img id="bulbOn" src="../../../assets/direct-ethanol-fuel-cell/light-bulb-on.png" alt="Bulb On"
-                    class="absolute z-[2] w-full h-full opacity-0 transition-opacity duration-200" />
+                  <img src="../../../assets/direct-ethanol-fuel-cell/light-bulb-off.png" alt="Bulb Off" class="absolute w-full h-full" />
+                  <div id="bulb-shadow" class="absolute size-[141%] -top-[40%] left-[-19.5%] pointer-events-none rounded-full z-[1] bg-gradient-to-t from-yellow-200 opacity-0 to-yellow-100"></div>
+                  <img id="bulbOn" src="../../../assets/direct-ethanol-fuel-cell/light-bulb-on.png" alt="Bulb On" class="absolute z-[2] w-full h-full opacity-0 transition-opacity duration-200" />
                 </div>
               </div>
               <div class="h-[60%] px-[10%] relative">
@@ -261,8 +246,7 @@
                   <img src="../../../assets/direct-ethanol-fuel-cell/o2text.png" alt="" />
                 </div>
                 <div class="absolute z-[10] h-[22%] w-[18%] left-[-32%] xl:left-[-56%] bottom-[40%]">
-                  <img src="../../../assets/direct-ethanol-fuel-cell/ethanol+watersolution.png" alt=""
-                    class="size-full" />
+                  <img src="../../../assets/direct-ethanol-fuel-cell/ethanol+watersolution.png" alt="" class="size-full" />
                 </div>
                 <div class="absolute z-[10] left-[103%] lg:left-[125%] h-[3%] w-[11%] bottom-[-11%] lg:bottom-[-6%]">
                   <img src="../../../assets/direct-ethanol-fuel-cell/Water.png" alt="" class="size-full" />
@@ -271,114 +255,87 @@
                 <div class="absolute z-[1] h-[12.5%] w-[0.55%] left-[58.8%] top-[-12.2%] bg-black"></div>
                 <div class="absolute z-[1] h-[0.65%] w-[17.5%] left-[41.5%] top-[-12.2%] bg-black"></div>
                 <div class="absolute z-[1] h-[14%] w-[7%] top-[-13%] left-[34.25%]">
-                  <img src="../../../assets/direct-ethanol-fuel-cell/right-arrow.png" alt=""
-                    class="h-[50%] w-[100%] rotate-[270deg] translate-y-[50%]" />
+                  <img src="../../../assets/direct-ethanol-fuel-cell/right-arrow.png" alt="" class="h-[50%] w-[100%] rotate-[270deg] translate-y-[50%]" />
                 </div>
                 <div class="absolute z-[1] h-[14%] w-[7%] top-[-13%] left-[59%]">
-                  <img src="../../../assets/direct-ethanol-fuel-cell/right-arrow.png" alt=""
-                    class="h-[50%] w-[100%] rotate-[90deg] translate-y-[50%]" />
+                  <img src="../../../assets/direct-ethanol-fuel-cell/right-arrow.png" alt="" class="h-[50%] w-[100%] rotate-[90deg] translate-y-[50%]" />
                 </div>
+
                 <div class="h-[12.4%] w-[12%] absolute z-[16] top-[88.3%] left-[-7.5%]">
-                  <div class="size-full"><img src="../../../assets/direct-ethanol-fuel-cell/valve-base.png" alt=""
-                      class="h-full" /></div>
+                  <div class="size-full"><img src="../../../assets/direct-ethanol-fuel-cell/valve-base.png" alt="" class="h-full" /></div>
                 </div>
-                <div
-                  class="njsertnsetneyerynsenter bottom-left h-[5%] w-[8%] absolute z-[16] bottom-[22%] left-[-5.2%] rotate-[0deg]">
-                  <div class="size-full"><img src="../../../assets/direct-ethanol-fuel-cell/valve-handle.png" alt=""
-                      class="h-full" /></div>
+                <div class="valv1 bottom-left h-[5%] w-[8%] absolute z-[16] bottom-[22%] left-[-5.2%] rotate-[0deg]">
+                  <div class="size-full"><img src="../../../assets/direct-ethanol-fuel-cell/valve-handle.png" alt="" class="h-full" /></div>
                 </div>
                 <div class="h-[11.3%] w-[12%] absolute z-[16] top-[7.2%] left-[95.5%]">
-                  <div class="size-full"><img src="../../../assets/direct-ethanol-fuel-cell/valve-base.png" alt=""
-                      class="h-full" /></div>
+                  <div class="size-full"><img src="../../../assets/direct-ethanol-fuel-cell/valve-base.png" alt="" class="h-full" /></div>
                 </div>
-                <div
-                  class="ghjfytjytulkryjtjykjk h-[5%] w-[8%] absolute z-[16] bottom-[92.8%%] left-[96.5%] rotate-[0deg]">
-                  <div class="size-full"><img src="../../../assets/direct-ethanol-fuel-cell/valve-handle1.png" alt=""
-                      class="h-full" /></div>
+                <div class="valv2 h-[5%] w-[8%] absolute z-[16] bottom-[92.8%%] left-[96.5%] rotate-[0deg]">
+                  <div class="size-full"><img src="../../../assets/direct-ethanol-fuel-cell/valve-handle1.png" alt="" class="h-full" /></div>
                 </div>
+
                 <div class="absolute z-[1] h-[20%] w-[10%] top-[2%] -left-[7.4%]">
                   <div class="relative size-full">
-                    <div
-                      class="absolute border-black border-y-[2px] border-l-[2px] h-[40%] w-[190%] left-[-13%] rounded-bl-xl bg-gray-300">
-                    </div>
-                    <div
-                      class="absolute translate-y-[-95%] border-black border-x-[2px] h-[45%] left-[-12%] top-[0px] w-[75%] bg-gray-300">
-                    </div>
+                    <div class="absolute border-black border-y-[2px] border-l-[2px] h-[40%] w-[190%] left-[-13%] rounded-bl-xl bg-gray-300"></div>
+                    <div class="absolute translate-y-[-95%] border-black border-x-[2px] h-[45%] left-[-12%] top-[0px] w-[75%] bg-gray-300"></div>
                     <div class="absolute h-[20%] w-[56%] left-[-7%] top-[-10%] rounded-tl-[3px] bg-gray-300"></div>
-                    <img src="../../../assets/direct-ethanol-fuel-cell/arrow3.png" alt=""
-                      class="absolute top-[-18%] left-[7%] w-[75%] rotate-[90deg] aspect-square opacity-50" />
+                    <img src="../../../assets/direct-ethanol-fuel-cell/arrow3.png" alt="" class="absolute top-[-18%] left-[7%] w-[75%] rotate-[90deg] aspect-square opacity-50" />
                   </div>
                 </div>
-                <div
-                  class="O2_QUANTITY absolute top-[101.5%] left-[95%] border-x-[2px] border-b-[2px] border-black bg -black rounded-b-xl h-[30%] w-[27.5%] flex items-end overflow-hidden">
+
+                <div class="O2_QUANTITY absolute top-[101.5%] left-[95%] border-x-[2px] border-b-[2px] border-black bg -black rounded-b-xl h-[30%] w-[27.5%] flex items-end overflow-hidden">
                   <div class="bg-[#c1dff8] w-full h[25%]" id="h2-quantity-2" style="height: 0%"></div>
                 </div>
                 <div class="absolute z-[1] h-[20%] w-[12%] top-[90%] -left-[11.4%]">
                   <div class="relative size-full">
-                    <div
-                      class="absolute border-black border-y-[2px] border-l-[2px] h-[45%] w-[317%] left-[-135%] rounded-bl-xl bg-gray-300">
-                    </div>
-                    <div
-                      class="absolute translate-y-[-101%] border-black border-x-[2px] h-[50%] left-[-134%] top-[0px] w-[70%] bg-gray-300">
-                    </div>
+                    <div class="absolute border-black border-y-[2px] border-l-[2px] h-[45%] w-[317%] left-[-135%] rounded-bl-xl bg-gray-300"></div>
+                    <div class="absolute translate-y-[-101%] border-black border-x-[2px] h-[50%] left-[-134%] top-[0px] w-[70%] bg-gray-300"></div>
                     <div class="absolute h-[20%] w-[63.5%] left-[-131%] top-[-10%] rounded-tl-[3px] bg-gray-300"></div>
-                    <img src="../../../assets/direct-ethanol-fuel-cell/arrow2.png" alt=""
-                      class="absolute top-[-8%] left-[-100%] w-[60%] aspect-square opacity-50 rotate-[0deg]" />
+                    <img src="../../../assets/direct-ethanol-fuel-cell/arrow2.png" alt="" class="absolute top-[-8%] left-[-100%] w-[60%] aspect-square opacity-50 rotate-[0deg]" />
                   </div>
                 </div>
+
                 <div class="absolute z-[10] top-[25%] right-[-24.05%] h-[26%] w-[12.5%]">
-                  <div
-                    class="CYLINDER_MAIN relative w-[100%] h-[100%] border-black border-[2px] rounded-t-[50px] rounded-b-[10px] mx-auto">
-                    <div class="CYLINDER_STICKER absolute w-[40%] h-[7%] bg-gray-600 rounded-sm -top-[2%] left-[30%]">
-                    </div>
-                    <div class="CYLINDER_CAP absolute w-[66%] h-[16%] bg-gray-700 rounded-sm -top-[15%] left-[15%]">
-                    </div>
+                  <div class="CYLINDER_MAIN relative w-[100%] h-[100%] border-black border-[2px] rounded-t-[50px] rounded-b-[10px] mx-auto">
+                    <div class="CYLINDER_STICKER absolute w-[40%] h-[7%] bg-gray-600 rounded-sm -top-[2%] left-[30%]"></div>
+                    <div class="CYLINDER_CAP absolute w-[66%] h-[16%] bg-gray-700 rounded-sm -top-[15%] left-[15%]"></div>
                     <div class="CYLINDER_LABEL absolute w-[80%] h-[20%] top-[50%] left-[10%]">
                       <img src="../../../assets/direct-ethanol-fuel-cell/O2img.png" alt="" class="w-8/12 mx-auto" />
                     </div>
-                    <div class="CYLINDER_BASE absolute w-[105%] h-[10%] bg-gray-900 rounded-md bottom-[-8%] left-[-3%]">
-                    </div>
+                    <div class="CYLINDER_BASE absolute w-[105%] h-[10%] bg-gray-900 rounded-md bottom-[-8%] left-[-3%]"></div>
                   </div>
                 </div>
-                <div
-                  class="O2_QUANTITY absolute top-[24%] right-[-8%] border-[2px] border-black bg-black rounded-md h-[28%] w-[2.5%] flex items-end overflow-hidden">
-                  <div class="bg-[#56daf8] w-full h[25%]" id="o2-quantity-1" style="height: 100%"></div>
+                <div class="O2_QUANTITY absolute top-[24%] right-[-8%] border-[2px] border-black bg-black rounded-md h-[28%] w-[2.5%] flex items-end overflow-hidden">
+                  <div class="bg-[#56daf8] w-full h[25%]" id="o2-quantity-1" style="height: 0%"></div>
                 </div>
+
                 <div class="absolute z-[1] h-[20%] w-[14%] top-[9%] -right-[13.70%]">
                   <div class="relative size-full">
-                    <div
-                      class="absolute border-black border-y-[2px] border-r-[2px] h-[40%] w-[225%] left-[-72%] rounded-tr-xl bg-gray-300">
-                    </div>
-                    <div
-                      class="absolute translate-y-[129%] border-black border-x-[2px] h-[29%] left-[98%] w-[55%] bg-gray-300">
-                    </div>
+                    <div class="absolute border-black border-y-[2px] border-r-[2px] h-[40%] w-[225%] left-[-72%] rounded-tr-xl bg-gray-300"></div>
+                    <div class="absolute translate-y-[129%] border-black border-x-[2px] h-[29%] left-[98%] w-[55%] bg-gray-300"></div>
                     <div class="absolute h-[20%] w-[48%] left-[101%] top-[25%] rounded-tl-[3px] bg-gray-300"></div>
-                    <img src="../../../assets/direct-ethanol-fuel-cell/arrow2.png" alt=""
-                      class="absolute top-[10%] left-[77%] w-[53%] aspect-square opacity-50 rotate-[180deg]" />
+                    <img src="../../../assets/direct-ethanol-fuel-cell/arrow2.png" alt="" class="absolute top-[10%] left-[77%] w-[53%] aspect-square opacity-50 rotate-[180deg]" />
                   </div>
                 </div>
-                <div
-                  class="O2_QUANTITY absolute top-[18.44%] left-[-37%] border-b-[2px] border-x-[2px] border-black bg- black rounded-b-xl h-[62.1%] w-[26.5%] flex items-end overflow-hidden">
-                  <div class="bg-[#c1dff8] w-full h[25%]" id="h2-quantity-1" style="height: 80%"></div>
+
+                <div class="O2_QUANTITY absolute top-[18.44%] left-[-37%] border-b-[2px] border-x-[2px] border-black bg- black rounded-b-xl h-[62.1%] w-[26.5%] flex items-end overflow-hidden">
+                  <div class="bg-[#c1dff8] w-full h[25%]" id="h2-quantity-1" style="height: 0%"></div>
                 </div>
                 <div class="absolute z-[1] h-[28%] w-[18%] top-[79.5%] rotate-[90deg] right-[-9%]">
                   <div class="relative size-full">
-                    <div
-                      class="absolute border-x-[2px] rounded-tl-xl border-t-[2px] border-black h-[90%] w-[41%] bg-gray-300">
-                    </div>
-                    <div
-                      class="absolute translate-x-[-36%] border-black border-y-[2px] h-[32%] left-[58%] w-[55%] bg-gray-300">
-                    </div>
-                    <img src="../../../assets/direct-ethanol-fuel-cell/arrow3.png" alt=""
-                      class="absolute top-[8%] w-[45%] left-[18%] aspect-square rotate-[180deg] opacity-50" />
+                    <div class="absolute border-x-[2px] rounded-tl-xl border-t-[2px] border-black h-[90%] w-[41%] bg-gray-300"></div>
+                    <div class="absolute translate-x-[-36%] border-black border-y-[2px] h-[32%] left-[58%] w-[55%] bg-gray-300"></div>
+                    <img src="../../../assets/direct-ethanol-fuel-cell/arrow3.png" alt="" class="absolute top-[8%] w-[45%] left-[18%] aspect-square rotate-[180deg] opacity-50" />
                   </div>
                 </div>
                 <div
-                  class="absolute z-[10] top-[2%] left-[38%] h-[4.5%] w-[4.5%] text-[10px] flex items-center justify-center border-[0.5px] border-black translate-x-[20%] translate-y-[10%] rounded-full bg-yellow-400">
+                  class="absolute z-[10] top-[2%] left-[38%] h-[4.5%] w-[4.5%] text-[10px] flex items-center justify-center border-[0.5px] border-black translate-x-[20%] translate-y-[10%] rounded-full bg-yellow-400"
+                >
                   <img src="../../../assets/direct-ethanol-fuel-cell/E-.png" alt="" />
                 </div>
                 <div
-                  class="absolute z-[10] top-[2%] left-[56.85%] h-[4.5%] w-[4.5%] text-[10px] flex items-center justify-center border-[0.5px] border-black translate-x-[3%] translate-y-[10%] rounded-full bg-yellow-400">
+                  class="absolute z-[10] top-[2%] left-[56.85%] h-[4.5%] w-[4.5%] text-[10px] flex items-center justify-center border-[0.5px] border-black translate-x-[3%] translate-y-[10%] rounded-full bg-yellow-400"
+                >
                   <img src="../../../assets/direct-ethanol-fuel-cell/E-.png" alt="" />
                 </div>
                 <div id="balls-container" class="absolute inset-y-0 inset-x-[-15%] z-[15] translate-y-[5%]"></div>
@@ -388,11 +345,9 @@
                     <div class="bg-[#A9A9A9] h-[100%] w-[50%] translate-x-[100%] flex items-end"></div>
                   </div>
                   <div class="w-[15%] bg-gray-300">
-                    <div
-                      class="bg-[#acabaf] h-[100%] w-full flex flex-wrap relative bg-[url('membrane2.png') bg-repeat bg-cover overflow-hidden">
+                    <div class="bg-[#acabaf] h-[100%] w-full flex flex-wrap relative bg-[url('membrane2.png') bg-repeat bg-cover overflow-hidden">
                       <div class="absolute inset-0">
-                        <img src="../../../assets/direct-ethanol-fuel-cell/membrane2.png" alt=""
-                          class="w-full opacity-95" />
+                        <img src="../../../assets/direct-ethanol-fuel-cell/membrane2.png" alt="" class="w-full opacity-95" />
                       </div>
                     </div>
                   </div>
@@ -403,46 +358,58 @@
                 </div>
               </div>
               <div class="h-[17.5%]">
-                <div class="w-[65%] mx-auto mt-[5%]"><img src="../../../assets/direct-ethanol-fuel-cell/acm2.png" alt=""
-                    class="size-full max-w-[130%] translate-x-[2%] translate-y-[-40%]" /></div>
+                <div class="w-[65%] mx-auto mt-[5%]"><img src="../../../assets/direct-ethanol-fuel-cell/acm2.png" alt="" class="size-full max-w-[130%] translate-x-[2%] translate-y-[-40%]" /></div>
               </div>
             </div>
           </div>
           <div class="w-[17.5%]"></div>
         </div>
       </div>
-
-      <!-- Modal for reset confirmation -->
-      <div
-        class="hidden w-full h-screen bg-[#7f7f7f] backdrop-blur-sm backdrop-filter fixed z-[1100] inset-0 flex justify-center items-center"
-        id="resetModal">
-        <div
-          class="relative m-4 w-11/12 md:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 rounded-xl bg-white transition-all duration-300 opacity-1 translate-y-0"
-          style="box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.49)">
-          <div class="h-12 bg-[#f19923] rounded-t-xl"></div>
-          <div class="p-4 rounded-b-xl">
-            <div class="flex justify-center"><img src="../../../assets/direct-ethanol-fuel-cell/warning-icon.png" alt=""
-                class="w-[30%]" /></div>
-            <p class="text-center text-2xl font-semibold text-neutral-800">Warning</p>
-            <div class="relative py-4 text-base space-y-2 leading-normal text-neutral-800 text-center">
-              <p>Water is empty</p>
-              <p>Would you like to reset the simulation?</p>
-            </div>
-            <div class="flex shrink-0 flex-wrap items-center pt-4 justify-center">
-              <button id="cancelBtn"
-                class="rounded-md border bg-[#d9d9d9] border-transparent py-2 px-4 text-center text-sm transition-all text-slate-600 hover:bg-gray-200 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                Cancel
-              </button>
-              <button id="confirmResetBtn"
-                class="rounded-md bg-[#f19923] py-2 px-4 border border-transparent text-center text-base text-white transition-all shadow-md hover:shadow-lg focus:shadow-none active:bg-green-700 hover:bg-orange-400 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-                Reset
-              </button>
+      <div class="absolute top-0 right-0" style="margin-top: 121px;">
+        <button
+          id="resetBtn"
+          class="resetBtn fixed top-[170px] right-6 z-[1] m-2 pl-4 pr-6 py-2 text-base bg-[#F7941D] text-white rounded-lg shadow-md hover:bg-orange-400 active:bg-red-700 transition-colors duration-150 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 animate-spin sm:w-5 sm:h-5">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+            />
+          </svg>
+          Reset
+        </button>
+        <div class="hidden w-full h-screen bg-[#7f7f7f backdrop-blur-sm backdrop-filter fixed z-[1100] inset-0 flex justify-center items-center" id="resetModal">
+          <div
+            class="relative m-4 w-11/12 md:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 rounded-xl bg-white transition-all duration-300 opacity-1 translate-y-0"
+            style="box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.49)"
+          >
+            <div class="h-12 bg-[#f19923] rounded-t-xl"></div>
+            <div class="p-4 rounded-b-xl">
+              <div class="flex justify-center"><img src="../../../assets/direct-ethanol-fuel-cell/warning-icon.png" alt="" class="w-[30%]" /></div>
+              <p class="text-center text-2xl font-semibold text-neutral-800">Warning</p>
+              <div class="relative py-4 text-base space-y-2 leading-normal text-neutral-800 text-center">
+                <p>Water is empty</p>
+                <p>Would you like to reset the simulation?</p>
+              </div>
+              <div class="flex shrink-0 flex-wrap items-center pt-4 justify-center">
+                <button
+                  id="cancelBtn"
+                  class="rounded-md border bg-[#d9d9d9] border-transparent py-2 px-4 text-center text-sm transition-all text-slate-600 hover:bg-gray-200 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                >
+                  Cancel
+                </button>
+                <button
+                  id="confirmResetBtn"
+                  class="rounded-md bg-[#f19923] py-2 px-4 border border-transparent text-center text-base text-white transition-all shadow-md hover:shadow-lg focus:shadow-none active:bg-green-700 hover:bg-orange-400 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+                >
+                  Reset
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
+<script src="animation.js"></script>

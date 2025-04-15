@@ -1,0 +1,1381 @@
+:root {
+    --duration: 60s;
+  }
+  
+  @keyframes ball1 {
+    0% {
+      height: 5%;
+      width: 5%;
+      top: 20%;
+      left: 40%;
+      opacity: 1;
+    }
+    55% {
+      height: 5%;
+      width: 5%;
+      top: -2%;
+      left: 20%;
+      opacity: 1;
+    }
+    85% {
+      height: 5%;
+      width: 5%;
+      top: -2%;
+      left: 5%;
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      height: 5%;
+      width: 5%;
+      top: -12%;
+      left: 5%;
+      opacity: 0;
+    }
+  }
+  @keyframes ball2 {
+    0% {
+      height: 5%;
+      width: 5%;
+      top: 68%;
+      left: 40%;
+      opacity: 1;
+    }
+    55% {
+      height: 5%;
+      width: 5%;
+      top: -2%;
+      left: 20%;
+      opacity: 1;
+    }
+    85% {
+      height: 5%;
+      width: 5%;
+      top: -2%;
+      left: 5%;
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      height: 5%;
+      width: 5%;
+      top: -12%;
+      left: 5%;
+      opacity: 0;
+    }
+  }
+  @keyframes ball3 {
+    0% {
+      height: 3%;
+      width: 6%;
+      top: 20%;
+      left: 99.5%;
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+    10% {
+      height: 3%;
+      width: 6%;
+      top: 7%;
+      left: 99.5%;
+      transform: rotate(90deg);
+    }
+    11% {
+      transform: rotate(0deg);
+    }
+    15% {
+      transform: rotate(0deg);
+    }
+    20% {
+      height: 3%;
+      width: 6%;
+      top: 7%;
+      left: 74%;
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    21% {
+      height: 3%;
+      width: 6%;
+      top: 7%;
+      left: 74%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+    49% {
+      opacity: 1;
+    }
+    100% {
+      height: 3%;
+      width: 6%;
+      top: 20%;
+      left: 54%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+  }
+  @keyframes ball4 {
+    0% {
+      height: 3%;
+      width: 6%;
+      top: 20%;
+      left: 99.5%;
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+    10% {
+      height: 3%;
+      width: 6%;
+      top: 7%;
+      left: 99.5%;
+      transform: rotate(90deg);
+    }
+    11% {
+      transform: rotate(0deg);
+    }
+    15% {
+      transform: rotate(0deg);
+    }
+    20% {
+      height: 3%;
+      width: 6%;
+      top: 7%;
+      left: 74%;
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    21% {
+      height: 3%;
+      width: 6%;
+      top: 7%;
+      left: 74%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+    49% {
+      opacity: 1;
+    }
+    100% {
+      height: 3%;
+      width: 6%;
+      top: 69%;
+      left: 54%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+  }
+  @keyframes ball5 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 15%;
+      left: 42%;
+    }
+    10% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 15%;
+      left: 42%;
+    }
+    35% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    55% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    85% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 70%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 75%;
+      left: 56%;
+    }
+  }
+  @keyframes ball6 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 17%;
+      left: 42%;
+    }
+    12% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 17%;
+      left: 42%;
+    }
+    37% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    57% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    87% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 70%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 75%;
+      left: 56%;
+    }
+  }
+  @keyframes ball7 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 19%;
+      left: 42%;
+    }
+    14% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 19%;
+      left: 42%;
+    }
+    39% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    59% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    89% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 70%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 75%;
+      left: 56%;
+    }
+  }
+  @keyframes ball8 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 25%;
+      left: 42%;
+    }
+    15% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 25%;
+      left: 42%;
+    }
+    40% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    60% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    90% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 50%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 65%;
+      left: 56%;
+    }
+  }
+  @keyframes ball9 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 27%;
+      left: 42%;
+    }
+    17% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 27%;
+      left: 42%;
+    }
+    42% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    62% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    92% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 50%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 65%;
+      left: 56%;
+    }
+  }
+  @keyframes ball10 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 29%;
+      left: 42%;
+    }
+    19% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 29%;
+      left: 42%;
+    }
+    44% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    64% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    94% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 50%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 65%;
+      left: 56%;
+    }
+  }
+  @keyframes ball11 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 65%;
+      left: 42%;
+    }
+    15% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 65%;
+      left: 42%;
+    }
+    45% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    70% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    90% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 10%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 25%;
+      left: 56%;
+    }
+  }
+  @keyframes ball12 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 67%;
+      left: 42%;
+    }
+    17% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 67%;
+      left: 42%;
+    }
+    47% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    72% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    92% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 10%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 25%;
+      left: 56%;
+    }
+  }
+  @keyframes ball13 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 69%;
+      left: 42%;
+    }
+    19% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 69%;
+      left: 42%;
+    }
+    49% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    74% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    94% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 10%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 25%;
+      left: 56%;
+    }
+  }
+  @keyframes ball14 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 75%;
+      left: 42%;
+    }
+    20% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 75%;
+      left: 42%;
+    }
+    55% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    85% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    90% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 0%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 15%;
+      left: 56%;
+    }
+  }
+  @keyframes ball15 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 77%;
+      left: 42%;
+    }
+    22% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 77%;
+      left: 42%;
+    }
+    57% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    87% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    92% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 0%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 15%;
+      left: 56%;
+    }
+  }
+  @keyframes ball16 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 79%;
+      left: 42%;
+    }
+    24% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 79%;
+      left: 42%;
+    }
+    59% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 42%;
+    }
+    89% {
+      height: 2.5%;
+      width: 2.5%;
+      top: -18.5%;
+      left: 56%;
+    }
+    94% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 0%;
+      left: 56%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 15%;
+      left: 56%;
+    }
+  }
+  @keyframes ball17 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 25%;
+      left: 42%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 25%;
+      left: 56%;
+    }
+  }
+  @keyframes ball18 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 35.5%;
+      left: 42%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 35.5%;
+      left: 56%;
+    }
+  }
+  @keyframes ball19 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 46%;
+      left: 42%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 46%;
+      left: 56%;
+    }
+  }
+  @keyframes ball20 {
+    0% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 56.2%;
+      left: 42%;
+    }
+    100% {
+      height: 2.5%;
+      width: 2.5%;
+      top: 56.2%;
+      left: 56%;
+    }
+  }
+  @keyframes ball21 {
+    0% {
+      height: 4.5%;
+      width: 9%;
+      top: 80%;
+      left: -10%;
+      opacity: 0;
+      transform: rotate(90deg);
+    }
+    10% {
+      height: 4.5%;
+      width: 9%;
+      top: 85%;
+      left: -10%;
+      opacity: 0;
+      transform: rotate(90deg);
+    }
+    11% {
+      transform: rotate(0deg);
+    }
+    29% {
+      transform: rotate(0deg);
+    }
+    30% {
+      height: 4.5%;
+      width: 9%;
+      top: 87%;
+      left: 20%;
+      opacity: 0;
+    }
+    60% {
+      transform: rotate(-90deg);
+    }
+    100% {
+      height: 4.5%;
+      width: 9%;
+      top: 20%;
+      left: 37%;
+      opacity: 0;
+      transform: rotate(-90deg);
+    }
+  }
+  @keyframes ball22 {
+    0% {
+      height: 3%;
+      width: 3%;
+      top: 20%;
+      left: 99.5%;
+      opacity: 1;
+    }
+    10% {
+      height: 3%;
+      width: 3%;
+      top: 7%;
+      left: 99.5%;
+    }
+    20% {
+      height: 3%;
+      width: 3%;
+      top: 7%;
+      left: 74.5%;
+    }
+    40% {
+      height: 3%;
+      width: 3%;
+      top: 44%;
+      left: 56%;
+    }
+    100% {
+      height: 3%;
+      width: 3%;
+      top: 20%;
+      left: 56%;
+      opacity: 1;
+    }
+  }
+  @keyframes ball23 {
+    0% {
+      height: 3%;
+      width: 3%;
+      top: 21.8%;
+      left: 99.5%;
+      opacity: 1;
+    }
+    11.8% {
+      height: 3%;
+      width: 3%;
+      top: 7%;
+      left: 99.5%;
+    }
+    21.9% {
+      height: 3%;
+      width: 3%;
+      top: 7%;
+      left: 74.5%;
+    }
+    41.9% {
+      height: 3%;
+      width: 3%;
+      top: 45%;
+      left: 56%;
+    }
+    100% {
+      height: 3%;
+      width: 3%;
+      top: 70%;
+      left: 56%;
+      opacity: 1;
+    }
+  }
+  @keyframes ball24 {
+    0% {
+      height: 5%;
+      width: 5%;
+      top: 20%;
+      left: 56%;
+      opacity: 1;
+    }
+    70% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 78%;
+      opacity: 1;
+    }
+    90% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 92.5%;
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      height: 5%;
+      width: 5%;
+      top: 92%;
+      left: 92.5%;
+      opacity: 0;
+    }
+  }
+  @keyframes ball25 {
+    0% {
+      height: 5%;
+      width: 5%;
+      top: 20%;
+      left: 56%;
+      opacity: 1;
+    }
+    60% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 78%;
+      opacity: 1;
+    }
+    90% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 92.5%;
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      height: 5%;
+      width: 5%;
+      top: 92%;
+      left: 92.5%;
+      opacity: 0;
+    }
+  }
+  @keyframes ball26 {
+    0% {
+      height: 5%;
+      width: 5%;
+      top: 20%;
+      left: 56%;
+      opacity: 1;
+    }
+    50% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 78%;
+      opacity: 1;
+    }
+    90% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 92.5%;
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      height: 5%;
+      width: 5%;
+      top: 92%;
+      left: 92.5%;
+      opacity: 0;
+    }
+  }
+  @keyframes ball27 {
+    0% {
+      height: 5%;
+      width: 5%;
+      top: 70%;
+      left: 56%;
+      opacity: 1;
+    }
+    70% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 78%;
+      opacity: 1;
+    }
+    90% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 92.5%;
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      height: 5%;
+      width: 5%;
+      top: 92%;
+      left: 92.5%;
+      opacity: 0;
+    }
+  }
+  @keyframes ball28 {
+    0% {
+      height: 5%;
+      width: 5%;
+      top: 70%;
+      left: 56%;
+      opacity: 1;
+    }
+    60% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 78%;
+      opacity: 1;
+    }
+    90% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 92.5%;
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      height: 5%;
+      width: 5%;
+      top: 92%;
+      left: 92.5%;
+      opacity: 0;
+    }
+  }
+  @keyframes ball29 {
+    0% {
+      height: 5%;
+      width: 5%;
+      top: 70%;
+      left: 56%;
+      opacity: 1;
+    }
+    50% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 78%;
+      opacity: 1;
+    }
+    90% {
+      height: 5%;
+      width: 5%;
+      top: 79%;
+      left: 92.5%;
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      height: 5%;
+      width: 5%;
+      top: 92%;
+      left: 92.5%;
+      opacity: 0;
+    }
+  }
+  @keyframes ball30 {
+    0% {
+      height: 4.5%;
+      width: 9%;
+      top: 80%;
+      left: -10%;
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+    10% {
+      height: 4.5%;
+      width: 9%;
+      top: 85%;
+      left: -10%;
+      transform: rotate(90deg);
+    }
+    11% {
+      transform: rotate(0deg);
+    }
+    29% {
+      transform: rotate(0deg);
+    }
+    30% {
+      height: 4.5%;
+      width: 9%;
+      top: 87%;
+      left: 20%;
+      opacity: 1;
+    }
+    60% {
+      transform: rotate(-90deg);
+    }
+    100% {
+      height: 4.5%;
+      width: 9%;
+      top: 40%;
+      left: 37%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+  }
+  @keyframes ball31 {
+    0% {
+      height: 3%;
+      width: 6%;
+      top: 20%;
+      left: -2.4%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+    10% {
+      height: 3%;
+      width: 6%;
+      top: 7%;
+      left: -1.4%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+    11% {
+      top: 4%;
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    19% {
+      opacity: 0;
+      top: 4%;
+      transform: rotate(0deg);
+    }
+    20% {
+      height: 3%;
+      width: 6%;
+      top: 4%;
+      left: 15%;
+      opacity: 0;
+      transform: rotate(90deg);
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      height: 3%;
+      width: 6%;
+      top: 5%;
+      left: 15%;
+      transform: rotate(90deg);
+      opacity: 0; /* Ensure it fully disappears at the end */
+    }
+  }
+  @keyframes ball32 {
+    0% {
+      height: 3%;
+      width: 6%;
+      top: 79%;
+      left: 15%;
+      transform: rotate(180deg);
+    }
+    40% {
+    }
+    49% {
+      transform: rotate(180deg);
+    }
+    50% {
+      height: 3%;
+      width: 6%;
+      top: 79%;
+      left: 2%;
+      transform: rotate(90deg);
+    }
+    60% {
+    }
+    100% {
+      height: 3%;
+      width: 6%;
+      top: 90%;
+      left: 2%;
+      opacity: 0;
+      transform: rotate(90deg);
+    }
+  }
+  @keyframes ball33 {
+    0% {
+      z-index: 10;
+      height: 3%;
+      width: 6%;
+      top: 28%;
+      left: -1%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+    100% {
+      z-index: 10;
+      height: 3%;
+      width: 6%;
+      top: 90%;
+      left: 90%;
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+  }
+  @keyframes ball34 {
+    0% {
+      z-index: 10;
+      height: 3%;
+      width: 6%;
+      top: 20%;
+      left: -1%;
+      opacity: 1;
+      transform: rotate(-90deg);
+    }
+    100% {
+      z-index: 10;
+      height: 3%;
+      width: 6%;
+      top: 70%;
+      left: 40%;
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+  }
+  
+  .ball1,
+  .ball21,
+  .ball2,
+  .ball22,
+  .ball3,
+  .ball31,
+  .ball32,
+  .ball4,
+  .ball41,
+  .ball42,
+  .ball5,
+  .ball51,
+  .ball52,
+  .ball6,
+  .ball61,
+  .ball62,
+  .ball7,
+  .ball8,
+  .ball9,
+  .ball10,
+  .ball11,
+  .ball12,
+  .ball13,
+  .ball14,
+  .ball141,
+  .ball142,
+  .ball15,
+  .ball151,
+  .ball152,
+  .ball16,
+  .ball17,
+  .ball18,
+  .ball19,
+  .ball20 {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    animation-play-state: running;
+    /* display: none; */
+  }
+  
+  .ball1 {
+    animation: ball1 var(--duration) linear;
+  }
+  .ball21 {
+    animation: ball2 var(--duration) linear;
+  }
+  
+  .ball2 {
+    animation: ball3 var(--duration) linear;
+  }
+  
+  .ball22 {
+    animation: ball4 var(--duration) linear;
+  }
+  
+  .ball3 {
+    animation: ball5 var(--duration) linear;
+  }
+  .ball31 {
+    animation: ball6 var(--duration) linear;
+  }
+  .ball32 {
+    animation: ball7 var(--duration) linear;
+  }
+  
+  .ball4 {
+    animation: ball8 var(--duration) linear;
+  }
+  .ball41 {
+    animation: ball9 var(--duration) linear;
+  }
+  .ball42 {
+    animation: ball10 var(--duration) linear;
+  }
+  
+  .ball5 {
+    animation: ball11 var(--duration) linear;
+  }
+  .ball51 {
+    animation: ball12 var(--duration) linear;
+  }
+  .ball52 {
+    animation: ball13 var(--duration) linear;
+  }
+  
+  .ball6 {
+    animation: ball14 var(--duration) linear;
+  }
+  .ball61 {
+    animation: ball15 var(--duration) linear;
+  }
+  .ball62 {
+    animation: ball16 var(--duration) linear;
+  }
+  
+  .ball7 {
+    animation: ball17 var(--duration) linear;
+  }
+  
+  .ball8 {
+    animation: ball18 var(--duration) linear;
+  }
+  
+  .ball9 {
+    animation: ball19 var(--duration) linear;
+  }
+  
+  .ball10 {
+    animation: ball20 var(--duration) linear;
+  }
+  
+  .ball11 {
+    animation: ball21 var(--duration) linear;
+  }
+  
+  .ball12 {
+    animation: ball22 var(--duration) linear;
+  }
+  
+  .ball13 {
+    animation: ball23 var(--duration) linear;
+  }
+  
+  .ball14 {
+    animation: ball24 var(--duration) linear;
+  }
+  
+  .ball141 {
+    animation: ball25 var(--duration) linear;
+  }
+  
+  .ball142 {
+    animation: ball26 var(--duration) linear;
+  }
+  
+  .ball15 {
+    animation: ball27 var(--duration) linear;
+  }
+  
+  .ball151 {
+    animation: ball28 var(--duration) linear;
+  }
+  
+  .ball152 {
+    animation: ball29 var(--duration) linear;
+  }
+  
+  .ball16 {
+    animation: ball30 var(--duration) linear;
+  }
+  
+  .ball17 {
+    display: none;
+    animation: ball31 var(--duration) linear infinite;
+  }
+  
+  .ball18 {
+    display: none;
+    animation: ball32 var(--duration) linear infinite;
+  }
+  
+  .ball19 {
+    display: none;
+    animation: ball33 var(--duration) linear infinite;
+  }
+  
+  .ball20 {
+    display: none;
+    animation: ball34 var(--duration) linear infinite;
+  }
+  
+  .source-box,
+  .target-box {
+    position: absolute;
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 0.5rem;
+  }
+  
+  .source-box {
+    background-color: #3b82f6;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .target-box {
+    background-color: #22c55e;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #BulbController {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* width: 160px; */
+    height: 8.5px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+    outline: none;
+    transition: background 0.3s ease-in-out;
+  }
+  #BulbController::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffcc00;
+    border: 3px solid #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  #BulbController::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffcc00;
+    border: 3px solid #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  
+  
