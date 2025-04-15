@@ -2,7 +2,7 @@
   --duration: 60s;
 }
 
-@keyframes builderio-nwerigjfwiofqeidfjnaknsggrstdrhrthrthwgafdsf {
+@keyframes ball1 {
   0% {
     height: 3%;
     width: 6%;
@@ -80,7 +80,7 @@
     transform: rotate(90deg);
   }
 }
-@keyframes builderio-ytjdrtuhrytjhryjhtfrrtfhrthrrthrthrthrththterhset {
+@keyframes ball2 {
   0% {
     height: 3%;
     width: 6%;
@@ -148,7 +148,7 @@
     transform: rotate(-180deg);
   }
 }
-@keyframes builderio-rtjnrodjhgksdfgjdsfgjlkhsjokdrthrthrthsefrgnhjob {
+@keyframes ball3 {
   0% {
     height: 2.5%;
     width: 2.5%;
@@ -186,7 +186,7 @@
     left: 56%;
   }
 }
-@keyframes builderio-sdgjinhiosdglkangkpmjpmgkssdfgsgsrgswrgwdsfnghokdng {
+@keyframes ball4 {
   0% {
     height: 2.5%;
     width: 2.5%;
@@ -224,7 +224,7 @@
     left: 56%;
   }
 }
-@keyframes builderio-sjoabfgnkwgnjkrwejgpjersgjerksgrswgtwregrwegerggjer {
+@keyframes ball5 {
   0% {
     height: 2.5%;
     width: 2.5%;
@@ -262,7 +262,7 @@
     left: 56%;
   }
 }
-@keyframes builderio-jsdghjkthertoigjhieropgjirogjjrnsfgggsrgwregrwegjeroing {
+@keyframes ball5 {
   0% {
     height: 2.5%;
     width: 2.5%;
@@ -300,7 +300,7 @@
     left: 56%;
   }
 }
-@keyframes builderio-ipwehfohguoierhouihfgkwejfoipwesrgsrgrjfgoinhksad {
+@keyframes ball7 {
   0% {
     height: 2.5%;
     width: 2.5%;
@@ -314,7 +314,7 @@
     left: 56%;
   }
 }
-@keyframes builderio-sngfswrpgjopwregoeghpdgkpskfldegrgherergergerhdegswg {
+@keyframes ball8 {
   0% {
     height: 2.5%;
     width: 2.5%;
@@ -328,7 +328,7 @@
     left: 56%;
   }
 }
-@keyframes builderio-rgnjhlkegnjhkenjgiksjkgdaskfksdfnjkgswefgwefweffwefanaf {
+@keyframes ball9 {
   0% {
     height: 2.5%;
     width: 2.5%;
@@ -342,7 +342,7 @@
     left: 56%;
   }
 }
-@keyframes builderio-phoijetnjhlkengkpwrngknslknsdlknglksdwefweffweffnglksnd {
+@keyframes ball10 {
   0% {
     height: 2.5%;
     width: 2.5%;
@@ -356,7 +356,7 @@
     left: 56%;
   }
 }
-@keyframes builderio-asdfbsbgjskgkshkghsiopgjhkgjhlsgjkospjgopjswropgj {
+@keyframes ball11 {
   0% {
     height: 3%;
     width: 6%;
@@ -397,7 +397,7 @@
     transform: rotate(90deg);
   }
 }
-@keyframes builderio-ipgnjikergnhjeghoiergokfsdjghsuideghdjifbhgjlis {
+@keyframes ball12 {
   0% {
     height: 3%;
     width: 3%;
@@ -431,7 +431,7 @@
     opacity: 1;
   }
 }
-@keyframes builderio-jsregnhdfguijhbguidshguidfhguihsdgfibghshdgdfjh {
+@keyframes ball13 {
   0% {
     height: 3%;
     width: 3%;
@@ -465,7 +465,7 @@
     opacity: 1;
   }
 }
-@keyframes builderio-dfsghoishrgoihuefrgerigyuieriglusihuishdeluguisdfl {
+@keyframes ball14 {
   0% {
     height: 5%;
     width: 5%;
@@ -491,7 +491,7 @@
     opacity: 0;
   }
 }
-@keyframes builderio-soirfghoishuigldeguishdfughudsfighudifghudfghsudg {
+@keyframes ball15 {
   0% {
     height: 5%;
     width: 5%;
@@ -517,7 +517,7 @@
     opacity: 0;
   }
 }
-@keyframes builderio-rsdeghoudeghuierhuyieruerhuheruigheruighuiergj {
+@keyframes ball16 {
   0% {
     height: 3%;
     width: 6%;
@@ -558,7 +558,7 @@
     transform: rotate(90deg);
   }
 }
-@keyframes builderio-erigberuighuowerhfgoiweipjfiwejfiwjefoweoifjwoiefj {
+@keyframes ball17 {
   0% {
     height: 3%;
     width: 6%;
@@ -605,7 +605,7 @@
     opacity: 0;
   }
 }
-@keyframes builderio-weufhuwerhfguoerhgohsdihfgiskdhoifosdgfksdjgogsgsf {
+@keyframes ball18 {
   0% {
     height: 3%;
     width: 6%;
@@ -636,7 +636,7 @@
     transform: rotate(90deg);
   }
 }
-@keyframes builderio-fposdjfopsdoipfgjsdoipjgiji0erjo0pgjperoigj0ierjg {
+@keyframes ball19 {
   0% {
     z-index: 10;
     height: 3%;
@@ -656,7 +656,7 @@
     transform: rotate(90deg);
   }
 }
-@keyframes builderio-sdgoihiogroiwehgioheroighoierhgierokhgjreglwkfnoiw {
+@keyframes ball20 {
   0% {
     z-index: 10;
     height: 3%;
@@ -708,87 +708,87 @@
 }
 
 .ball1 {
-  animation: builderio-nwerigjfwiofqeidfjnaknsggrstdrhrthrthwgafdsf var(--duration) linear;
+  animation: ball1 var(--duration) linear;
 }
 
 .ball2 {
-  animation: builderio-ytjdrtuhrytjhryjhtfrrtfhrthrrthrthrthrththterhset var(--duration) linear;
+  animation: ball2 var(--duration) linear;
 }
 
 .ball3 {
-  animation: builderio-rtjnrodjhgksdfgjdsfgjlkhsjokdrthrthrthsefrgnhjob var(--duration) linear;
+  animation: ball3 var(--duration) linear;
 }
 
 .ball4 {
-  animation: builderio-sdgjinhiosdglkangkpmjpmgkssdfgsgsrgswrgwdsfnghokdng var(--duration) linear;
+  animation: ball4 var(--duration) linear;
 }
 
 .ball5 {
-  animation: builderio-sjoabfgnkwgnjkrwejgpjersgjerksgrswgtwregrwegerggjer var(--duration) linear;
+  animation: ball5 var(--duration) linear;
 }
 
 .ball6 {
-  animation: builderio-jsdghjkthertoigjhieropgjirogjjrnsfgggsrgwregrwegjeroing var(--duration) linear;
+  animation: ball5 var(--duration) linear;
 }
 
 .ball7 {
-  animation: builderio-ipwehfohguoierhouihfgkwejfoipwesrgsrgrjfgoinhksad var(--duration) linear;
+  animation: ball7 var(--duration) linear;
 }
 
 .ball8 {
-  animation: builderio-sngfswrpgjopwregoeghpdgkpskfldegrgherergergerhdegswg var(--duration) linear;
+  animation: ball8 var(--duration) linear;
 }
 
 .ball9 {
-  animation: builderio-rgnjhlkegnjhkenjgiksjkgdaskfksdfnjkgswefgwefweffwefanaf var(--duration) linear;
+  animation: ball9 var(--duration) linear;
 }
 
 .ball10 {
-  animation: builderio-phoijetnjhlkengkpwrngknslknsdlknglksdwefweffweffnglksnd var(--duration) linear;
+  animation: ball10 var(--duration) linear;
 }
 
 .ball11 {
-  animation: builderio-asdfbsbgjskgkshkghsiopgjhkgjhlsgjkospjgopjswropgj var(--duration) linear;
+  animation: ball11 var(--duration) linear;
 }
 
 .ball12 {
-  animation: builderio-ipgnjikergnhjeghoiergokfsdjghsuideghdjifbhgjlis var(--duration) linear;
+  animation: ball12 var(--duration) linear;
 }
 
 .ball13 {
-  animation: builderio-jsregnhdfguijhbguidshguidfhguihsdgfibghshdgdfjh var(--duration) linear;
+  animation: ball13 var(--duration) linear;
 }
 
 .ball14 {
-  animation: builderio-dfsghoishrgoihuefrgerigyuieriglusihuishdeluguisdfl var(--duration) linear;
+  animation: ball14 var(--duration) linear;
 }
 
 .ball15 {
-  animation: builderio-soirfghoishuigldeguishdfughudsfighudifghudfghsudg var(--duration) linear;
+  animation: ball15 var(--duration) linear;
 }
 
 .ball16 {
-  animation: builderio-rsdeghoudeghuierhuyieruerhuheruigheruighuiergj var(--duration) linear;
+  animation: ball16 var(--duration) linear;
 }
 
 .ball17 {
   display: none;
-  animation: builderio-erigberuighuowerhfgoiweipjfiwejfiwjefoweoifjwoiefj var(--duration) linear infinite;
+  animation: ball17 var(--duration) linear infinite;
 }
 
 .ball18 {
   display: none;
-  animation: builderio-weufhuwerhfguoerhgohsdihfgiskdhoifosdgfksdjgogsgsf var(--duration) linear infinite;
+  animation: ball18 var(--duration) linear infinite;
 }
 
 .ball19 {
   display: none;
-  animation: builderio-fposdjfopsdoipfgjsdoipjgiji0erjo0pgjperoigj0ierjg var(--duration) linear infinite;
+  animation: ball19 var(--duration) linear infinite;
 }
 
 .ball20 {
   display: none;
-  animation: builderio-sdgoihiogroiwehgioheroighoierhgierokhgjreglwkfnoiw var(--duration) linear infinite;
+  animation: ball20 var(--duration) linear infinite;
 }
 
 .source-box,
@@ -813,7 +813,7 @@
   transform: translateY(-50%);
 }
 
-#hrtherthrgdgertgyerhyrthrtge {
+#BulbController {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -824,7 +824,7 @@
   outline: none;
   transition: background 0.3s ease-in-out;
 }
-#hrtherthrgdgertgyerhyrthrtge::-webkit-slider-thumb {
+#BulbController::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
@@ -835,7 +835,7 @@
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }
-#hrtherthrgdgertgyerhyrthrtge::-moz-range-thumb {
+#BulbController::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
