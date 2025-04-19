@@ -396,7 +396,7 @@ function setupResetModal() {
   const resetModal = document.getElementById("resetModal");
   const reloadAfterReset = () => {
     setTimeout(() => {
-      window.location.reload();
+      // window.location.reload();
     }, 0.1);
   };
   resetBtn.addEventListener("click", reloadAfterReset);
@@ -426,6 +426,7 @@ function setupResetModal() {
     window._heightInterval = setInterval(setHeights, 1000);
   });
   confirmResetBtn.addEventListener("click", () => {
+     event.preventDefault();
     resetBtn.classList.add("hidden");
     resetModal.classList.add("hidden");
     localStorage.setItem("h2oHeight", "100");
@@ -481,9 +482,9 @@ function initializeSunRaysController() {
   const inputRangeHTML = `<input type="range" min="0" max="100" value="${currentValue}" id="sunRaysController" />`;
   sunRaysControllerDiv.insertAdjacentHTML("beforeend", inputRangeHTML);
   const sunRaysController = document.getElementById("sunRaysController");
-  sunRaysController.onmouseup = () => {
-    location.reload();
-  };
+  // sunRaysController.onmouseup = () => {
+  //   location.reload();
+  // };
   const voltCount = document.querySelector(".VOLT_COUNT");
   const styleElement = document.createElement("style");
   document.head.appendChild(styleElement);
@@ -510,7 +511,7 @@ function initializeSunRaysController() {
     const voltCountValue = Math.floor((value / 100) * maxVolts);
     localStorage.setItem("currentVoltValue", voltCountValue);
     if (voltCount) {
-      voltCount.textContent = `${voltCountValue}V`;
+      voltCount.textContent = `${voltCountValue}A`;
     }
     const opacity = value / 100;
     styleElement.textContent = `
@@ -524,7 +525,34 @@ function initializeSunRaysController() {
   updateSunRaysColor();
   sunRaysController.addEventListener("input", updateSunRaysColor);
 }
+
+function resetAndInitializeState() {
+  // Clear all state-related variables and localStorage values to empty or default values
+  localStorage.setItem("currentVoltValue", "12");
+  localStorage.setItem("h2oHeight", "100");
+  localStorage.setItem("h2Height", "0");
+  localStorage.setItem("o2Height", "0");
+  localStorage.setItem("h2o2Height", "0");
+
+  // Optionally, reset any global variables or UI elements to their default states
+  // For example:
+  // - Reset graphical elements, balls, etc.
+  // - Reset progress bars or sliders
+  // - Clear any visual animations or content
+  // - Reset text inputs or outputs
+  initializeBalls();
+  setHeights();
+  // initializeSunRaysController();
+  setupResetModal();
+
+  // If you want to clear any specific content from the page, you can do that here as well.
+  // Example: 
+  // document.getElementById("someElement").innerHTML = ""; // Reset some HTML content
+  
+  // Reset any other necessary variables or states that should be cleared.
+}
 document.addEventListener("DOMContentLoaded", () => {
+  resetAndInitializeState()
   let h2oHeight = parseFloat(localStorage.getItem("h2oHeight"));
   if (isNaN(h2oHeight)) {
     localStorage.setItem("currentVoltValue", "12");
@@ -538,6 +566,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeSunRaysController();
   setupResetModal();
 });
+
+
 async function getHeightsForVoltage(voltage) {
   const response = await fetch("path/to/prompt.md");
   const text = await response.text();
