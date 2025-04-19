@@ -282,7 +282,7 @@ function updateBulbOpacity(opacity = null) {
         state.animationFrameId = requestAnimationFrame(trackBallProgress);
       }
     }
-    location.reload();
+    // location.reload();
     checkResetElementsAndDisableRange();
   });
   
@@ -673,48 +673,75 @@ function updateBulbOpacity(opacity = null) {
     return localStorage.getItem("hasVisited") === null;
   }
   
+  function resetSimulationState() {
+    localStorage.removeItem("timingController");
+    localStorage.removeItem("startTime");
+    localStorage.removeItem("h2-quantity-1");
+    localStorage.removeItem("h2-quantity-2");
+    localStorage.removeItem("o2-quantity-1");
+    localStorage.setItem("animationCompletedAndCanceled", "false"); // Reset the flag
+  
+    resetModal.classList.add("hidden");
+  
+    if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = "100%";
+    if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = "0%";
+    if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = "100%";
+  
+    state.bulbState = false;
+    updateBulbOpacity(0);
+  
+    // Ensure animation is properly restarted
+    controllLiquideFlow();
+  
+    // Clear existing balls and restart animations
+    state.elements.ballsContainer.innerHTML = "";
+    animationStopped = false; // Reset animation stopped flag
+  
+    // Get current speed value and restart animations
+    const speed = parseInt(state.elements.speedControl.value);
+    if (speed > 0) {
+      updateDuration();
+      // Ensure trackBallProgress is restarted
+      if (!state.animationFrameId) {
+        state.animationFrameId = requestAnimationFrame(trackBallProgress);
+      }
+    }
+    // location.reload();
+    checkResetElementsAndDisableRange();
+  }
+
   function initializeApp() {
-    if (performance.navigation.type === 1) {
-      const savedValue = localStorage.getItem("bulbRangeValue");
-      if (savedValue !== null) {
-        state.elements.speedControl.value = savedValue;
+    // Restore saved range value
+    const savedValue = localStorage.getItem("bulbRangeValue");
+    if (savedValue !== null) {
+      state.elements.speedControl.value = savedValue;
+    }
+  
+    // Restore saved heights
+    const currentH21Height = parseFloat(localStorage.getItem("h2-quantity-1")) || 100;
+    const currentH22Height = parseFloat(localStorage.getItem("h2-quantity-2")) || 0;
+    const currentO21Height = parseFloat(localStorage.getItem("o2-quantity-1")) || 100;
+  
+    if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = `${currentH21Height}%`;
+    if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = `${currentH22Height}%`;
+    if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = `${currentO21Height}%`;
+  
+    // Restore timing if simulation had partially run
+    if (currentH22Height < 100) {
+      const currentProgress = currentH22Height / 100;
+      const bulbValue = parseInt(savedValue || "50", 10);
+      const timingController = 60 - (bulbValue - 1) * (40 / 99);
+      const adjustedStartTime = Date.now() - currentProgress * timingController * 1000;
+  
+      localStorage.setItem("timingController", timingController);
+      localStorage.setItem("startTime", adjustedStartTime);
+  
+      if (
+        state.elements.ballsContainer &&
+        state.elements.ballsContainer.classList.contains("hidden")
+      ) {
+        state.elements.ballsContainer.classList.remove("hidden");
       }
-      const currentH21Height = parseFloat(localStorage.getItem("h2-quantity-1")) || 100;
-      const currentH22Height = parseFloat(localStorage.getItem("h2-quantity-2")) || 0;
-      const currentO21Height = parseFloat(localStorage.getItem("o2-quantity-1")) || 100;
-  
-      if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = `${currentH21Height}%`;
-      if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = `${currentH22Height}%`;
-      if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = `${currentO21Height}%`;
-  
-      if (currentH22Height < 100) {
-        const currentProgress = currentH22Height / 100;
-        const bulbValue = parseInt(savedValue || "50", 10);
-        const timingController = 60 - (bulbValue - 1) * (40 / 99);
-        const adjustedStartTime = Date.now() - currentProgress * timingController * 1000;
-        localStorage.setItem("timingController", timingController);
-        localStorage.setItem("startTime", adjustedStartTime);
-  
-        if (state.elements.ballsContainer && state.elements.ballsContainer.classList.contains("hidden")) {
-          state.elements.ballsContainer.classList.remove("hidden");
-        }
-      }
-    } else {
-      localStorage.removeItem("timingController");
-      localStorage.removeItem("startTime");
-      localStorage.removeItem("h2-quantity-1");
-      localStorage.removeItem("h2-quantity-2");
-      localStorage.removeItem("o2-quantity-1");
-      localStorage.removeItem("bulbRangeValue");
-  
-      state.elements.speedControl.value = "50";
-      localStorage.setItem("bulbRangeValue", "50");
-  
-      localStorage.setItem("hasVisited", "true");
-  
-      if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = "100%";
-      if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = "0%";
-      if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = "100%";
     }
   
     controllLiquideFlow();
@@ -722,8 +749,61 @@ function updateBulbOpacity(opacity = null) {
     updateBulbOpacity(0);
     updateDuration();
   }
+
+  // function initializeApp() {
+  //   if (performance.navigation.type === 1) {
+  //     const savedValue = localStorage.getItem("bulbRangeValue");
+  //     if (savedValue !== null) {
+  //       state.elements.speedControl.value = savedValue;
+  //     }
+  //     const currentH21Height = parseFloat(localStorage.getItem("h2-quantity-1")) || 100;
+  //     const currentH22Height = parseFloat(localStorage.getItem("h2-quantity-2")) || 0;
+  //     const currentO21Height = parseFloat(localStorage.getItem("o2-quantity-1")) || 100;
   
-  window.addEventListener("load", initializeApp);
+  //     if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = `${currentH21Height}%`;
+  //     if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = `${currentH22Height}%`;
+  //     if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = `${currentO21Height}%`;
+  
+  //     if (currentH22Height < 100) {
+  //       const currentProgress = currentH22Height / 100;
+  //       const bulbValue = parseInt(savedValue || "50", 10);
+  //       const timingController = 60 - (bulbValue - 1) * (40 / 99);
+  //       const adjustedStartTime = Date.now() - currentProgress * timingController * 1000;
+  //       localStorage.setItem("timingController", timingController);
+  //       localStorage.setItem("startTime", adjustedStartTime);
+  
+  //       if (state.elements.ballsContainer && state.elements.ballsContainer.classList.contains("hidden")) {
+  //         state.elements.ballsContainer.classList.remove("hidden");
+  //       }
+  //     }
+  //   } else {
+  //     localStorage.removeItem("timingController");
+  //     localStorage.removeItem("startTime");
+  //     localStorage.removeItem("h2-quantity-1");
+  //     localStorage.removeItem("h2-quantity-2");
+  //     localStorage.removeItem("o2-quantity-1");
+  //     localStorage.removeItem("bulbRangeValue");
+  
+  //     state.elements.speedControl.value = "50";
+  //     localStorage.setItem("bulbRangeValue", "50");
+  
+  //     localStorage.setItem("hasVisited", "true");
+  
+  //     if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = "100%";
+  //     if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = "0%";
+  //     if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = "100%";
+  //   }
+  
+  //   controllLiquideFlow();
+  //   checkResetElementsAndDisableRange();
+  //   updateBulbOpacity(0);
+  //   updateDuration();
+  // }
+  
+ window.addEventListener("load", () => {
+  resetSimulationState();
+  initializeApp();
+});
   state.elements.speedControl.addEventListener("mouseup", function () {
     localStorage.setItem("bulbRangeValue", state.elements.speedControl.value);
   });
@@ -735,7 +815,7 @@ function updateBulbOpacity(opacity = null) {
       storeAnimationDuration();
       // No more location.reload() - use updateDuration instead
       updateDuration();
-      location.reload();
+      // location.reload();
     });
   });
   

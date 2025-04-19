@@ -1,24 +1,90 @@
 
+// function dfgdergerthgrthrytjunytuj(opacity = null) {
+//   let rangeInput = document.getElementById("hrtherthrgdgertgyerhyrthrtge");
+
+//   let opacityValue = opacity !== null ? opacity : rangeInput.value / 100;
+//   let ufuhgdhfisdfjosjfudufgufoisjfojidhid = document.getElementById("dfhgdfhsgdfghsderhrt");
+//   let ghfhfgjkjktgyjghxfgdfgfhgfjhhtrfgdfg = document.getElementById("dfghfdgsasdegertghrteg");
+
+//   localStorage.setItem("fdgdghetrgedsfgdsffg", rangeInput.value);
+
+//   if (opacityValue == 0) {
+//     ufuhgdhfisdfjosjfudufgufoisjfojidhid.style.opacity = "0";
+//     ghfhfgjkjktgyjghxfgdfgfhgfjhhtrfgdfg.style.opacity = "0";
+//   } else {
+//     ufuhgdhfisdfjosjfudufgufoisjfojidhid.style.opacity = opacityValue.toString();
+
+
+//     let shadowOpacity = 0.005 + opacityValue * 0.495;
+//     ghfhfgjkjktgyjghxfgdfgfhgfjhhtrfgdfg.style.opacity = shadowOpacity.toFixed(3);
+//   }
+// }
+
+// let rafId = null;
+
+// function dfgdergerthgrthrytjunytuj(opacity = null) {
+//   const rangeInput = document.getElementById("hrtherthrgdgertgyerhyrthrtge");
+//   const bulb = document.getElementById("dfhgdfhsgdfghsderhrt");
+//   const shadow = document.getElementById("dfghfdgsasdegertghrteg");
+
+//   const opacityValue = opacity !== null ? opacity : rangeInput.value / 100;
+//   localStorage.setItem("fdgdghetrgedsfgdsffg", rangeInput.value);
+
+//   // Add smooth transitions
+//   bulb.style.transition = "opacity 0.2s ease-in-out";
+//   shadow.style.transition = "opacity 0.2s ease-in-out";
+
+//   // Cancel previous frame if still queued
+//   if (rafId) {
+//     cancelAnimationFrame(rafId);
+//   }
+
+//   rafId = requestAnimationFrame(() => {
+//     if (opacityValue === 0) {
+//       bulb.style.opacity = "0";
+//       shadow.style.opacity = "0";
+//     } else {
+//       const bulbOpacity = opacityValue.toString();
+//       const shadowOpacity = (0.005 + opacityValue * 0.495).toFixed(3);
+
+//       bulb.style.opacity = bulbOpacity;
+//       shadow.style.opacity = shadowOpacity;
+//     }
+//   });
+// }
+
+let rafId = null;
+
 function dfgdergerthgrthrytjunytuj(opacity = null) {
-  let rangeInput = document.getElementById("hrtherthrgdgertgyerhyrthrtge");
+  const rangeInput = document.getElementById("hrtherthrgdgertgyerhyrthrtge");
+  const bulb = document.getElementById("dfhgdfhsgdfghsderhrt");
+  const shadow = document.getElementById("dfghfdgsasdegertghrteg");
 
-  let opacityValue = opacity !== null ? opacity : rangeInput.value / 100;
-  let ufuhgdhfisdfjosjfudufgufoisjfojidhid = document.getElementById("dfhgdfhsgdfghsderhrt");
-  let ghfhfgjkjktgyjghxfgdfgfhgfjhhtrfgdfg = document.getElementById("dfghfdgsasdegertghrteg");
-
+  // Always save the current range value
   localStorage.setItem("fdgdghetrgedsfgdsffg", rangeInput.value);
 
-  if (opacityValue == 0) {
-    ufuhgdhfisdfjosjfudufgufoisjfojidhid.style.opacity = "0";
-    ghfhfgjkjktgyjghxfgdfgfhgfjhhtrfgdfg.style.opacity = "0";
-  } else {
-    ufuhgdhfisdfjosjfudufgufoisjfojidhid.style.opacity = opacityValue.toString();
-
-
-    let shadowOpacity = 0.005 + opacityValue * 0.495;
-    ghfhfgjkjktgyjghxfgdfgfhgfjhhtrfgdfg.style.opacity = shadowOpacity.toFixed(3);
+  // Cancel previous frame if still queued
+  if (rafId) {
+    cancelAnimationFrame(rafId);
   }
+
+  rafId = requestAnimationFrame(() => {
+    if (opacity === null) {
+      // Called from slider – don't glow
+      bulb.style.opacity = "0";
+      shadow.style.opacity = "0";
+    } else {
+      // Called intentionally – glow with given opacity
+      const glowLevel = Math.min(Math.max(opacity, 0), 1); // Clamp 0-1
+      bulb.style.transition = "opacity 0.2s ease-in-out";
+      shadow.style.transition = "opacity 0.2s ease-in-out";
+      bulb.style.opacity = glowLevel.toString();
+      shadow.style.opacity = (0.005 + glowLevel * 0.495).toFixed(3);
+    }
+  });
 }
+
+
 
 
 document.getElementById("hrtherthrgdgertgyerhyrthrtge").addEventListener("input", function () {
@@ -718,7 +784,7 @@ state.elements.djfgdfjlghisdfjhgisdfjhgoisdigsgfids.addEventListener("mouseup", 
 ["mouseup", "touchend"].forEach(event => {
   state.elements.djfgdfjlghisdfjhgisdfjhgoisdigsgfids.addEventListener(event, () => {
     localStorage.setItem("fdgdghetrgedsfgdsffg", state.elements.djfgdfjlghisdfjhgisdfjhgoisdigsgfids.value);
-    location.reload();
+    // location.reload();
   });
 });
 

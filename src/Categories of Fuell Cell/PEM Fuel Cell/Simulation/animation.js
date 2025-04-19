@@ -1,22 +1,50 @@
+// function updateAnimationSpeedByDouble(opacity = null) {
+//   let rangeInput = document.getElementById("BulbController");
+
+//   let AnimationSpeedLimit = opacity !== null ? opacity : rangeInput.value / 100;
+//   let bulbOffImg = document.getElementById("bulbOn");
+//   let bulbOnImg = document.getElementById("bulb-shadow");
+
+//   localStorage.setItem("bulbRangeValue", rangeInput.value);
+
+//   if (AnimationSpeedLimit == 0) {
+//     bulbOffImg.style.opacity = "0";
+//     bulbOnImg.style.opacity = "0";
+//   } else {
+//     bulbOffImg.style.opacity = AnimationSpeedLimit.toString();
+
+//     let shadowOpacity = 0.005 + AnimationSpeedLimit * 0.495;
+//     bulbOnImg.style.opacity = shadowOpacity.toFixed(3);
+//   }
+// }
+
 function updateAnimationSpeedByDouble(opacity = null) {
   let rangeInput = document.getElementById("BulbController");
 
-  let AnimationSpeedLimit = opacity !== null ? opacity : rangeInput.value / 100;
+  // Save the slider value always
+  localStorage.setItem("bulbRangeValue", rangeInput.value);
+
+  // Get elements
   let bulbOffImg = document.getElementById("bulbOn");
   let bulbOnImg = document.getElementById("bulb-shadow");
 
-  localStorage.setItem("bulbRangeValue", rangeInput.value);
-
-  if (AnimationSpeedLimit == 0) {
+  // Called from slider — do not glow
+  if (opacity === null) {
     bulbOffImg.style.opacity = "0";
     bulbOnImg.style.opacity = "0";
-  } else {
-    bulbOffImg.style.opacity = AnimationSpeedLimit.toString();
-
-    let shadowOpacity = 0.005 + AnimationSpeedLimit * 0.495;
-    bulbOnImg.style.opacity = shadowOpacity.toFixed(3);
+    return;
   }
+
+  // Called from electron hit — glow
+  let AnimationSpeedLimit = Math.min(Math.max(opacity, 0), 1);
+  bulbOffImg.style.transition = "opacity 0.2s ease-in-out";
+  bulbOnImg.style.transition = "opacity 0.2s ease-in-out";
+
+  bulbOffImg.style.opacity = AnimationSpeedLimit.toString();
+  let shadowOpacity = 0.005 + AnimationSpeedLimit * 0.495;
+  bulbOnImg.style.opacity = shadowOpacity.toFixed(3);
 }
+
 
 document.getElementById("BulbController").addEventListener("input", function () {
   updateAnimationSpeedByDouble();
@@ -155,6 +183,7 @@ const cancelBtn = document.getElementById("cancelBtn");
 const confirmResetBtn = document.getElementById("confirmResetBtn");
 
 resetBtn.addEventListener("click", function () {
+
   localStorage.removeItem("timingController");
   localStorage.removeItem("startTime");
   localStorage.removeItem("h2-quantity-1");
@@ -176,6 +205,48 @@ resetBtn.addEventListener("click", function () {
 
   checkResetModalIsVisibleOrNot();
 });
+
+// resetBtn.addEventListener("click", function () {
+//   // Clear state
+//   localStorage.removeItem("timingController");
+//   localStorage.removeItem("startTime");
+//   localStorage.removeItem("h2-quantity-1");
+//   localStorage.removeItem("h2-quantity-2");
+//   localStorage.removeItem("o2-quantity-1");
+
+//   // Reset popup trigger flag
+//   localStorage.setItem("animationCompletedAndCanceled", "false");
+
+//   // Hide modal immediately (if visible)
+//   resetModal.classList.add("hidden");
+
+//   // Reset UI
+//   if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = "100%";
+//   if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = "0%";
+//   if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = "100%";
+
+//   state.bulbState = false;
+//   updateAnimationSpeedByDouble(0);
+
+//   IncreseSpeedOFHeightsAnimation();
+//   updateSpeedOfHeightsQuantityAnimationByAuto();
+
+//   // Reset and restart animation logic
+//   if (state.elements.ballsContainer) state.elements.ballsContainer.innerHTML = "";
+//   animationStopped = false;
+
+//   const speed = parseInt(state.elements.speedControl?.value || "0");
+//   if (speed > 0) {
+//     updateDuration();
+//     if (!state.animationFrameId) {
+//       state.animationFrameId = requestAnimationFrame(trackBallProgress);
+//     }
+//   }
+
+//   // Optional: check/reset UI controls
+//   checkResetModalIsVisibleOrNot(); // this should not hide modal if already hidden
+// });
+
 
 cancelBtn.addEventListener("click", function () {
   resetModal.classList.add("!hidden");
@@ -347,22 +418,22 @@ function updateSpeedOfHeightsQuantityAnimationByAuto() {
   updateBallSpeeds();
 
   stopIntervals();
-  state.elements.SpeedLimitDepends.innerHTML = "";
+  // state.elements.SpeedLimitDepends.innerHTML = "";
 
-  state.elements.bulbOffImg.style.opacity = "0";
-  state.elements.bulbOnImg.style.opacity = "0";
+  // state.elements.bulbOffImg.style.opacity = "0";
+  // state.elements.bulbOnImg.style.opacity = "0";
   state.bulbState = false;
 
   if (window.bulbTimeout) {
     clearTimeout(window.bulbTimeout);
   }
-  if (window.secondBatchTimeout) {
-    clearTimeout(window.secondBatchTimeout);
-  }
+  // if (window.secondBatchTimeout) {
+  //   clearTimeout(window.secondBatchTimeout);
+  // }
 
-  if (window.sixthBatchTimeout) {
-    clearTimeout(window.sixthBatchTimeout);
-  }
+  // if (window.sixthBatchTimeout) {
+  //   clearTimeout(window.sixthBatchTimeout);
+  // }
 
   ["ball2", "ball11", "ball16"].forEach(createBall);
 
@@ -414,25 +485,22 @@ function hideAnimation() {
 function isSatrtedAgainAnimation() {
   return localStorage.getItem("hasVisited") === null;
 }
-function initializeApp() {
-  if (performance.navigation.type === 1) {
-    const savedValue = localStorage.getItem("bulbRangeValue");
-    if (savedValue !== null) {
-      state.elements.speedControl.value = savedValue;
-    }
-  } else {
-    localStorage.removeItem("timingController");
-    localStorage.removeItem("startTime");
-    localStorage.removeItem("h2-quantity-1");
-    localStorage.removeItem("h2-quantity-2");
-    localStorage.removeItem("o2-quantity-1");
-    localStorage.removeItem("bulbRangeValue");
 
-    state.elements.speedControl.value = "50";
-    localStorage.setItem("bulbRangeValue", "50");
+function resetSimulationState() {
+  // Clear all localStorage used in simulation
+  localStorage.removeItem("timingController");
+  localStorage.removeItem("startTime");
+  localStorage.removeItem("h2-quantity-1");
+  localStorage.removeItem("h2-quantity-2");
+  localStorage.removeItem("o2-quantity-1");
+  localStorage.removeItem("bulbRangeValue");
 
-    localStorage.setItem("hasVisited", "true");
-  }
+  // Reset UI values
+  state.elements.speedControl.value = "50";
+  localStorage.setItem("bulbRangeValue", "50");
+  localStorage.setItem("hasVisited", "true");
+
+  if (resetModal) resetModal.classList.add("hidden");
 
   state.elements.bulbOffImg.style.opacity = "0";
   state.elements.bulbOnImg.style.opacity = "0";
@@ -443,15 +511,77 @@ function initializeApp() {
   if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = "100%";
   if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = "0%";
   if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = "100%";
+}
 
+// function initializeApp() {
+//   if (performance.navigation.type === 1) {
+//     const savedValue = localStorage.getItem("bulbRangeValue");
+//     if (savedValue !== null) {
+//       state.elements.speedControl.value = savedValue;
+//     }
+//   } else {
+//     localStorage.removeItem("timingController");
+//     localStorage.removeItem("startTime");
+//     localStorage.removeItem("h2-quantity-1");
+//     localStorage.removeItem("h2-quantity-2");
+//     localStorage.removeItem("o2-quantity-1");
+//     localStorage.removeItem("bulbRangeValue");
+
+//     state.elements.speedControl.value = "50";
+//     localStorage.setItem("bulbRangeValue", "50");
+
+//     localStorage.setItem("hasVisited", "true");
+//   }
+
+//   state.elements.bulbOffImg.style.opacity = "0";
+//   state.elements.bulbOnImg.style.opacity = "0";
+//   state.bulbState = false;
+
+//   hideAnimation();
+
+//   if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = "100%";
+//   if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = "0%";
+//   if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = "100%";
+
+//   IncreseSpeedOFHeightsAnimation();
+//   checkResetModalIsVisibleOrNot();
+
+//   updateAnimationSpeedByDouble(0);
+//   updateSpeedOfHeightsQuantityAnimationByAuto();
+// }
+
+function initializeApp() {
+  // Update slider value from localStorage (which we just reset)
+  const savedValue = localStorage.getItem("bulbRangeValue");
+  if (savedValue !== null) {
+    state.elements.speedControl.value = savedValue;
+  }
+
+  // Reset bulb state
+  state.elements.bulbOffImg.style.opacity = "0";
+  state.elements.bulbOnImg.style.opacity = "0";
+  state.bulbState = false;
+
+  // Hide any existing animations or elements
+  hideAnimation();
+
+  // Reset height levels of gases
+  if (state.elements.h2Quantity1) state.elements.h2Quantity1.style.height = "100%";
+  if (state.elements.h2Quantity2) state.elements.h2Quantity2.style.height = "0%";
+  if (state.elements.o2Quantity1) state.elements.o2Quantity1.style.height = "100%";
+
+  // Run all necessary setup logic
   IncreseSpeedOFHeightsAnimation();
   checkResetModalIsVisibleOrNot();
-
   updateAnimationSpeedByDouble(0);
   updateSpeedOfHeightsQuantityAnimationByAuto();
 }
 
-window.addEventListener("load", initializeApp);
+
+window.addEventListener("load", () => {
+  resetSimulationState();
+  initializeApp();
+});
 state.elements.speedControl.addEventListener("mouseup", function () {
   localStorage.setItem("bulbRangeValue", state.elements.speedControl.value);
 });
@@ -459,7 +589,7 @@ state.elements.speedControl.addEventListener("mouseup", function () {
 ["mouseup", "touchend"].forEach((event) => {
   state.elements.speedControl.addEventListener(event, () => {
     localStorage.setItem("bulbRangeValue", state.elements.speedControl.value);
-    location.reload();
+    // location.reload();
   });
 });
 

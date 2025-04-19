@@ -40,8 +40,8 @@
       <div id="headerAccordion" x-show="isOpen" @click.outside="isOpen = false"
         class="absolute bg-white z-[100] top-20 left-0 w-full pt-5 pb-32">
         <div
-        class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
-        x-data="{ 
+          class="w-[95%] max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 lg:gap-y-5"
+          x-data="{ 
           activeAccordion: null,
           items: [
             {
@@ -162,41 +162,41 @@
             })
           }
         }" @click.outside="activeAccordion = null">
-        <template x-for="(item, index) in items" :key="index">
-          <div class="relative font-inter antialiased text-sm lg:text-base">
-            <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
-              <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
-                <button :id="'faqs-title-' + index" type="button"
-                  class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
-                  :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
-                  @click="activeAccordion = activeAccordion === index ? null : index"
-                  :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
-                  <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
-                  <div
-                    class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
-                    :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
-                    <img src="../../../assets/icon3.png" alt="" class="transition-all duration-700"
-                      :class="activeAccordion === index ? 'rotate-180' : ''" />
-                  </div>
-                </button>
-              </h2>
-              <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
-                class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
-                :class="[
+          <template x-for="(item, index) in items" :key="index">
+            <div class="relative font-inter antialiased text-sm lg:text-base">
+              <div :class="activeAccordion === index ? 'bg-[#f5f5f5] rounded-t-[10px]' : 'bg-white rounded-[10px]'">
+                <h2 class="px-[15px] hover:bg-[#f5f5f5] hover:rounded-[10px] group">
+                  <button :id="'faqs-title-' + index" type="button"
+                    class="flex items-center justify-between w-full text-left font-semibold py-[15px] gap-4 border-b-[1px] border-[#DADADA00]"
+                    :class="activeAccordion === index ? 'border-[#DADADA]' : ''"
+                    @click="activeAccordion = activeAccordion === index ? null : index"
+                    :aria-expanded="activeAccordion === index" :aria-controls="'faqs-text-' + index">
+                    <p class="line-height-[20px] font-medium flex-1 pr-2 line-clamp-2" x-text="item.title"></p>
+                    <div
+                      class="size-[30px] group-hover:bg-white shrink-0 rounded-full flex justify-center items-center cursor-pointer"
+                      :class="activeAccordion === index ? 'bg-white' : 'bg-[#f5f5f5]'">
+                      <img src="../../../assets/icon3.png" alt="" class="transition-all duration-700"
+                        :class="activeAccordion === index ? 'rotate-180' : ''" />
+                    </div>
+                  </button>
+                </h2>
+                <div :id="'faqs-text-' + index" role="region" :aria-labelledby="'faqs-title-' + index"
+                  class="p-[15px] w-full absolute z-[1] bg-[#f5f5f5] rounded-b-[10px] text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                  :class="[
                   activeAccordion === index ? 'block' : 'hidden',
                   item.title === 'Categories of Fuel Cell' ? 'max-h-64 overflow-y-auto' : 'overflow-hidden'
                 ]">
-                <div class="overflow-hidden flex flex-col gap-3.5">
-                  <template x-for="line in item.content" :key="line.text">
-                    <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
-                      x-text="line.text"></a>
-                  </template>
+                  <div class="overflow-hidden flex flex-col gap-3.5">
+                    <template x-for="line in item.content" :key="line.text">
+                      <a :href="line.url" class="hover:text-blue-600 transition-colors duration-300"
+                        x-text="line.text"></a>
+                    </template>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </template>
-      </div>
+          </template>
+        </div>
       </div>
     </header>
     <div class="flex items-center gap-3.5 mt-[20px] ml-[10px]">
@@ -224,7 +224,8 @@
           </div>
         </div>
         <img src="../../../assets/H2 and O2 controller1.png" alt=""
-          class="max-w-[40%] sm:max-w-4/12 md:max-w-[250px] lg:rotate-[-90deg] lg:translate-y-[-1550%] lg:translate-x-[-75%] xl:!translate-y-[-535%] xl:!translate-x-[-45%] 2xl:!translate-x-[-60%] xl:rotate-[0deg] mx-auto"  style="margin-top: 149px;"/>
+          class="max-w-[40%] sm:max-w-4/12 md:max-w-[250px] lg:rotate-[-90deg] lg:translate-y-[-1550%] lg:translate-x-[-75%] xl:!translate-y-[-535%] xl:!translate-x-[-45%] 2xl:!translate-x-[-60%] xl:rotate-[0deg] mx-auto"
+          style="margin-top: 149px;" />
       </div>
       <div id="STRUCTURE"
         class="w-[95%] lg:w-[90%] lg:w-[80%] max-w-[800px] aspect-square text-clifford order-1 lg:order-2">
@@ -235,21 +236,27 @@
               <div class="h-[22.5%] flex items-center justify-center">
                 <div class="h-[40%] w-[15%] relative">
 
-                  <img src="../../../assets/light-bulb-off.png" alt="Bulb Off"
-                    class="absolute w-full h-full" />
+                  <img src="../../../assets/light-bulb-off.png" alt="Bulb Off" class="absolute w-full h-full" />
                   <div id="dfghfdgsasdegertghrteg"
                     class="absolute size-[141%] -top-[40%] left-[-19.5%] pointer-events-none rounded-full z-[1] bg-gradient-to-t from-yellow-200 opacity-0 to-yellow-100">
                   </div>
-                  <img id="dfhgdfhsgdfghsderhrt" src="../../../assets/light-bulb-on.png"
-                    alt="Bulb On" class="absolute z-[2] w-full h-full opacity-0 transition-opacity duration-200" />
+                  <img id="dfhgdfhsgdfghsderhrt" src="../../../assets/light-bulb-on.png" alt="Bulb On"
+                    class="absolute z-[2] w-full h-full opacity-0 transition-opacity duration-200" />
                 </div>
               </div>
               <div class="h-[60%] px-[10%] relative" style="z-index: 1;">
                 <div class="absolute h-[15%] w-[12%] left-[-30%] bottom-[78.5%]">
                   <img src="../../../assets/text1.png" alt="" class="size-full" />
                 </div>
+
+                <div class="absolute h-[15%] w-[13vw] -ml-[181px] -mt-[25px]">
+                  <img src="../../../assets/H2 flow controller.png">
+                </div>
                 <div class="absolute h-[15%] w-[12%] left-[117%] bottom-[80%]">
                   <img src="../../../assets/text2.png" alt="" class="size-full" />
+                </div>
+                <div class="absolute h-[15%] w-[13vw] left-[117%] bottom-[80%] -ml-[106px] mb-[46px]">
+                  <img src="../../../assets/O2 flow controller.png" />
                 </div>
                 <!-- <div class="absolute h-[15%] w-[21%] left-[-39%] bottom-[8%]">
                   <img src="../../../assets/text4.png" alt="" class="size-full" />
@@ -260,7 +267,7 @@
                   class="O2_QUANTITY absolute top-[101.5%] left-[95%] border-x-[2px] border-b-[2px] border-black bg -black rounded-b-xl h-[30%] w-[27.5%] flex items-end overflow-hidden">
                   <div class="bg-[#c1dff8] w-full h[25%]" id="h2-quantity-2" style="height: 80%"></div>
                 </div> -->
-                 
+
                 </div>
 
                 <div class="absolute z-[1] h-[12.5%] w-[0.55%] left-[41%] top-[-12.2%] bg-black"></div>
@@ -275,21 +282,17 @@
                     class="h-[50%] w-[100%] rotate-[90deg] translate-y-[50%]" />
                 </div>
                 <div class="h-[11.3%] w-[12%] absolute z-[16] top-[7.3%] left-[-5%]">
-                  <div class="size-full"><img src="../../../assets/valve-base.png" alt=""
-                      class="h-full" /></div>
+                  <div class="size-full"><img src="../../../assets/valve-base.png" alt="" class="h-full" /></div>
                 </div>
                 <div class="tfnnhdrfnjsetbgw h-[5%] w-[8%] absolute z-[16] bottom-[94%] left-[-2%] rotate-[90deg]">
-                  <div class="size-full"><img src="../../../assets/valve-handle.png" alt=""
-                      class="h-full" /></div>
+                  <div class="size-full"><img src="../../../assets/valve-handle.png" alt="" class="h-full" /></div>
                 </div>
                 <div class="h-[11.3%] w-[12%] absolute z-[16] top-[7.2%] left-[92.5%]">
-                  <div class="size-full"><img src="../../../assets/valve-base.png" alt=""
-                      class="h-full" /></div>
+                  <div class="size-full"><img src="../../../assets/valve-base.png" alt="" class="h-full" /></div>
                 </div>
                 <div
                   class="ghjfytjytulkryjtjykjk h-[5%] w-[8%] absolute z-[16] bottom-[92.8%%] left-[96.5%] rotate-[0deg]">
-                  <div class="size-full"><img src="../../../assets/valve-handle1.png" alt=""
-                      class="h-full" /></div>
+                  <div class="size-full"><img src="../../../assets/valve-handle1.png" alt="" class="h-full" /></div>
                 </div>
                 <div class="absolute z-[1] h-[20%] w-[14%] top-[9%] -left-[14.8%]">
                   <div class="relative size-full">
@@ -371,7 +374,7 @@
                   </div>
                 </div>
 
-                
+
                 <div class="absolute z-[10] top-[95%] left-[-17.5%] h-[26%] w-[12.5%]">
                   <!-- <div
                     class="CYLINDER_MAIN relative w-[100%] h-[100%] border-black border-[2px] rounded-t-[50px] rounded-b-[10px] mx-auto">
@@ -388,17 +391,25 @@
                     <div class="CYLINDER_BASE absolute w-[105%] h-[10%] bg-gray-900 rounded-md bottom-[-8%] left-[-3%]">
                     </div>
                   </div> -->
+                  <div class="absolute z-[10] left-[103%] lg:left-[125%] h-[3%] w-[3vw] bottom-[-11%] lg:bottom-[-6%]" style="margin-left: -74px;">
+                    <img src="../../../assets/direct-ethanol-fuel-cell/Water.png" alt="" class="size-full" style=" height: 1.5vh; margin-top: 6px;" />
+                  </div>
                   <div
-                class="O2_QUANTITY absolute top-[18.44%] left-[10%] border-b-[2px] border-x-[2px] border-black rounded-b-xl flex items-end overflow-hidden w-[6vw] h-[13vh] bg-white" style="margin-left: -30px; margin-top: -18px;">
-                <!-- Filling Div -->
-                <div class="w-full filling" id="h2-quantity-2" style="height: 0%; background-color: #c1dff8;"></div>
-              </div>
-                </div>
+                    class="O2_QUANTITY absolute top-[18.44%] left-[10%] border-b-[2px] border-x-[2px] border-black rounded-b-xl flex items-end overflow-hidden w-[6vw] h-[13vh] bg-white"
+                    style="margin-left: -30px; margin-top: -18px;">
+                    <!-- Filling Div -->
+                    <div class="w-full filling" id="h2-quantity-2" style="height: 0%; background-color: #c1dff8;"></div>
+                  </div>
 
                 
-                
+
+                </div>
+
+               
+
                 <div
-                  class="absolute top-[96%] left-[-24%] border-[2px] border-black bg-black rounded-md h-[28%] w-[2.5%] flex items-end overflow-hidden" style="height: 0%;">
+                  class="absolute top-[96%] left-[-24%] border-[2px] border-black bg-black rounded-md h-[28%] w-[2.5%] flex items-end overflow-hidden"
+                  style="height: 0%;">
                   <div class="bg-[#70c179] w-full h[25%]" id="rfgergertghrthrytjhytjkytukjhr" style="height: 0%"></div>
                 </div>
                 <div class="absolute z-[1] h-[28%] w-[18%] top-[79.5%] rotate-[90deg] right-[-3.85%]">
@@ -427,8 +438,8 @@
                     <div
                       class="bg-[#acabaf] h-[100%] w-full flex flex-wrap relative bg-[url('membrane2.png') bg-repeat bg-cover overflow-hidden">
                       <div class="absolute inset-0">
-                        <img src="../../../assets/Electrolyte.png" alt=""
-                          class="w-full opacity-95" style="height: 50vh" />
+                        <img src="../../../assets/Electrolyte.png" alt="" class="w-full opacity-95"
+                          style="height: 50vh" />
                       </div>
                     </div>
                   </div>
@@ -438,10 +449,10 @@
                   <div class="w-[27.5%]"></div>
                 </div>
               </div>
-              <div class="h-[17.5%]">
-                <div class="w-[65%] mx-auto mt-[5%]"><img src="../../../assets/Potassium_Hydroxide.png" alt=""
+              <div class="h-[17.5%]" style="z-index: 1;">
+                <div class="w-[65%] mx-auto mt-[5%]"><img src="../../../assets/Potassium_Hydroxide-Photoroom (1).png" alt=""
                     class="size-full max-h-auto max-w-[140%] translate-x-[2%] translate-y-[-39%]"
-                    style="margin-left: 20px; margin-top: 40px;" /></div>
+                    style="margin-top: 20px; margin-left: -1px;" /></div>
               </div>
             </div>
           </div>
